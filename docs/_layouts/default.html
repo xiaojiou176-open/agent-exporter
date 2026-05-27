@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    {% assign social_image = page.image | default: '/assets/media/BeamMe-social-card.png' %}
+    <meta property="og:image" content="{{ social_image | absolute_url }}">
+    <meta property="og:image:alt" content="BeamMe social card showing the transcript-first archive workbench product sentence">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ social_image | absolute_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/marketplace/BeamMe-cline-logo-400.png' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/BeamMe.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  {% assign current_url = page.url | default: '/' %}
+  <body class="ae-docs-body">
+    <a class="ae-skip-link" href="#content-start">Skip to content</a>
+    <header class="ae-site-header">
+      <div class="ae-site-header-inner">
+        <a class="ae-brand" href="{{ '/' | relative_url }}">
+          <span class="ae-brand-kicker">BeamMe</span>
+          <span class="ae-brand-title">Archive workbench</span>
+        </a>
+        <div class="ae-nav-cluster">
+          <span class="ae-status-pill">inspectable</span>
+          <nav class="ae-nav" aria-label="Docs navigation">
+            <a class="ae-nav-link{% if current_url == '/' or current_url == '/index.html' %} is-active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+            <a class="ae-nav-link{% if current_url == '/archive-shell-proof.html' or current_url == '/archive-shell-proof/' %} is-active{% endif %}" href="{{ '/archive-shell-proof.html' | relative_url }}">Archive Proof</a>
+            <a class="ae-nav-link{% if current_url == '/promo-reel.html' or current_url == '/promo-reel/' %} is-active{% endif %}" href="{{ '/promo-reel.html' | relative_url }}">Promo</a>
+            <a class="ae-nav-link{% if current_url == '/launch-kit.html' or current_url == '/launch-kit/' %} is-active{% endif %}" href="{{ '/launch-kit.html' | relative_url }}">Launch Kit</a>
+            <a class="ae-nav-link{% if current_url == '/repo-map.html' or current_url == '/repo-map/' %} is-active{% endif %}" href="{{ '/repo-map.html' | relative_url }}">Repo Map</a>
+            <a class="ae-nav-link{% if current_url == '/docs-index.html' or current_url == '/docs-index/' %} is-active{% endif %}" href="{{ '/docs-index.html' | relative_url }}">Docs Index</a>
+            <a class="ae-nav-link" href="{{ site.github.repository_url }}">GitHub</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div id="content-start" class="ae-layout">
+      <article class="markdown-body ae-content">
+        {{ content }}
+      </article>
+
+      <footer class="footer ae-footer" role="contentinfo">
+        <p class="ae-footer-copy">
+          Companion docs surface for an inspectable archive workbench.
+          <a href="{{ site.github.repository_url }}/edit/main/docs/{{ page.path }}">Improve this page</a>.
+        </p>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+      document.querySelectorAll('.ae-command pre').forEach((node) => {
+        if (!node.hasAttribute('tabindex')) {
+          node.setAttribute('tabindex', '0');
+        }
+      });
+    </script>
+  </body>
+</html>

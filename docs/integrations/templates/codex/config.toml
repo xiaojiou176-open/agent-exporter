@@ -1,0 +1,3 @@
+[mcp_servers.beamme]
+command = "python3"
+args = ["/absolute/path/to/BeamMe/scripts/beamme_mcp.py"]

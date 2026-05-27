@@ -1,0 +1,5 @@
+{
+  "name": "BeamMe-codex-bundle",
+  "version": "0.1.0",
+  "description": "CLI-first BeamMe workflow bundle for OpenClaw Codex-compatible plugin ingestion"
+}

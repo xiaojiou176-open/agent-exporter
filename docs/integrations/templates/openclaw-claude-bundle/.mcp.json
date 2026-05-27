@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "BeamMe": {
+      "command": "python3",
+      "args": [
+        "/absolute/path/to/BeamMe/scripts/beamme_mcp.py"
+      ]
+    }
+  }
+}
