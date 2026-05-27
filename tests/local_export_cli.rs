@@ -113,8 +113,8 @@ import time
 
 args = sys.argv[1:]
 prompt = sys.stdin.read()
-delay_seconds = float(os.environ.get("AGENT_EXPORTER_FAKE_CODEX_DELAY_SECONDS", "0"))
-stdout_bytes = int(os.environ.get("AGENT_EXPORTER_FAKE_CODEX_STDOUT_BYTES", "0"))
+delay_seconds = float(os.environ.get("BEAMME_FAKE_CODEX_DELAY_SECONDS", "0"))
+stdout_bytes = int(os.environ.get("BEAMME_FAKE_CODEX_STDOUT_BYTES", "0"))
 output_path = None
 for index, value in enumerate(args):
     if value == "-o" and index + 1 < len(args):
@@ -125,7 +125,7 @@ if output_path is None:
     print("missing -o output path", file=sys.stderr)
     sys.exit(2)
 
-pathlib.Path(os.environ["AGENT_EXPORTER_FAKE_CODEX_LOG"]).write_text(
+pathlib.Path(os.environ["BEAMME_FAKE_CODEX_LOG"]).write_text(
     json.dumps({"args": args, "prompt": prompt}),
     encoding="utf-8",
 )
@@ -545,7 +545,7 @@ fn codex_export_ai_summary_accepts_profile_model_provider_controls() {
 
     build_local_command(workspace.path())
         .env("PATH", prepend_path(fake_bin.path()))
-        .env("AGENT_EXPORTER_FAKE_CODEX_LOG", &log_path)
+        .env("BEAMME_FAKE_CODEX_LOG", &log_path)
         .arg("--codex-home")
         .arg(codex_home.path())
         .arg("--thread-id")
@@ -621,8 +621,8 @@ fn codex_export_ai_summary_handles_noisy_child_output_without_timing_out() {
 
     build_local_command(workspace.path())
         .env("PATH", prepend_path(fake_bin.path()))
-        .env("AGENT_EXPORTER_FAKE_CODEX_LOG", &log_path)
-        .env("AGENT_EXPORTER_FAKE_CODEX_STDOUT_BYTES", "1048576")
+        .env("BEAMME_FAKE_CODEX_LOG", &log_path)
+        .env("BEAMME_FAKE_CODEX_STDOUT_BYTES", "1048576")
         .arg("--codex-home")
         .arg(codex_home.path())
         .arg("--thread-id")
@@ -650,8 +650,8 @@ fn codex_export_ai_summary_recovers_when_output_is_written_before_timeout() {
 
     build_local_command(workspace.path())
         .env("PATH", prepend_path(fake_bin.path()))
-        .env("AGENT_EXPORTER_FAKE_CODEX_LOG", &log_path)
-        .env("AGENT_EXPORTER_FAKE_CODEX_DELAY_SECONDS", "2")
+        .env("BEAMME_FAKE_CODEX_LOG", &log_path)
+        .env("BEAMME_FAKE_CODEX_DELAY_SECONDS", "2")
         .arg("--codex-home")
         .arg(codex_home.path())
         .arg("--thread-id")
@@ -696,7 +696,7 @@ fn claude_export_ai_summary_accepts_profile_model_provider_controls() {
         workspace.path(),
     )
     .env("PATH", prepend_path(fake_bin.path()))
-    .env("AGENT_EXPORTER_FAKE_CODEX_LOG", &log_path)
+    .env("BEAMME_FAKE_CODEX_LOG", &log_path)
     .arg("--ai-summary")
     .arg("--ai-summary-profile")
     .arg("claude-summary")

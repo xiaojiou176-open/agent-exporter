@@ -70,7 +70,7 @@ OpenClaw 这条线最重要的不是“有没有模板”，而是“不要把�
 当前你仍然需要自己决定的，是：
 
 - 你的 OpenClaw 安装把 bundle/plugin 根目录放在哪里
-- 你要让 `.mcp.json` 走 repo-local build、还是显式绑定 `AGENT_EXPORTER_BIN` / `AGENT_EXPORTER_ARGS`
+- 你要让 `.mcp.json` 走 repo-local build、还是显式绑定 `BEAMME_BIN` / `BEAMME_ARGS`
 
 换句话说：
 

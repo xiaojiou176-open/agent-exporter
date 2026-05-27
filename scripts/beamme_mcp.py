@@ -233,8 +233,8 @@ def default_base_command() -> list[str]:
 
 
 def base_command() -> list[str]:
-    command = os.environ.get("AGENT_EXPORTER_BIN")
-    extra_args = os.environ.get("AGENT_EXPORTER_ARGS", "")
+    command = os.environ.get("BEAMME_BIN")
+    extra_args = os.environ.get("BEAMME_ARGS", "")
     parts = [command] if command is not None else default_base_command()
     if extra_args.strip():
         parts.extend(shlex.split(extra_args))

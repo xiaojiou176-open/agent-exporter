@@ -24,7 +24,7 @@
 
 当前 integration pack 已经额外内建了一个最小 **stdio MCP bridge**：
 
-- `scripts/agent_exporter_mcp.py`
+- `scripts/beamme_mcp.py`
 
 当前 MCP bridge 暴露的是最小 publish/search/evidence/governance 只读工具面，不是全量 CLI 面。
 
@@ -84,7 +84,7 @@
 
 它现在会按平台补最关键的 shape checks：
 
-- Codex：`.codex/config.toml` 是否真包含 project-scoped `mcp_servers.agent_exporter`
+- Codex：`.codex/config.toml` 是否真包含 project-scoped `mcp_servers.beamme`
 - Claude Code：`.mcp.json` 是否真是可解析的 project-scoped MCP config
 - OpenClaw：bundle/plugin manifests 与 `.mcp.json` 是否真像一个合法 bundle
 
@@ -93,7 +93,7 @@
 
 当前这一层还进一步收紧了两件事：
 
-- Codex：不只看 `mcp_servers.agent_exporter` 在不在，还会看 `command` 和非空 `args`
+- Codex：不只看 `mcp_servers.beamme` 在不在，还会看 `command` 和非空 `args`
 - Claude Code：不只看 `.mcp.json`，还会看 `CLAUDE.md` 与 `.claude/commands/*.md` 是否像一份项目 pack
 
 ## First-Run Contract
@@ -102,13 +102,13 @@
 
 你可以先把 MCP bridge 理解成一个“本地转接头”：
 
-- 你需要保留 repo checkout，因为 bridge 本体就是 `scripts/agent_exporter_mcp.py`
-- 默认 first-run 不再要求你先手写 `AGENT_EXPORTER_BIN=/absolute/path/to/target/release/BeamMe`
+- 你需要保留 repo checkout，因为 bridge 本体就是 `scripts/beamme_mcp.py`
+- 默认 first-run 不再要求你先手写 `BEAMME_BIN=/absolute/path/to/target/release/BeamMe`
 - bridge 会按这个顺序找本地执行入口：
   1. repo-local `target/release/BeamMe`
   2. repo-local `target/debug/BeamMe`
   3. `cargo run --manifest-path <repo>/Cargo.toml --bin BeamMe --`
-- 如果你本机已经有一个更稳定的安装方式，再显式设置 `AGENT_EXPORTER_BIN` / `AGENT_EXPORTER_ARGS`
+- 如果你本机已经有一个更稳定的安装方式，再显式设置 `BEAMME_BIN` / `BEAMME_ARGS`
 
 说得更直白一点：
 

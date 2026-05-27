@@ -1,4 +1,4 @@
-use agent_exporter::cli;
+use beamme::cli;
 
 fn main() {
     if let Err(error) = cli::run() {

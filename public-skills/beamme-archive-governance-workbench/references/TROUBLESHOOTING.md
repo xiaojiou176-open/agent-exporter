@@ -5,7 +5,7 @@
 Check:
 
 1. `python3` exists
-2. the absolute path to `scripts/agent_exporter_mcp.py` is correct
+2. the absolute path to `scripts/beamme_mcp.py` is correct
 3. the repo checkout still exists at that path
 
 ## The bridge starts but tools fail

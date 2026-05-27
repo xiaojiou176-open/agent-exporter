@@ -5,7 +5,7 @@ description: Run semantic retrieval and save a local report artifact
 Run:
 
 ```bash
-agent-exporter search semantic --workspace-root . --query "$ARGUMENTS" --save-report
+beamme search semantic --workspace-root . --query "$ARGUMENTS" --save-report
 ```
 
 Then report:

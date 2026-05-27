@@ -47,7 +47,7 @@ const panel: React.CSSProperties = {
     "0 30px 70px rgba(15,23,42,0.08), 0 0 0 1px rgba(255,255,255,0.82) inset",
 };
 
-export const AgentExporterVerticalPromo: React.FC = () => {
+export const BeamMeVerticalPromo: React.FC = () => {
   const frame = useCurrentFrame();
 
   const hero = reveal(frame, 0);

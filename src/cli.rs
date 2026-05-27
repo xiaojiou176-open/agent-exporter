@@ -825,7 +825,7 @@ fn print_scaffold_status() {
         "- Real hybrid retrieval path: `BeamMe search hybrid --workspace-root <repo> --query <text>`."
     );
     println!(
-        "- Real MCP bridge path: `python3 scripts/agent_exporter_mcp.py` with local stdio tool exposure for publish/search/evidence/governance read-only workflows."
+        "- Real MCP bridge path: `python3 scripts/beamme_mcp.py` with local stdio tool exposure for publish/search/evidence/governance read-only workflows."
     );
     println!(
         "- Real integration materializer path: `BeamMe integrate <platform> --target <dir>`."

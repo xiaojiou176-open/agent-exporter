@@ -1376,7 +1376,7 @@ fn default_step_for_check(label: &str) -> String {
                 .to_string()
         }
         "repo_templates" => "Restore missing repo-owned integration template assets.".to_string(),
-        "bridge_script" => "Restore `scripts/agent_exporter_mcp.py` in this repo.".to_string(),
+        "bridge_script" => "Restore `scripts/beamme_mcp.py` in this repo.".to_string(),
         "python3" => "Ensure `python3` is available for the MCP bridge.".to_string(),
         other => format!("Fix the `{other}` check until it reaches ready."),
     }

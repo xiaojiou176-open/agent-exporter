@@ -5,7 +5,7 @@ description: Publish the local archive shell and reports shell for this reposito
 Run:
 
 ```bash
-agent-exporter publish archive-index --workspace-root .
+beamme publish archive-index --workspace-root .
 ```
 
 Then summarize:

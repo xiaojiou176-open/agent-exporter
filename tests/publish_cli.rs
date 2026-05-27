@@ -582,7 +582,7 @@ fn publish_archive_index_renders_decision_desk_from_integration_evidence() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
@@ -730,7 +730,7 @@ fn publish_archive_index_renders_phase31_governance_fields() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
@@ -847,7 +847,7 @@ fn publish_archive_index_renders_workspace_intelligence_and_pinned_answers_with_
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
@@ -1246,7 +1246,7 @@ fn publish_archive_index_generates_dedicated_fleet_view_and_action_bridge_output
         .success();
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
     build_doctor_report_command(target.path(), workspace.path())

@@ -152,7 +152,7 @@ const LanePill: React.FC<{
   );
 };
 
-export const AgentExporterPromo: React.FC = () => {
+export const BeamMePromo: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 

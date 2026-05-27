@@ -12,10 +12,10 @@ fn python_command() -> String {
 fn mcp_script_path() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .join("scripts")
-        .join("agent_exporter_mcp.py")
+        .join("beamme_mcp.py")
 }
 
-fn agent_exporter_bin() -> PathBuf {
+fn beamme_bin() -> PathBuf {
     PathBuf::from(env!("CARGO_BIN_EXE_BeamMe"))
 }
 
@@ -106,7 +106,7 @@ fn mcp_bridge_lists_tools_and_can_publish_archive_index() {
     let workspace = tempdir().expect("workspace");
     let mut child = Command::new(python_command())
         .arg(mcp_script_path())
-        .env("AGENT_EXPORTER_BIN", agent_exporter_bin())
+        .env("BEAMME_BIN", beamme_bin())
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .spawn()
@@ -202,7 +202,7 @@ fn mcp_bridge_reads_integration_evidence_tools() {
     let workspace = tempdir().expect("workspace");
     let target = workspace.path().join("codex-pack");
 
-    let onboard = Command::new(agent_exporter_bin())
+    let onboard = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "onboard",
@@ -217,11 +217,11 @@ fn mcp_bridge_reads_integration_evidence_tools() {
 
     std::fs::write(
         target.join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
-    let doctor = Command::new(agent_exporter_bin())
+    let doctor = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "doctor",
@@ -264,7 +264,7 @@ fn mcp_bridge_reads_integration_evidence_tools() {
         (&report_jsons[1], &report_jsons[0])
     };
 
-    let baseline_promote = Command::new(agent_exporter_bin())
+    let baseline_promote = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "evidence",
@@ -281,7 +281,7 @@ fn mcp_bridge_reads_integration_evidence_tools() {
         .expect("seed baseline");
     assert!(baseline_promote.status.success(), "{baseline_promote:?}");
 
-    let promote_attempt = Command::new(agent_exporter_bin())
+    let promote_attempt = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "evidence",
@@ -299,7 +299,7 @@ fn mcp_bridge_reads_integration_evidence_tools() {
 
     let mut child = Command::new(python_command())
         .arg(mcp_script_path())
-        .env("AGENT_EXPORTER_BIN", agent_exporter_bin())
+        .env("BEAMME_BIN", beamme_bin())
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .spawn()
@@ -613,7 +613,7 @@ fn mcp_bridge_reads_governance_tools() {
     let workspace = tempdir().expect("workspace");
     let target = workspace.path().join("codex-pack");
 
-    let onboard = Command::new(agent_exporter_bin())
+    let onboard = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "onboard",
@@ -631,7 +631,7 @@ fn mcp_bridge_reads_governance_tools() {
         .next()
         .expect("baseline report");
 
-    let baseline_promote = Command::new(agent_exporter_bin())
+    let baseline_promote = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "evidence",
@@ -650,7 +650,7 @@ fn mcp_bridge_reads_governance_tools() {
         .expect("baseline promote");
     assert!(baseline_promote.status.success(), "{baseline_promote:?}");
 
-    let onboard_again = Command::new(agent_exporter_bin())
+    let onboard_again = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "onboard",
@@ -668,7 +668,7 @@ fn mcp_bridge_reads_governance_tools() {
         .find(|path| path != &baseline)
         .expect("candidate report");
 
-    let promote = Command::new(agent_exporter_bin())
+    let promote = Command::new(beamme_bin())
         .current_dir(workspace.path())
         .args([
             "evidence",
@@ -684,7 +684,7 @@ fn mcp_bridge_reads_governance_tools() {
 
     let mut child = Command::new(python_command())
         .arg(mcp_script_path())
-        .env("AGENT_EXPORTER_BIN", agent_exporter_bin())
+        .env("BEAMME_BIN", beamme_bin())
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .spawn()

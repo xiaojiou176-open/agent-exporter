@@ -12,7 +12,7 @@
 The bridge script is:
 
 ```text
-/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py
+/absolute/path/to/BeamMe/scripts/beamme_mcp.py
 ```
 
 ## OpenHands-style MCP config

@@ -7,7 +7,7 @@ local stdio host packet instead of the CLI-first front door.
 
 - a **local-first stdio MCP bridge**
 - launched from a repo checkout
-- backed by `python3 scripts/agent_exporter_mcp.py`
+- backed by `python3 scripts/beamme_mcp.py`
 - exposing read-mostly archive, retrieval, and governance tools
 
 It is **not**:
@@ -51,7 +51,7 @@ cd BeamMe
 
 The bridge script looks for the binary in this order:
 
-1. `AGENT_EXPORTER_BIN` when you explicitly pin one
+1. `BEAMME_BIN` when you explicitly pin one
 2. `target/release/BeamMe`
 3. `target/debug/BeamMe`
 4. `cargo run --quiet --manifest-path <repo>/Cargo.toml --bin BeamMe --`
@@ -64,7 +64,7 @@ The bridge script looks for the binary in this order:
     "BeamMe": {
       "command": "python3",
       "args": [
-        "/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py"
+        "/absolute/path/to/BeamMe/scripts/beamme_mcp.py"
       ]
     }
   }
@@ -73,9 +73,9 @@ The bridge script looks for the binary in this order:
 
 Optional environment overrides:
 
-- `AGENT_EXPORTER_BIN`: pin one exact binary path when you do not want the
+- `BEAMME_BIN`: pin one exact binary path when you do not want the
   bridge script to auto-detect release/debug builds
-- `AGENT_EXPORTER_ARGS`: append extra fixed CLI arguments without changing the
+- `BEAMME_ARGS`: append extra fixed CLI arguments without changing the
   script path itself
 
 ## First smoke check

@@ -55,7 +55,7 @@ fn report_files(workspace_root: &Path) -> Vec<PathBuf> {
 
 fn maybe_model_dir() -> Option<PathBuf> {
     let path =
-        agent_exporter::core::semantic_search::FastEmbedSemanticEmbedder::default_model_dir()
+        beamme::core::semantic_search::FastEmbedSemanticEmbedder::default_model_dir()
             .ok()?;
     path.is_dir().then_some(path)
 }

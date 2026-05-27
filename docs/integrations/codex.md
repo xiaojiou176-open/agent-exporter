@@ -58,7 +58,7 @@ Codex 这条线现在已经不要求你先硬编码一个 release binary 路径�
 
 1. 一个 repo checkout
 2. `python3`
-3. repo 内的 `scripts/agent_exporter_mcp.py`
+3. repo 内的 `scripts/beamme_mcp.py`
 4. 至少满足下面三条中的一条
    - repo-local `target/release/BeamMe`
    - repo-local `target/debug/BeamMe`
@@ -66,8 +66,8 @@ Codex 这条线现在已经不要求你先硬编码一个 release binary 路径�
 
 如果你已经有自己固定的安装 binary，再显式覆盖：
 
-- `AGENT_EXPORTER_BIN`
-- `AGENT_EXPORTER_ARGS`
+- `BEAMME_BIN`
+- `BEAMME_ARGS`
 
 ## 推荐命令
 
@@ -89,6 +89,6 @@ BeamMe search hybrid --workspace-root <repo> --query "thread-1" --save-report
 ## 当前诚实边界
 
 - 这条接法今天是 **真实可用** 的
-- 当前 repo 已经内建一个最小 stdio MCP bridge：`scripts/agent_exporter_mcp.py`
+- 当前 repo 已经内建一个最小 stdio MCP bridge：`scripts/beamme_mcp.py`
 - 当前 bridge 暴露的是 publish/search/evidence/governance 只读工具面，不是全量 CLI
 - CLI front door 仍然最稳；MCP 是对 publish/search/evidence/governance 的轻量接线，不是第二套产品面

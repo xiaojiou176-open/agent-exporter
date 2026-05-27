@@ -7,7 +7,7 @@ use serde_json::Value as JsonValue;
 use toml::{Table as TomlTable, Value as TomlValue};
 
 const MCP_SCRIPT_PLACEHOLDER: &str =
-    "/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py";
+    "/absolute/path/to/BeamMe/scripts/beamme_mcp.py";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IntegrationPlatform {
@@ -428,7 +428,7 @@ pub fn doctor_next_steps(outcome: &IntegrationDoctorOutcome) -> Vec<String> {
 
     if has_check(outcome, "codex_config_shape", IntegrationReadiness::Partial) {
         next_steps.push(
-            "Ensure `.codex/config.toml` contains `mcp_servers.agent_exporter.command` and a non-empty `args` array."
+            "Ensure `.codex/config.toml` contains `mcp_servers.beamme.command` and a non-empty `args` array."
                 .to_string(),
         );
     }
@@ -516,7 +516,7 @@ fn repo_root() -> PathBuf {
 }
 
 fn bridge_script_path(repo_root: &Path) -> PathBuf {
-    repo_root.join("scripts").join("agent_exporter_mcp.py")
+    repo_root.join("scripts").join("beamme_mcp.py")
 }
 
 fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
@@ -964,7 +964,7 @@ fn check_codex_config(target_root: &Path) -> IntegrationDoctorCheck {
     match parsed {
         Ok(value) => match value
             .get("mcp_servers")
-            .and_then(|servers| servers.get("agent_exporter"))
+            .and_then(|servers| servers.get("beamme"))
         {
             Some(server)
                 if server
@@ -979,18 +979,18 @@ fn check_codex_config(target_root: &Path) -> IntegrationDoctorCheck {
                 IntegrationDoctorCheck {
                     label: "codex_config_shape",
                     readiness: IntegrationReadiness::Ready,
-                    detail: "`.codex/config.toml` contains `mcp_servers.agent_exporter.command` and a non-empty `args` array".to_string(),
+                    detail: "`.codex/config.toml` contains `mcp_servers.beamme.command` and a non-empty `args` array".to_string(),
                 }
             }
             Some(_) => IntegrationDoctorCheck {
                 label: "codex_config_shape",
                 readiness: IntegrationReadiness::Partial,
-                detail: "`.codex/config.toml` parsed, but `mcp_servers.agent_exporter` is missing `command` or a non-empty `args` array".to_string(),
+                detail: "`.codex/config.toml` parsed, but `mcp_servers.beamme` is missing `command` or a non-empty `args` array".to_string(),
             },
             None => IntegrationDoctorCheck {
                 label: "codex_config_shape",
                 readiness: IntegrationReadiness::Partial,
-                detail: "`.codex/config.toml` parsed, but `mcp_servers.agent_exporter` is missing".to_string(),
+                detail: "`.codex/config.toml` parsed, but `mcp_servers.beamme` is missing".to_string(),
             },
         },
         Err(error) => IntegrationDoctorCheck {

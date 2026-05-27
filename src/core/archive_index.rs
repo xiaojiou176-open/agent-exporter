@@ -193,7 +193,7 @@ mod tests {
     use super::{ArchiveIndexEntry, collect_html_archive_entries, write_archive_index_document};
 
     #[test]
-    fn collect_html_archive_entries_reads_agent_exporter_meta_tags() {
+    fn collect_html_archive_entries_reads_beamme_meta_tags() {
         let workspace = tempdir().expect("workspace");
         let archive_dir = workspace.path().join(".agents").join("Conversations");
         std::fs::create_dir_all(&archive_dir).expect("mkdirs");

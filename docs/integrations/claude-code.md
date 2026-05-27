@@ -12,7 +12,7 @@ Claude Code 当前最稳的接法，是把 `BeamMe` 作为 **project skills / co
 2. 在项目里加入 `CLAUDE.md`
 3. 在项目里加入 `.claude/commands/` 或 `.claude/skills/`
 4. 让命令直接调用本地 `BeamMe`
-5. 如果你想走 MCP，再加 `.mcp.json` 指向 `scripts/agent_exporter_mcp.py`
+5. 如果你想走 MCP，再加 `.mcp.json` 指向 `scripts/beamme_mcp.py`
 
 ## Doctor
 
@@ -60,13 +60,13 @@ bridge 会优先尝试 repo-local build 产物；如果你还没提前 build，�
 你真正需要提前确认的只有：
 
 1. `python3` 可用
-2. `scripts/agent_exporter_mcp.py` 路径写对
+2. `scripts/beamme_mcp.py` 路径写对
 3. 你的本机要么已经有 repo-local binary，要么能跑 `cargo`
 
 如果你更想绑定一个稳定安装好的 executable，再显式设置：
 
-- `AGENT_EXPORTER_BIN`
-- `AGENT_EXPORTER_ARGS`
+- `BEAMME_BIN`
+- `BEAMME_ARGS`
 
 ## 推荐命令面
 

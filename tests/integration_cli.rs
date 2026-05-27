@@ -6,7 +6,7 @@ use predicates::prelude::*;
 use serde_json::Value;
 use tempfile::tempdir;
 
-const MCP_PLACEHOLDER: &str = "/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py";
+const MCP_PLACEHOLDER: &str = "/absolute/path/to/BeamMe/scripts/beamme_mcp.py";
 
 fn repo_root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
@@ -129,7 +129,7 @@ fn integrate_codex_materializes_target_with_resolved_paths() {
         config.contains(
             &repo_root()
                 .join("scripts")
-                .join("agent_exporter_mcp.py")
+                .join("beamme_mcp.py")
                 .display()
                 .to_string()
         )
@@ -315,7 +315,7 @@ fn doctor_integrations_explain_prints_remediation_plan() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
@@ -353,7 +353,7 @@ fn evidence_gate_and_explain_surfaces_verdict_and_steps() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
@@ -656,7 +656,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
     let original_config = read(&config_path);
     fs::write(
         &config_path,
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("break config");
 
@@ -1354,7 +1354,7 @@ fn doctor_integrations_reports_codex_partial_when_config_shape_is_incomplete() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.agent_exporter]\ncommand = \"python3\"\n",
+        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
     )
     .expect("write incomplete codex config");
 

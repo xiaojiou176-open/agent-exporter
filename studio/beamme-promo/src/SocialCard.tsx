@@ -19,7 +19,7 @@ const fontStack =
 const monoStack =
   "\"JetBrains Mono\", \"SFMono-Regular\", \"Menlo\", monospace";
 
-export const AgentExporterSocialCard: React.FC = () => {
+export const BeamMeSocialCard: React.FC = () => {
   return (
     <AbsoluteFill
       style={{

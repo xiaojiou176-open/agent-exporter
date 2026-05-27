@@ -28,7 +28,7 @@
 所有 `.mcp.json` / `config.toml` snippet 默认都只需要指向：
 
 - `python3`
-- `/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py`
+- `/absolute/path/to/BeamMe/scripts/beamme_mcp.py`
 
 bridge 自己会按顺序尝试：
 
@@ -38,8 +38,8 @@ bridge 自己会按顺序尝试：
 
 如果你有更稳定的安装方式，再额外设置：
 
-- `AGENT_EXPORTER_BIN`
-- `AGENT_EXPORTER_ARGS`
+- `BEAMME_BIN`
+- `BEAMME_ARGS`
 
 当前 bridge 除了 publish/search，也已经扩到 evidence 只读消费：
 

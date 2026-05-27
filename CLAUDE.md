@@ -15,7 +15,7 @@
 - Current implementation delivery is **Codex dual-source export + minimal Claude Code session-path export + shared JSON/HTML export + local archive index + local metadata search + semantic retrieval + hybrid retrieval + local multi-agent archive shell + local retrieval report artifacts + workspace-local transcript backlinks + local reports shell + reports-shell metadata search + repo-owned integration materializer/doctor + integration doctor hardening + platform-aware integration doctor diagnostics + integration pack-shape hardening + integration onboarding experience + integration evidence pack + integration evidence shell search + machine-readable integration evidence + integration evidence timeline/diff + evidence gate / explain + baseline registry + policy packs + promotion engine/history + remediation bundle studio + read-only governance MCP surface + current-decision automation + local governance workbench**.
 - Current integration-pack semantics:
   - Codex and Claude Code are ready through CLI-first templates plus an optional minimal stdio MCP bridge
-  - the MCP bridge resolves repo-local launcher paths before any explicit `AGENT_EXPORTER_BIN` / `AGENT_EXPORTER_ARGS` override
+  - the MCP bridge resolves repo-local launcher paths before any explicit `BEAMME_BIN` / `BEAMME_ARGS` override
   - OpenClaw is prepared as bundle content and plugin skeletons, not as a repo-native runtime
   - `integrate <platform> --target <dir>` materializes repo-owned assets into explicit targets only
   - `doctor integrations --platform <platform> --target <dir>` stays read-only and reports `ready / partial / missing`
