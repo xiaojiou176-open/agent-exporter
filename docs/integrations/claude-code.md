@@ -2,24 +2,24 @@
 
 ## 适用场景
 
-Claude Code 当前最稳的接法，是把 `BeamMe` 作为 **project skills / commands**
+Claude Code 当前最稳的接法，是把 `AgentExport` 作为 **project skills / commands**
 接进 `.claude/` 目录。
 
 ## 当前最稳接法
 
-1. 先运行 `BeamMe integrate claude-code --target <DIR>` 材料化一份可审计的 Claude Code pack
+1. 先运行 `AgentExport integrate claude-code --target <DIR>` 材料化一份可审计的 Claude Code pack
    - `<DIR>` 应该是 staging/pack 目录，不要直接指向 `~/.claude*`
 2. 在项目里加入 `CLAUDE.md`
 3. 在项目里加入 `.claude/commands/` 或 `.claude/skills/`
-4. 让命令直接调用本地 `BeamMe`
-5. 如果你想走 MCP，再加 `.mcp.json` 指向 `scripts/beamme_mcp.py`
+4. 让命令直接调用本地 `AgentExport`
+5. 如果你想走 MCP，再加 `.mcp.json` 指向 `scripts/agent-export_mcp.py`
 
 ## Doctor
 
 材料化后，可以用：
 
 ```bash
-BeamMe doctor integrations --platform claude-code --target <DIR>
+AgentExport doctor integrations --platform claude-code --target <DIR>
 ```
 
 去检查 `CLAUDE.md`、`.claude/commands/*`、`.mcp.json`、bridge script 路径和 launcher readiness。
@@ -29,7 +29,7 @@ BeamMe doctor integrations --platform claude-code --target <DIR>
 如果你更想要一条一次性更顺手的 first-run 路径，可以直接用：
 
 ```bash
-BeamMe onboard claude-code --target <DIR>
+AgentExport onboard claude-code --target <DIR>
 ```
 
 这条主链也会拒绝直接把材料写进 `~/.claude*` 这类 live Claude home roots。
@@ -39,13 +39,13 @@ BeamMe onboard claude-code --target <DIR>
 如果你想把这次接线结果留成一张可复查的本地 evidence report，可以再加：
 
 ```bash
-BeamMe onboard claude-code --target <DIR> --save-report
+AgentExport onboard claude-code --target <DIR> --save-report
 ```
 
 或：
 
 ```bash
-BeamMe doctor integrations --platform claude-code --target <DIR> --save-report
+AgentExport doctor integrations --platform claude-code --target <DIR> --save-report
 ```
 
 报告会写到当前工作目录下的 `.agents/Integration/Reports/`，不会混进 transcript 或 retrieval report 壳。
@@ -60,20 +60,20 @@ bridge 会优先尝试 repo-local build 产物；如果你还没提前 build，�
 你真正需要提前确认的只有：
 
 1. `python3` 可用
-2. `scripts/beamme_mcp.py` 路径写对
+2. `scripts/agent-export_mcp.py` 路径写对
 3. 你的本机要么已经有 repo-local binary，要么能跑 `cargo`
 
 如果你更想绑定一个稳定安装好的 executable，再显式设置：
 
-- `BEAMME_BIN`
-- `BEAMME_ARGS`
+- `AGENT_EXPORT_BIN`
+- `AGENT_EXPORT_ARGS`
 
 ## 推荐命令面
 
 ```bash
-BeamMe publish archive-index --workspace-root .
-BeamMe search semantic --workspace-root . --query "$ARGUMENTS" --save-report
-BeamMe search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
+AgentExport publish archive-index --workspace-root .
+AgentExport search semantic --workspace-root . --query "$ARGUMENTS" --save-report
+AgentExport search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
 ```
 
 ## 模板

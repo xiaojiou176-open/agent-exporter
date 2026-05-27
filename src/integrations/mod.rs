@@ -7,7 +7,7 @@ use serde_json::Value as JsonValue;
 use toml::{Table as TomlTable, Value as TomlValue};
 
 const MCP_SCRIPT_PLACEHOLDER: &str =
-    "/absolute/path/to/BeamMe/scripts/beamme_mcp.py";
+    "/absolute/path/to/AgentExport/scripts/agent-export_mcp.py";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IntegrationPlatform {
@@ -295,10 +295,10 @@ pub fn doctor_integration(request: &IntegrationDoctorRequest) -> Result<Integrat
             content.contains(MCP_SCRIPT_PLACEHOLDER)
                 || contains_generic_launcher_reference(
                     content,
-                    "BeamMe publish archive-index",
+                    "AgentExport publish archive-index",
                 )
-                || contains_generic_launcher_reference(content, "BeamMe search semantic")
-                || contains_generic_launcher_reference(content, "BeamMe search hybrid")
+                || contains_generic_launcher_reference(content, "AgentExport search semantic")
+                || contains_generic_launcher_reference(content, "AgentExport search hybrid")
         })
         .count();
 
@@ -395,7 +395,7 @@ pub fn doctor_next_steps(outcome: &IntegrationDoctorOutcome) -> Vec<String> {
         || has_check(outcome, "target_files", IntegrationReadiness::Missing)
     {
         next_steps.push(format!(
-            "Run `BeamMe integrate {} --target {}` first.",
+            "Run `AgentExport integrate {} --target {}` first.",
             outcome.platform.as_str(),
             outcome.target_root.display()
         ));
@@ -428,7 +428,7 @@ pub fn doctor_next_steps(outcome: &IntegrationDoctorOutcome) -> Vec<String> {
 
     if has_check(outcome, "codex_config_shape", IntegrationReadiness::Partial) {
         next_steps.push(
-            "Ensure `.codex/config.toml` contains `mcp_servers.beamme.command` and a non-empty `args` array."
+            "Ensure `.codex/config.toml` contains `mcp_servers.agent-export.command` and a non-empty `args` array."
                 .to_string(),
         );
     }
@@ -439,7 +439,7 @@ pub fn doctor_next_steps(outcome: &IntegrationDoctorOutcome) -> Vec<String> {
         IntegrationReadiness::Partial,
     ) {
         next_steps.push(
-            "Ensure `.mcp.json` parses and contains `mcpServers.BeamMe.command`."
+            "Ensure `.mcp.json` parses and contains `mcpServers.AgentExport.command`."
                 .to_string(),
         );
     }
@@ -516,11 +516,11 @@ fn repo_root() -> PathBuf {
 }
 
 fn bridge_script_path(repo_root: &Path) -> PathBuf {
-    repo_root.join("scripts").join("beamme_mcp.py")
+    repo_root.join("scripts").join("agent-export_mcp.py")
 }
 
 fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
-    if let Ok(current_bin) = std::env::var("CARGO_BIN_EXE_BeamMe") {
+    if let Ok(current_bin) = std::env::var("CARGO_BIN_EXE_AgentExport") {
         let current_bin_path = PathBuf::from(&current_bin);
         if current_bin_path.is_file() {
             return Ok(LauncherSpec {
@@ -534,7 +534,7 @@ fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
     let release_bin = repo_root
         .join("target")
         .join("release")
-        .join("BeamMe");
+        .join("AgentExport");
     if release_bin.is_file() {
         return Ok(LauncherSpec {
             kind: "repo-local-release",
@@ -546,7 +546,7 @@ fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
     let debug_bin = repo_root
         .join("target")
         .join("debug")
-        .join("BeamMe");
+        .join("AgentExport");
     if debug_bin.is_file() {
         return Ok(LauncherSpec {
             kind: "repo-local-debug",
@@ -565,7 +565,7 @@ fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
                 "--manifest-path".to_string(),
                 repo_root.join("Cargo.toml").display().to_string(),
                 "--bin".to_string(),
-                "BeamMe".to_string(),
+                "AgentExport".to_string(),
                 "--".to_string(),
             ],
         });
@@ -737,15 +737,15 @@ fn render_template(
 fn rewrite_launcher_commands(raw: &str, launcher: &LauncherSpec) -> String {
     let launcher_shell = launcher.shell_command();
     raw.replace(
-        "BeamMe publish archive-index",
+        "AgentExport publish archive-index",
         &format!("{launcher_shell} publish archive-index"),
     )
     .replace(
-        "BeamMe search semantic",
+        "AgentExport search semantic",
         &format!("{launcher_shell} search semantic"),
     )
     .replace(
-        "BeamMe search hybrid",
+        "AgentExport search hybrid",
         &format!("{launcher_shell} search hybrid"),
     )
 }
@@ -964,7 +964,7 @@ fn check_codex_config(target_root: &Path) -> IntegrationDoctorCheck {
     match parsed {
         Ok(value) => match value
             .get("mcp_servers")
-            .and_then(|servers| servers.get("beamme"))
+            .and_then(|servers| servers.get("agent-export"))
         {
             Some(server)
                 if server
@@ -979,18 +979,18 @@ fn check_codex_config(target_root: &Path) -> IntegrationDoctorCheck {
                 IntegrationDoctorCheck {
                     label: "codex_config_shape",
                     readiness: IntegrationReadiness::Ready,
-                    detail: "`.codex/config.toml` contains `mcp_servers.beamme.command` and a non-empty `args` array".to_string(),
+                    detail: "`.codex/config.toml` contains `mcp_servers.agent-export.command` and a non-empty `args` array".to_string(),
                 }
             }
             Some(_) => IntegrationDoctorCheck {
                 label: "codex_config_shape",
                 readiness: IntegrationReadiness::Partial,
-                detail: "`.codex/config.toml` parsed, but `mcp_servers.beamme` is missing `command` or a non-empty `args` array".to_string(),
+                detail: "`.codex/config.toml` parsed, but `mcp_servers.agent-export` is missing `command` or a non-empty `args` array".to_string(),
             },
             None => IntegrationDoctorCheck {
                 label: "codex_config_shape",
                 readiness: IntegrationReadiness::Partial,
-                detail: "`.codex/config.toml` parsed, but `mcp_servers.beamme` is missing".to_string(),
+                detail: "`.codex/config.toml` parsed, but `mcp_servers.agent-export` is missing".to_string(),
             },
         },
         Err(error) => IntegrationDoctorCheck {
@@ -1016,7 +1016,7 @@ fn check_claude_mcp(target_root: &Path) -> IntegrationDoctorCheck {
         Ok(value)
             if value
                 .get("mcpServers")
-                .and_then(|servers| servers.get("BeamMe"))
+                .and_then(|servers| servers.get("AgentExport"))
                 .and_then(|entry| entry.get("command"))
                 .and_then(|value| value.as_str())
                 .is_some() =>
@@ -1024,13 +1024,13 @@ fn check_claude_mcp(target_root: &Path) -> IntegrationDoctorCheck {
             IntegrationDoctorCheck {
                 label: "claude_project_shape",
                 readiness: IntegrationReadiness::Ready,
-                detail: "`.mcp.json` contains `mcpServers.BeamMe.command`".to_string(),
+                detail: "`.mcp.json` contains `mcpServers.AgentExport.command`".to_string(),
             }
         }
         Ok(_) => IntegrationDoctorCheck {
             label: "claude_project_shape",
             readiness: IntegrationReadiness::Partial,
-            detail: "`.mcp.json` parsed, but `mcpServers.BeamMe.command` is missing"
+            detail: "`.mcp.json` parsed, but `mcpServers.AgentExport.command` is missing"
                 .to_string(),
         },
         Err(error) => IntegrationDoctorCheck {
@@ -1161,13 +1161,13 @@ fn parse_mcp_config(path: &Path) -> Result<(), String> {
         .map_err(|error| format!("`{}` failed to parse: {error}", path.display()))?;
     if value
         .get("mcpServers")
-        .and_then(|servers| servers.get("BeamMe"))
+        .and_then(|servers| servers.get("AgentExport"))
         .and_then(|entry| entry.get("command"))
         .and_then(|value| value.as_str())
         .is_none()
     {
         return Err(format!(
-            "`{}` parsed, but `mcpServers.BeamMe.command` is missing",
+            "`{}` parsed, but `mcpServers.AgentExport.command` is missing",
             path.display()
         ));
     }
@@ -1189,7 +1189,7 @@ mod tests {
                 "--manifest-path".to_string(),
                 "/tmp/demo/Cargo.toml".to_string(),
                 "--bin".to_string(),
-                "BeamMe".to_string(),
+                "AgentExport".to_string(),
                 "--".to_string(),
             ],
         };

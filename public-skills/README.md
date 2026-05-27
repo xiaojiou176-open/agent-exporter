@@ -1,6 +1,6 @@
 # Public Skills
 
-This directory holds public-facing skill packets for `BeamMe`.
+This directory holds public-facing skill packets for `AgentExport`.
 
 ## Quick Truth
 
@@ -52,7 +52,7 @@ host-native side lanes.
 
 Current packet:
 
-- [`BeamMe-archive-governance-workbench/`](./BeamMe-archive-governance-workbench/)
+- [`AgentExport-archive-governance-workbench/`](./AgentExport-archive-governance-workbench/)
 
 ## Current Lane Map
 
@@ -61,16 +61,16 @@ Current packet:
 | the flagship public packet | [`../README.md`](../README.md) |
 | what the proof page means | [`../docs/archive-shell-proof.md`](../docs/archive-shell-proof.md) |
 | the full packet/listing ledger | [`../docs/distribution-packet-ledger.md`](../docs/distribution-packet-ledger.md) |
-| the current host-native skill packet | [`./BeamMe-archive-governance-workbench/`](./BeamMe-archive-governance-workbench/) |
+| the current host-native skill packet | [`./AgentExport-archive-governance-workbench/`](./AgentExport-archive-governance-workbench/) |
 
 Current lane truth:
 
-- `Official MCP Registry`: `listed-live` for `io.github.xiaojiou176-open/BeamMe-mcp`
+- `Official MCP Registry`: `listed-live` for `io.github.xiaojiou176-open/AgentExport-mcp`
 - `ClawHub`: `listed-live`
 - `Goose Skills Marketplace`: `review-pending` via `block/Agent-Skills#24`
 - `agent-skill.co source repo`: `platform-not-accepted-yet` via `heilcheng/awesome-agent-skills#180` while Vercel team authorization is pending
 - `OpenHands/extensions`: `closed-not-accepted`; maintainer pointed to a custom `marketplace.json` distribution path instead
-- `Smithery`: `build-contract-blocked`; `smithery mcp publish . -n xiaojiou176-open/BeamMe-mcp --json` failed while building an shttp bundle from the Rust repo root
+- `Smithery`: `build-contract-blocked`; `smithery mcp publish . -n xiaojiou176-open/AgentExport-mcp --json` failed while building an shttp bundle from the Rust repo root
 - `awesome-opencode`: `exact_blocker_with_fresh_evidence`; the current packet is a host-native skill folder for an archive/governance workbench, not an honest opencode-native project/resource entry today
 
 ## Registry Outcome Map

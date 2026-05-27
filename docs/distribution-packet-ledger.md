@@ -1,7 +1,7 @@
 ---
 title: Distribution Packet Ledger
-description: Truth shelf for BeamMe packet, registry, listing, and published-release status.
-image: /assets/media/BeamMe-social-card.png
+description: Truth shelf for AgentExport packet, registry, listing, and published-release status.
+image: /assets/media/AgentExport-social-card.png
 ---
 
 <main id="main-content" role="main" markdown="1">
@@ -11,13 +11,13 @@ image: /assets/media/BeamMe-social-card.png
     <p class="ae-kicker">distribution packet ledger</p>
     <h1>Use this page when packet, registry, or release-shelf truth matters more than first-time product orientation.</h1>
     <p class="ae-lead">
-      This page is the repo-wide shipping label for <code>BeamMe</code>.
+      This page is the repo-wide shipping label for <code>AgentExport</code>.
       It answers one narrow but important question:
       which packet is the flagship public box, which lanes are secondary, and which external registries are live, pending, blocked, or not an honest fit.
     </p>
     <div class="ae-actions">
-      <a class="ae-button ae-button-primary" href="https://github.com/xiaojiou176-open/BeamMe/releases/latest">Open latest release shelf</a>
-      <a class="ae-button" href="https://github.com/xiaojiou176-open/BeamMe">Open GitHub front door</a>
+      <a class="ae-button ae-button-primary" href="https://github.com/xiaojiou176-open/agent-export/releases/latest">Open latest release shelf</a>
+      <a class="ae-button" href="https://github.com/xiaojiou176-open/agent-export">Open GitHub front door</a>
       <a class="ae-button" href="./archive-shell-proof.html">Open archive shell proof</a>
     </div>
     <p class="ae-caption">
@@ -74,7 +74,7 @@ image: /assets/media/BeamMe-social-card.png
     <article class="ae-proof-card">
       <p class="ae-mini-label">live listing</p>
       <h3>Official MCP Registry</h3>
-      <p>The local stdio bridge is now published as <code>io.github.xiaojiou176-open/BeamMe-mcp</code>.</p>
+      <p>The local stdio bridge is now published as <code>io.github.xiaojiou176-open/agent-export-mcp</code>.</p>
     </article>
     <article class="ae-proof-card">
       <p class="ae-mini-label">live listing</p>
@@ -141,12 +141,12 @@ image: /assets/media/BeamMe-social-card.png
 | Packet slice | Exact repo paths | Current status | What it does not prove |
 | --- | --- | --- | --- |
 | Flagship CLI packet | `README.md`, `docs/README.md`, `docs/archive-shell-proof.md` | active front door | hosted platform, remote runtime, or repo-wide MCP product identity |
-| Promo reel | `docs/promo-reel.md`, `docs/assets/media/BeamMe-promo.mp4`, `docs/assets/media/BeamMe-promo-poster.png`, `studio/BeamMe-promo/**` | supporting orientation lane | proof boundary replacement, hosted demo, or public claim inflation |
-| Launch kit | `docs/launch-kit.md`, `docs/assets/media/BeamMe-social-card.png` | supporting distribution-prep lane | flagship packet replacement, channel-ready claim inflation, or release shelf truth override |
+| Promo reel | `docs/promo-reel.md`, `docs/assets/media/AgentExport-promo.mp4`, `docs/assets/media/AgentExport-promo-poster.png`, `studio/AgentExport-promo/**` | supporting orientation lane | proof boundary replacement, hosted demo, or public claim inflation |
+| Launch kit | `docs/launch-kit.md`, `docs/assets/media/AgentExport-social-card.png` | supporting distribution-prep lane | flagship packet replacement, channel-ready claim inflation, or release shelf truth override |
 | Release shelf packet | release/tag plus release notes linked from `README.md` and `docs/README.md` | published shelf aligned to `v0.1.10` | latest `main` packet truth after later commits; future drift must still be disclosed explicitly |
-| Host-native public skill packet | `public-skills/README.md`, `public-skills/BeamMe-archive-governance-workbench/README.md`, `public-skills/BeamMe-archive-governance-workbench/manifest.yaml` | secondary lane; Official MCP Registry live, ClawHub live, Goose review-pending, agent-skill.co blocked upstream, OpenHands closed-not-accepted, Smithery build-contract-blocked, awesome-opencode not_honest_cargo_yet | flagship packet replacement, generic registry acceptance, or an opencode-native project/resource claim this repo does not honestly fit today |
+| Host-native public skill packet | `public-skills/README.md`, `public-skills/AgentExport-archive-governance-workbench/README.md`, `public-skills/AgentExport-archive-governance-workbench/manifest.yaml` | secondary lane; Official MCP Registry live, ClawHub live, Goose review-pending, agent-skill.co blocked upstream, OpenHands closed-not-accepted, Smithery build-contract-blocked, awesome-opencode not_honest_cargo_yet | flagship packet replacement, generic registry acceptance, or an opencode-native project/resource claim this repo does not honestly fit today |
 | Integration pack | `docs/integrations/README.md`, `docs/integrations/templates/README.md` | repo-owned companion lane | host-native runtime proof |
-| Governance MCP bridge | `public-skills/BeamMe-archive-governance-workbench/references/INSTALL.md`, `docs/integrations/README.md` | local stdio bridge only | hosted MCP endpoint or container runtime lane |
+| Governance MCP bridge | `public-skills/AgentExport-archive-governance-workbench/references/INSTALL.md`, `docs/integrations/README.md` | local stdio bridge only | hosted MCP endpoint or container runtime lane |
 
 ## Fresh Verification Anchors
 
@@ -155,8 +155,8 @@ Use this ledger like a shipping log, not a myth shelf.
 | Surface | Last verified (UTC) | Evidence handle | Owner boundary |
 | --- | --- | --- | --- |
 | GitHub repo front door | `2026-04-22` | public repo URL + repo description/homepage live readback | repo-owned |
-| Pages landing | `2026-04-22` | live `https://xiaojiou176-open.github.io/BeamMe/` smoke + live Pages reread after the cockpit truth-sync batch | repo-owned |
-| Archive shell proof page | `2026-04-22` | live `https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html` smoke + proof-page reread | repo-owned |
+| Pages landing | `2026-04-22` | live `https://xiaojiou176-open.github.io/agent-export/` smoke + live Pages reread after the cockpit truth-sync batch | repo-owned |
+| Archive shell proof page | `2026-04-22` | live `https://xiaojiou176-open.github.io/agent-export/archive-shell-proof.html` smoke + proof-page reread | repo-owned |
 | Latest release shelf | `2026-04-22` | `gh release view v0.1.10` + live `/releases/latest` readback for the aligned published packet | repo-owned wording, platform-hosted chrome |
 | Local stdio host packet descriptor | `2026-04-22` | raw `server.json` readback + `llms-install.md` truth check | repo-owned |
 | Official MCP Registry status | `2026-04-22` | published `server.json` contract still matches the repo-owned host packet after the `v0.1.10` cut | external platform outcome after repo packet |
@@ -172,7 +172,7 @@ Keep these claims in their own buckets:
    - transcript export receipt
    - archive shell proof
 2. **Host-native packet**
-   - Official MCP Registry is now live for `io.github.xiaojiou176-open/BeamMe-mcp`
+   - Official MCP Registry is now live for `io.github.xiaojiou176-open/agent-export-mcp`
    - ClawHub live as a packet lane
    - Goose is still review-pending
    - agent-skill.co is waiting on external Vercel authorization
@@ -206,7 +206,7 @@ Before you cut a new public-facing packet, run the repo-owned smoke path instead
 of trusting memory:
 
 ```bash
-python3 scripts/public_surface_smoke.py --workspace-root /absolute/path/to/BeamMe
+python3 scripts/public_surface_smoke.py --workspace-root /absolute/path/to/AgentExport
 ```
 
 What this smoke covers:
@@ -231,7 +231,7 @@ Do **not** flatten current packet shape into:
 - `submit-ready` for unrelated registries
 - `listed-live` beyond the actual host-native packet lanes
 - `MCP`-led product positioning
-- runtime/container expectations for `BeamMe`
+- runtime/container expectations for `AgentExport`
 
 ## Public-facing packet naming
 

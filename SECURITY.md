@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-如果你发现了会影响 `BeamMe` 的安全问题，请不要在公开 Issue 里直接披露细节。
+如果你发现了会影响 `AgentExport` 的安全问题，请不要在公开 Issue 里直接披露细节。
 
 请至少在报告中包含：
 

@@ -1,8 +1,8 @@
 ---
-name: BeamMe-archive-governance-workbench
-description: Use when an agent needs to wire the local BeamMe MCP bridge, publish a local archive shell, save retrieval reports, or read governance evidence and policy packs from a repo checkout. This packet teaches the local stdio bridge path and the archive/retrieval/governance lane split without overclaiming hosted or listed-live status.
+name: AgentExport-archive-governance-workbench
+description: Use when an agent needs to wire the local AgentExport MCP bridge, publish a local archive shell, save retrieval reports, or read governance evidence and policy packs from a repo checkout. This packet teaches the local stdio bridge path and the archive/retrieval/governance lane split without overclaiming hosted or listed-live status.
 triggers:
-  - BeamMe
+  - AgentExport
   - archive shell
   - governance evidence
   - semantic retrieval
@@ -10,9 +10,9 @@ triggers:
   - local stdio mcp
 ---
 
-# BeamMe Archive Governance Workbench
+# AgentExport Archive Governance Workbench
 
-Use this skill when an agent needs to attach the local `BeamMe` bridge
+Use this skill when an agent needs to attach the local `AgentExport` bridge
 from a repo checkout and operate the archive/retrieval/governance workflow
 through a host-native packet.
 
@@ -36,7 +36,7 @@ Do **not** use this packet as a substitute for the flagship product story.
 
 ## Product truth
 
-- `BeamMe` is an archive and governance workbench
+- `AgentExport` is an archive and governance workbench
 - the current primary surface is still the quickstart path
 - this public skill packet is a secondary public lane
 - the bridge exposes read-mostly archive, retrieval, and governance tools
@@ -45,9 +45,9 @@ Do **not** use this packet as a substitute for the flagship product story.
 ## Current registry truth
 
 - `Official MCP Registry`: `listed-live`
-  - server name: `io.github.xiaojiou176-open/BeamMe-mcp`
+  - server name: `io.github.xiaojiou176-open/AgentExport-mcp`
 - `ClawHub`: `listed-live`
-  - fresh read-back: `clawhub inspect BeamMe-archive-governance-workbench --no-input`
+  - fresh read-back: `clawhub inspect AgentExport-archive-governance-workbench --no-input`
 - `Goose Skills Marketplace`: `review-pending`
   - submission ref: `https://github.com/block/agent-skills/pull/24`
 - `agent-skill.co source repo`: `platform-not-accepted-yet`
@@ -87,7 +87,7 @@ Do **not** use this packet as a substitute for the flagship product story.
 
 ## Example prompts
 
-- "Wire the local BeamMe bridge and show me the available governance policies."
+- "Wire the local AgentExport bridge and show me the available governance policies."
 - "Publish the archive shell for this workspace and tell me where the archive shell landed."
 - "Run semantic retrieval for this workspace and save a local report."
 - "Compare two saved integration evidence snapshots and explain the readiness delta."

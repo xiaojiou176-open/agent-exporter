@@ -161,7 +161,7 @@ fn collect_ai_summary_hrefs(paths: &[PathBuf]) -> std::collections::BTreeMap<Str
 }
 
 fn extract_meta_value(content: &str, key: &str) -> Option<String> {
-    let needle = format!("name=\"BeamMe:{key}\" content=\"");
+    let needle = format!("name=\"AgentExport:{key}\" content=\"");
     let start = content.find(&needle)? + needle.len();
     let tail = &content[start..];
     let end = tail.find('"')?;
@@ -193,7 +193,7 @@ mod tests {
     use super::{ArchiveIndexEntry, collect_html_archive_entries, write_archive_index_document};
 
     #[test]
-    fn collect_html_archive_entries_reads_beamme_meta_tags() {
+    fn collect_html_archive_entries_reads_agent-export_meta_tags() {
         let workspace = tempdir().expect("workspace");
         let archive_dir = workspace.path().join(".agents").join("Conversations");
         std::fs::create_dir_all(&archive_dir).expect("mkdirs");
@@ -202,12 +202,12 @@ mod tests {
             concat!(
                 "<!DOCTYPE html><html><head>",
                 "<title>demo transcript</title>",
-                "<meta name=\"BeamMe:archive-title\" content=\"Demo &amp; Archive\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:archive-title\" content=\"Demo &amp; Archive\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-1\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )
@@ -255,12 +255,12 @@ mod tests {
             archive_dir.join("demo.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Demo transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Demo transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-1\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )
@@ -292,12 +292,12 @@ mod tests {
             archive_dir.join("demo.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Demo transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Demo transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-1\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )
@@ -332,12 +332,12 @@ mod tests {
             archive_dir.join("demo.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Demo transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"019d9a9d-extra\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Demo transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"019d9a9d-extra\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )
@@ -349,7 +349,7 @@ mod tests {
         .expect("write ai summary");
         std::fs::write(
             archive_dir.join("demo-thread-019d9a9d-ai-summary-rounds-1-4-2026-04-05_00-00-00.html"),
-            "<!DOCTYPE html><html><head><meta name=\"BeamMe:summary-kind\" content=\"ai-summary\"></head><body></body></html>",
+            "<!DOCTYPE html><html><head><meta name=\"AgentExport:summary-kind\" content=\"ai-summary\"></head><body></body></html>",
         )
         .expect("write ai summary html");
 

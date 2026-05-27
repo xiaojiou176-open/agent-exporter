@@ -43,7 +43,7 @@ fn exported_paths_with_extension(workspace_root: &Path, extension: &str) -> Vec<
 }
 
 fn build_claude_command(session_path: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("claude-code")
@@ -59,7 +59,7 @@ fn build_claude_command(session_path: &Path, workspace_root: &Path) -> Command {
 #[test]
 fn claude_code_requires_session_path() {
     let workspace = tempdir().expect("workspace");
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("claude-code")
@@ -235,8 +235,8 @@ fn claude_code_export_writes_degraded_html_with_shared_structure() {
     assert!(content.contains("python -m pytest tests/"));
     assert!(content.contains("Open archive shell"));
     assert!(content.contains("Open retrieval reports"));
-    assert!(content.contains("BeamMe:workspace-shell-href"));
-    assert!(content.contains("BeamMe:workspace-reports-shell-href"));
+    assert!(content.contains("AgentExport:workspace-shell-href"));
+    assert!(content.contains("AgentExport:workspace-reports-shell-href"));
     assert!(!content.contains("queue-operation"));
     assert!(!content.contains("progress"));
 }

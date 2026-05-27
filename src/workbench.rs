@@ -68,7 +68,7 @@ pub fn refresh_workspace_workbench(workspace_root: &Path) -> Result<WorkbenchRef
         .and_then(|name| name.to_str())
         .map(|name| format!("{name} archive index"))
         .filter(|value| !value.trim().is_empty())
-        .unwrap_or_else(|| "BeamMe archive index".to_string());
+        .unwrap_or_else(|| "AgentExport archive index".to_string());
     let generated_at = Utc::now().to_rfc3339();
     let input_fingerprint = compute_refresh_input_fingerprint(workspace_root)?;
     let previous_manifest = read_refresh_manifest_document(workspace_root)?;
@@ -520,7 +520,7 @@ fn maybe_refresh_semantic_index(workspace_root: &Path) -> Result<Option<PathBuf>
     let execution = crate::core::semantic_search::semantic_search_with_persistent_index(
         &embedder,
         workspace_root,
-        "beamme",
+        "agent-export",
         1,
     )?;
     Ok(Some(execution.index_path))

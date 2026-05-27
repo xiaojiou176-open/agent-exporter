@@ -54,7 +54,7 @@ fn exported_paths_with_extension(workspace_root: &Path, extension: &str) -> Vec<
 }
 
 fn build_local_command(workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -68,7 +68,7 @@ fn build_local_command(workspace_root: &Path) -> Command {
 }
 
 fn build_app_server_command(thread_id: &str, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -86,7 +86,7 @@ fn build_app_server_command(thread_id: &str, workspace_root: &Path) -> Command {
 }
 
 fn build_claude_command(session_path: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("claude-code")
@@ -113,8 +113,8 @@ import time
 
 args = sys.argv[1:]
 prompt = sys.stdin.read()
-delay_seconds = float(os.environ.get("BEAMME_FAKE_CODEX_DELAY_SECONDS", "0"))
-stdout_bytes = int(os.environ.get("BEAMME_FAKE_CODEX_STDOUT_BYTES", "0"))
+delay_seconds = float(os.environ.get("AGENT_EXPORT_FAKE_CODEX_DELAY_SECONDS", "0"))
+stdout_bytes = int(os.environ.get("AGENT_EXPORT_FAKE_CODEX_STDOUT_BYTES", "0"))
 output_path = None
 for index, value in enumerate(args):
     if value == "-o" and index + 1 < len(args):
@@ -125,7 +125,7 @@ if output_path is None:
     print("missing -o output path", file=sys.stderr)
     sys.exit(2)
 
-pathlib.Path(os.environ["BEAMME_FAKE_CODEX_LOG"]).write_text(
+pathlib.Path(os.environ["AGENT_EXPORT_FAKE_CODEX_LOG"]).write_text(
     json.dumps({"args": args, "prompt": prompt}),
     encoding="utf-8",
 )
@@ -350,8 +350,8 @@ fn local_source_with_thread_id_exports_degraded_html() {
     assert!(content.contains("spawn_agent"));
     assert!(content.contains("Open archive shell"));
     assert!(content.contains("Open retrieval reports"));
-    assert!(content.contains("BeamMe:workspace-shell-href"));
-    assert!(content.contains("BeamMe:workspace-reports-shell-href"));
+    assert!(content.contains("AgentExport:workspace-shell-href"));
+    assert!(content.contains("AgentExport:workspace-reports-shell-href"));
 }
 
 #[test]
@@ -426,7 +426,7 @@ fn local_source_rejects_both_thread_id_and_rollout_path() {
 #[test]
 fn app_server_source_rejects_rollout_path() {
     let workspace = tempdir().expect("workspace");
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -545,7 +545,7 @@ fn codex_export_ai_summary_accepts_profile_model_provider_controls() {
 
     build_local_command(workspace.path())
         .env("PATH", prepend_path(fake_bin.path()))
-        .env("BEAMME_FAKE_CODEX_LOG", &log_path)
+        .env("AGENT_EXPORT_FAKE_CODEX_LOG", &log_path)
         .arg("--codex-home")
         .arg(codex_home.path())
         .arg("--thread-id")
@@ -621,8 +621,8 @@ fn codex_export_ai_summary_handles_noisy_child_output_without_timing_out() {
 
     build_local_command(workspace.path())
         .env("PATH", prepend_path(fake_bin.path()))
-        .env("BEAMME_FAKE_CODEX_LOG", &log_path)
-        .env("BEAMME_FAKE_CODEX_STDOUT_BYTES", "1048576")
+        .env("AGENT_EXPORT_FAKE_CODEX_LOG", &log_path)
+        .env("AGENT_EXPORT_FAKE_CODEX_STDOUT_BYTES", "1048576")
         .arg("--codex-home")
         .arg(codex_home.path())
         .arg("--thread-id")
@@ -650,8 +650,8 @@ fn codex_export_ai_summary_recovers_when_output_is_written_before_timeout() {
 
     build_local_command(workspace.path())
         .env("PATH", prepend_path(fake_bin.path()))
-        .env("BEAMME_FAKE_CODEX_LOG", &log_path)
-        .env("BEAMME_FAKE_CODEX_DELAY_SECONDS", "2")
+        .env("AGENT_EXPORT_FAKE_CODEX_LOG", &log_path)
+        .env("AGENT_EXPORT_FAKE_CODEX_DELAY_SECONDS", "2")
         .arg("--codex-home")
         .arg(codex_home.path())
         .arg("--thread-id")
@@ -696,7 +696,7 @@ fn claude_export_ai_summary_accepts_profile_model_provider_controls() {
         workspace.path(),
     )
     .env("PATH", prepend_path(fake_bin.path()))
-    .env("BEAMME_FAKE_CODEX_LOG", &log_path)
+    .env("AGENT_EXPORT_FAKE_CODEX_LOG", &log_path)
     .arg("--ai-summary")
     .arg("--ai-summary-profile")
     .arg("claude-summary")

@@ -1,9 +1,9 @@
 {
   "mcp.servers": {
-    "BeamMe": {
+    "AgentExport": {
       "command": "python3",
       "args": [
-        "/absolute/path/to/BeamMe/scripts/beamme_mcp.py"
+        "/absolute/path/to/AgentExport/scripts/agent-export_mcp.py"
       ]
     }
   }

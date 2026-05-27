@@ -152,7 +152,7 @@ const LanePill: React.FC<{
   );
 };
 
-export const BeamMePromo: React.FC = () => {
+export const AgentExportPromo: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -171,7 +171,7 @@ export const BeamMePromo: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      <Audio src={staticFile("BeamMe-promo-landscape-voiceover.m4a")} volume={0.92} />
+      <Audio src={staticFile("AgentExport-promo-landscape-voiceover.m4a")} volume={0.92} />
       <AbsoluteFill
         style={{
           opacity: 0.25,

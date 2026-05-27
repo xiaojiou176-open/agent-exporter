@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run local-first and live public-surface smoke checks for BeamMe.
+"""Run local-first and live public-surface smoke checks for AgentExport.
 
 This script is intentionally manual and repo-owned:
 - it proves the local first-success path still works
@@ -74,22 +74,22 @@ def local_smoke(repo_root: Path) -> None:
         repo_root / ".agents" / "Integration" / "Reports" / "index.html",
         repo_root / "docs" / "promo-reel.md",
         repo_root / "docs" / "launch-kit.md",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo.mp4",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-poster.png",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-vertical.mp4",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-vertical-poster.png",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-social-card.png",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-landscape-voiceover.m4a",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-vertical-voiceover.m4a",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo.vtt",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-zh-CN.vtt",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-vertical.vtt",
-        repo_root / "docs" / "assets" / "media" / "BeamMe-promo-vertical-zh-CN.vtt",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo.mp4",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-poster.png",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-vertical.mp4",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-vertical-poster.png",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-social-card.png",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-landscape-voiceover.m4a",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-vertical-voiceover.m4a",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo.vtt",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-zh-CN.vtt",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-vertical.vtt",
+        repo_root / "docs" / "assets" / "media" / "AgentExport-promo-vertical-zh-CN.vtt",
     ]
     for path in workbench_paths:
         ensure_exists(path, "generated workbench surface")
 
-    temp_root = Path(tempfile.mkdtemp(prefix="BeamMe-public-smoke-"))
+    temp_root = Path(tempfile.mkdtemp(prefix="AgentExport-public-smoke-"))
     try:
         codex_pack = temp_root / "codex-pack"
         run(
@@ -123,7 +123,7 @@ def live_smoke(repo_root: Path) -> None:
             "pages landing",
             website_url + "/",
             [
-                "BeamMe-social-card.png",
+                "AgentExport-social-card.png",
                 "promo-reel.html",
                 "launch-kit.html",
                 "archive-shell-proof.html",
@@ -147,10 +147,10 @@ def live_smoke(repo_root: Path) -> None:
             "promo reel",
             website_url + "/promo-reel.html",
             [
-                "BeamMe-social-card.png",
-                "BeamMe-promo.mp4",
-                "BeamMe-promo-vertical.mp4",
-                "BeamMe-promo-landscape-voiceover.m4a",
+                "AgentExport-social-card.png",
+                "AgentExport-promo.mp4",
+                "AgentExport-promo-vertical.mp4",
+                "AgentExport-promo-landscape-voiceover.m4a",
                 "launch-kit.html",
             ],
         ),
@@ -158,8 +158,8 @@ def live_smoke(repo_root: Path) -> None:
             "launch kit",
             website_url + "/launch-kit.html",
             [
-                "BeamMe-promo-vertical.mp4",
-                "BeamMe-promo-vertical-voiceover.m4a",
+                "AgentExport-promo-vertical.mp4",
+                "AgentExport-promo-vertical-voiceover.m4a",
                 "archive-shell-proof.html",
                 "promo-reel.html",
             ],
@@ -222,7 +222,7 @@ def live_smoke(repo_root: Path) -> None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run public-surface smoke checks for BeamMe.")
+    parser = argparse.ArgumentParser(description="Run public-surface smoke checks for AgentExport.")
     parser.add_argument(
         "--workspace-root",
         default=".",

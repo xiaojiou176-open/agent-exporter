@@ -3,15 +3,15 @@
 ## 适用场景
 
 如果你的团队主要在 Codex 里工作，当前最稳的接入方式不是等一个未来的 MCP server，
-而是先把 `BeamMe` 作为一个 **CLI-led repo utility** 接进项目协作协议。
+而是先把 `AgentExport` 作为一个 **CLI-led repo utility** 接进项目协作协议。
 
 ## 当前最稳接法
 
-1. 先运行 `BeamMe integrate codex --target <DIR>` 材料化一份可审计的 Codex pack
+1. 先运行 `AgentExport integrate codex --target <DIR>` 材料化一份可审计的 Codex pack
    - `<DIR>` 应该是 staging/pack 目录，不要直接指向 `~/.codex`
 2. 在项目里保留或合并 `AGENTS.md`
 3. 如果你要把 repo-shared skill 也一起带上，就连同 `.agents/skills/export-archive/` 一起放进项目
-4. 给团队一个固定约定：当需要导出 / 发布 / 检索 / 保存 report 时，直接调用 `BeamMe`
+4. 给团队一个固定约定：当需要导出 / 发布 / 检索 / 保存 report 时，直接调用 `AgentExport`
 5. 如果你的 Codex 运行时支持 MCP，再补 project-scoped `.codex/config.toml`
 
 ## Doctor
@@ -19,7 +19,7 @@
 材料化后，可以用：
 
 ```bash
-BeamMe doctor integrations --platform codex --target <DIR>
+AgentExport doctor integrations --platform codex --target <DIR>
 ```
 
 去确认 target 里的 `AGENTS.md`、`.codex/config.toml`、`.agents/skills/export-archive/`、bridge script 路径和 launcher readiness 是否已经到 `ready`。
@@ -29,7 +29,7 @@ BeamMe doctor integrations --platform codex --target <DIR>
 如果你更想要一条一次性更顺手的 first-run 路径，可以直接用：
 
 ```bash
-BeamMe onboard codex --target <DIR>
+AgentExport onboard codex --target <DIR>
 ```
 
 这条主链也会拒绝直接把材料写进 `~/.codex` 这类 live host/global root。
@@ -39,13 +39,13 @@ BeamMe onboard codex --target <DIR>
 如果你还想把这次接线结果保存成一张可复查的本地验收单，可以再加：
 
 ```bash
-BeamMe onboard codex --target <DIR> --save-report
+AgentExport onboard codex --target <DIR> --save-report
 ```
 
 或：
 
 ```bash
-BeamMe doctor integrations --platform codex --target <DIR> --save-report
+AgentExport doctor integrations --platform codex --target <DIR> --save-report
 ```
 
 报告会写到当前工作目录下的 `.agents/Integration/Reports/`，不会回流 transcript corpus。
@@ -58,24 +58,24 @@ Codex 这条线现在已经不要求你先硬编码一个 release binary 路径�
 
 1. 一个 repo checkout
 2. `python3`
-3. repo 内的 `scripts/beamme_mcp.py`
+3. repo 内的 `scripts/agent-export_mcp.py`
 4. 至少满足下面三条中的一条
-   - repo-local `target/release/BeamMe`
-   - repo-local `target/debug/BeamMe`
+   - repo-local `target/release/AgentExport`
+   - repo-local `target/debug/AgentExport`
    - 本机可用的 `cargo`
 
 如果你已经有自己固定的安装 binary，再显式覆盖：
 
-- `BEAMME_BIN`
-- `BEAMME_ARGS`
+- `AGENT_EXPORT_BIN`
+- `AGENT_EXPORT_ARGS`
 
 ## 推荐命令
 
 ```bash
-BeamMe export codex --thread-id <thread-id>
-BeamMe publish archive-index --workspace-root <repo>
-BeamMe search semantic --workspace-root <repo> --query "login issues" --save-report
-BeamMe search hybrid --workspace-root <repo> --query "thread-1" --save-report
+AgentExport export codex --thread-id <thread-id>
+AgentExport publish archive-index --workspace-root <repo>
+AgentExport search semantic --workspace-root <repo> --query "login issues" --save-report
+AgentExport search hybrid --workspace-root <repo> --query "thread-1" --save-report
 ```
 
 ## 模板
@@ -89,6 +89,6 @@ BeamMe search hybrid --workspace-root <repo> --query "thread-1" --save-report
 ## 当前诚实边界
 
 - 这条接法今天是 **真实可用** 的
-- 当前 repo 已经内建一个最小 stdio MCP bridge：`scripts/beamme_mcp.py`
+- 当前 repo 已经内建一个最小 stdio MCP bridge：`scripts/agent-export_mcp.py`
 - 当前 bridge 暴露的是 publish/search/evidence/governance 只读工具面，不是全量 CLI
 - CLI front door 仍然最稳；MCP 是对 publish/search/evidence/governance 的轻量接线，不是第二套产品面

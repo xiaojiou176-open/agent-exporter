@@ -2,7 +2,7 @@
 
 这份文档回答的问题是：
 
-> 如果未来 `BeamMe` 要真正理解 Codex 的 thread/source 真相层，官方源码里必须读哪几块？
+> 如果未来 `AgentExport` 要真正理解 Codex 的 thread/source 真相层，官方源码里必须读哪几块？
 
 说人话：
 
@@ -135,7 +135,7 @@ CodexMonitor 告诉我们“导出成品长什么样”，
 
 ## 当前 v1 已采用的建模边界
 
-当前 `BeamMe` 已经按官方 Codex 的三层真相把实现拆开：
+当前 `AgentExport` 已经按官方 Codex 的三层真相把实现拆开：
 
 1. **canonical summary**
    - 线程级别的稳定元数据
@@ -188,7 +188,7 @@ CodexMonitor 告诉我们“导出成品长什么样”，
 
 ## 当前 Phase 2 已采用的 local source 原则
 
-当前 `BeamMe` 已把 local direct-read 挂成第二条 source seam：
+当前 `AgentExport` 已把 local direct-read 挂成第二条 source seam：
 
 1. `--source local --thread-id <THREAD_ID>`
    - 通过 `CODEX_HOME/state_5.sqlite` 的 `threads.rollout_path` 定位 rollout

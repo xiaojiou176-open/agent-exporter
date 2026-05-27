@@ -1,4 +1,4 @@
-# BeamMe Local Stdio Host Packet Install
+# AgentExport Local Stdio Host Packet Install
 
 This page is the shortest truthful install path for host reviewers who want the
 local stdio host packet instead of the CLI-first front door.
@@ -7,7 +7,7 @@ local stdio host packet instead of the CLI-first front door.
 
 - a **local-first stdio MCP bridge**
 - launched from a repo checkout
-- backed by `python3 scripts/beamme_mcp.py`
+- backed by `python3 scripts/agent-export_mcp.py`
 - exposing read-mostly archive, retrieval, and governance tools
 
 It is **not**:
@@ -31,7 +31,7 @@ Keep this reviewer packet together:
 | --- | --- | --- |
 | install note | `./llms-install.md` | shortest truthful attach path |
 | canonical descriptor | `./server.json` | metadata for registry/read-back review lanes |
-| square logo | `./docs/assets/marketplace/BeamMe-cline-logo-400.png` | host/reviewer-facing logo asset |
+| square logo | `./docs/assets/marketplace/AgentExport-cline-logo-400.png` | host/reviewer-facing logo asset |
 | square proof tile | `./docs/assets/marketplace/archive-shell-proof.svg.png` | reviewer-facing proof art that still points back to the archive shell |
 
 ## Quick install
@@ -39,32 +39,32 @@ Keep this reviewer packet together:
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/xiaojiou176-open/BeamMe.git
-cd BeamMe
+git clone https://github.com/xiaojiou176-open/agent-export.git
+cd AgentExport
 ```
 
 2. Make sure one of these is available:
 
-- `target/release/BeamMe`
-- `target/debug/BeamMe`
+- `target/release/AgentExport`
+- `target/debug/AgentExport`
 - or a working `cargo` toolchain
 
 The bridge script looks for the binary in this order:
 
-1. `BEAMME_BIN` when you explicitly pin one
-2. `target/release/BeamMe`
-3. `target/debug/BeamMe`
-4. `cargo run --quiet --manifest-path <repo>/Cargo.toml --bin BeamMe --`
+1. `AGENT_EXPORT_BIN` when you explicitly pin one
+2. `target/release/AgentExport`
+3. `target/debug/AgentExport`
+4. `cargo run --quiet --manifest-path <repo>/Cargo.toml --bin AgentExport --`
 
 3. Point your MCP host at the bridge script:
 
 ```json
 {
   "mcpServers": {
-    "BeamMe": {
+    "AgentExport": {
       "command": "python3",
       "args": [
-        "/absolute/path/to/BeamMe/scripts/beamme_mcp.py"
+        "/absolute/path/to/AgentExport/scripts/agent-export_mcp.py"
       ]
     }
   }
@@ -73,9 +73,9 @@ The bridge script looks for the binary in this order:
 
 Optional environment overrides:
 
-- `BEAMME_BIN`: pin one exact binary path when you do not want the
+- `AGENT_EXPORT_BIN`: pin one exact binary path when you do not want the
   bridge script to auto-detect release/debug builds
-- `BEAMME_ARGS`: append extra fixed CLI arguments without changing the
+- `AGENT_EXPORT_ARGS`: append extra fixed CLI arguments without changing the
   script path itself
 
 ## First smoke check
@@ -104,8 +104,8 @@ real workspace, then you ask it for deeper governance work.
 
 - canonical MCP descriptor: [`server.json`](./server.json)
 - current public proof pages:
-  - Docs landing: `https://xiaojiou176-open.github.io/BeamMe/`
-  - Archive shell proof: `https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html`
+  - Docs landing: `https://xiaojiou176-open.github.io/agent-export/`
+  - Archive shell proof: `https://xiaojiou176-open.github.io/agent-export/archive-shell-proof.html`
 
 ## Tool families
 

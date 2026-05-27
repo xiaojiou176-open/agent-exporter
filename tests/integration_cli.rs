@@ -6,14 +6,14 @@ use predicates::prelude::*;
 use serde_json::Value;
 use tempfile::tempdir;
 
-const MCP_PLACEHOLDER: &str = "/absolute/path/to/BeamMe/scripts/beamme_mcp.py";
+const MCP_PLACEHOLDER: &str = "/absolute/path/to/AgentExport/scripts/agent-export_mcp.py";
 
 fn repo_root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
 }
 
 fn expected_launcher_fragment() -> String {
-    if let Ok(current_bin) = std::env::var("CARGO_BIN_EXE_BeamMe") {
+    if let Ok(current_bin) = std::env::var("CARGO_BIN_EXE_AgentExport") {
         let current_bin_path = PathBuf::from(&current_bin);
         if current_bin_path.is_file() {
             return current_bin;
@@ -23,7 +23,7 @@ fn expected_launcher_fragment() -> String {
     let debug_bin = repo_root()
         .join("target")
         .join("debug")
-        .join("BeamMe");
+        .join("AgentExport");
     if debug_bin.is_file() {
         debug_bin.display().to_string()
     } else {
@@ -94,7 +94,7 @@ fn collect_integration_report_jsons(workspace_root: &Path) -> Vec<PathBuf> {
 fn integrate_codex_materializes_target_with_resolved_paths() {
     let target = tempdir().expect("target dir");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("integrate")
         .arg("codex")
@@ -120,7 +120,7 @@ fn integrate_codex_materializes_target_with_resolved_paths() {
 
     assert!(!contains_literal_launcher_line(
         &agents,
-        "BeamMe publish archive-index --workspace-root .",
+        "AgentExport publish archive-index --workspace-root .",
     ));
     assert!(agents.contains(&expected_launcher_fragment()));
     assert!(skill.contains(&expected_launcher_fragment()));
@@ -129,7 +129,7 @@ fn integrate_codex_materializes_target_with_resolved_paths() {
         config.contains(
             &repo_root()
                 .join("scripts")
-                .join("beamme_mcp.py")
+                .join("agent-export_mcp.py")
                 .display()
                 .to_string()
         )
@@ -140,7 +140,7 @@ fn integrate_codex_materializes_target_with_resolved_paths() {
 fn onboard_codex_materializes_and_explains_next_steps() {
     let target = tempdir().expect("target dir");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("onboard")
         .arg("codex")
@@ -175,7 +175,7 @@ fn onboard_codex_save_report_writes_integration_evidence() {
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .current_dir(workspace.path())
         .arg("onboard")
@@ -237,8 +237,8 @@ fn onboard_codex_save_report_writes_integration_evidence() {
     assert_eq!(report_json_files.len(), 1);
 
     let report = read(&report_files[0]);
-    assert!(report.contains("BeamMe:report-kind\" content=\"onboard"));
-    assert!(report.contains("BeamMe:integration-platform\" content=\"codex"));
+    assert!(report.contains("AgentExport:report-kind\" content=\"onboard"));
+    assert!(report.contains("AgentExport:integration-platform\" content=\"codex"));
     assert!(report.contains("Open integration reports"));
     let report_json = read(&report_json_files[0]);
     assert!(report_json.contains("\"platform\": \"codex\""));
@@ -252,7 +252,7 @@ fn doctor_codex_save_report_writes_front_door_without_touching_transcript_corpus
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("integrate")
@@ -262,7 +262,7 @@ fn doctor_codex_save_report_writes_front_door_without_touching_transcript_corpus
         .assert()
         .success();
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .current_dir(workspace.path())
         .arg("doctor")
@@ -304,7 +304,7 @@ fn doctor_codex_save_report_writes_front_door_without_touching_transcript_corpus
 fn doctor_integrations_explain_prints_remediation_plan() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("codex")
@@ -315,11 +315,11 @@ fn doctor_integrations_explain_prints_remediation_plan() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
+        "[mcp_servers.agent-export]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("doctor")
         .arg("integrations")
@@ -340,7 +340,7 @@ fn evidence_gate_and_explain_surfaces_verdict_and_steps() {
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("onboard")
@@ -353,11 +353,11 @@ fn evidence_gate_and_explain_surfaces_verdict_and_steps() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
+        "[mcp_servers.agent-export]\ncommand = \"python3\"\n",
     )
     .expect("break codex config");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("doctor")
@@ -400,7 +400,7 @@ fn evidence_gate_and_explain_surfaces_verdict_and_steps() {
         (&report_jsons[1], &report_jsons[0])
     };
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("evidence")
         .arg("gate")
@@ -415,7 +415,7 @@ fn evidence_gate_and_explain_surfaces_verdict_and_steps() {
         .stdout(predicate::str::contains("Blocking Changes"))
         .stdout(predicate::str::contains("codex_config_shape"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("evidence")
         .arg("explain")
@@ -427,7 +427,7 @@ fn evidence_gate_and_explain_surfaces_verdict_and_steps() {
         .stdout(predicate::str::contains("- Remediation"))
         .stdout(predicate::str::contains(".codex/config.toml"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("evidence")
         .arg("remediation")
@@ -445,7 +445,7 @@ fn evidence_baseline_list_show_and_promote_happy_path() {
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("onboard")
@@ -475,7 +475,7 @@ fn evidence_baseline_list_show_and_promote_happy_path() {
         })
         .unwrap_or(report_path);
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -493,7 +493,7 @@ fn evidence_baseline_list_show_and_promote_happy_path() {
         .stdout(predicate::str::contains("codex-main"))
         .stdout(predicate::str::contains("Policy       : codex v1.0.0"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -504,7 +504,7 @@ fn evidence_baseline_list_show_and_promote_happy_path() {
         .stdout(predicate::str::contains("Baselines    : 1"))
         .stdout(predicate::str::contains("codex-main"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -524,7 +524,7 @@ fn evidence_baseline_list_show_and_promote_happy_path() {
 
 #[test]
 fn evidence_policy_list_and_show_surface_repo_owned_packs() {
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("evidence")
         .arg("policy")
@@ -535,7 +535,7 @@ fn evidence_policy_list_and_show_surface_repo_owned_packs() {
         .stdout(predicate::str::contains("default v1.0.0"))
         .stdout(predicate::str::contains("codex v1.0.0"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("evidence")
         .arg("policy")
@@ -554,7 +554,7 @@ fn evidence_diff_reports_readiness_and_check_changes() {
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("integrate")
@@ -564,7 +564,7 @@ fn evidence_diff_reports_readiness_and_check_changes() {
         .assert()
         .success();
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("doctor")
@@ -581,7 +581,7 @@ fn evidence_diff_reports_readiness_and_check_changes() {
     let broken = read(&config_path).replace("args = [", "# args = [");
     fs::write(&config_path, broken).expect("write broken config");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("doctor")
@@ -618,7 +618,7 @@ fn evidence_diff_reports_readiness_and_check_changes() {
     report_jsons.sort();
     assert_eq!(report_jsons.len(), 2);
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("evidence")
         .arg("diff")
@@ -641,7 +641,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("onboard")
@@ -656,11 +656,11 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
     let original_config = read(&config_path);
     fs::write(
         &config_path,
-        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
+        "[mcp_servers.agent-export]\ncommand = \"python3\"\n",
     )
     .expect("break config");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("doctor")
@@ -675,7 +675,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
 
     fs::write(&config_path, original_config).expect("restore config");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("doctor")
@@ -703,7 +703,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
     let baseline_seed = ready_reports[0];
     let promotion_candidate = ready_reports[1];
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -720,7 +720,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .stdout(predicate::str::contains("Integration baseline promoted"))
         .stdout(predicate::str::contains("codex-main"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -731,7 +731,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .stdout(predicate::str::contains("Integration baseline registry"))
         .stdout(predicate::str::contains("codex-main"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -744,7 +744,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .stdout(predicate::str::contains("Integration governance policy"))
         .stdout(predicate::str::contains("codex"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -759,7 +759,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .success()
         .stdout(predicate::str::contains("Verdict      : fail"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -774,7 +774,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .success()
         .stdout(predicate::str::contains("Promoted     : no"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -790,7 +790,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .stdout(predicate::str::contains("Promoted     : yes"))
         .stdout(predicate::str::contains("Summary"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -803,7 +803,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .stdout(predicate::str::contains("Baseline     : codex-main"))
         .stdout(predicate::str::contains("Promotion    : eligible"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -817,7 +817,7 @@ fn evidence_baseline_policy_promotion_and_history_commands_work() {
         .stdout(predicate::str::contains("codex-main"))
         .stdout(predicate::str::contains("Verdict      : pass"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -836,7 +836,7 @@ fn evidence_baseline_and_policy_commands_cover_phase31_governance_surfaces() {
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("onboard")
@@ -850,7 +850,7 @@ fn evidence_baseline_and_policy_commands_cover_phase31_governance_surfaces() {
     let reports = collect_integration_report_jsons(workspace.path());
     assert_eq!(reports.len(), 1);
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -874,7 +874,7 @@ fn evidence_baseline_and_policy_commands_cover_phase31_governance_surfaces() {
     assert!(registry.contains("\"name\": \"codex-main\""));
     assert!(registry.contains("\"policy_name\": \"codex\""));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -885,7 +885,7 @@ fn evidence_baseline_and_policy_commands_cover_phase31_governance_surfaces() {
         .stdout(predicate::str::contains("Integration baseline registry"))
         .stdout(predicate::str::contains("codex-main"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -899,7 +899,7 @@ fn evidence_baseline_and_policy_commands_cover_phase31_governance_surfaces() {
         .stdout(predicate::str::contains("codex-main"))
         .stdout(predicate::str::contains("bootstrap"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("evidence")
         .arg("policy")
@@ -909,7 +909,7 @@ fn evidence_baseline_and_policy_commands_cover_phase31_governance_surfaces() {
         .stdout(predicate::str::contains("default v1.0.0"))
         .stdout(predicate::str::contains("codex v1.0.0"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("evidence")
         .arg("policy")
@@ -928,7 +928,7 @@ fn evidence_promote_uses_baseline_name_and_records_decision_history() {
     let workspace = tempdir().expect("workspace");
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("onboard")
@@ -944,7 +944,7 @@ fn evidence_promote_uses_baseline_name_and_records_decision_history() {
         .next()
         .expect("baseline report");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -961,7 +961,7 @@ fn evidence_promote_uses_baseline_name_and_records_decision_history() {
         .assert()
         .success();
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("onboard")
@@ -979,7 +979,7 @@ fn evidence_promote_uses_baseline_name_and_records_decision_history() {
         .find(|path| path != &baseline_report)
         .expect("candidate report");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -993,7 +993,7 @@ fn evidence_promote_uses_baseline_name_and_records_decision_history() {
         .stdout(predicate::str::contains("Integration evidence gate"))
         .stdout(predicate::str::contains("Verdict      : pass"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -1012,7 +1012,7 @@ fn evidence_promote_uses_baseline_name_and_records_decision_history() {
     assert!(history.contains("\"baseline_name\": \"codex-main\""));
     assert!(history.contains("\"promoted\": true"));
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -1030,7 +1030,7 @@ fn integrate_codex_rejects_live_codex_home_root() {
     let home = tempdir().expect("home dir");
     let forbidden_target = home.path().join(".codex");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .env("HOME", home.path())
         .arg("integrate")
@@ -1048,7 +1048,7 @@ fn onboard_claude_code_rejects_live_claude_home_root() {
     let home = tempdir().expect("home dir");
     let forbidden_target = home.path().join(".claude-testing");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .env("HOME", home.path())
         .arg("onboard")
@@ -1066,7 +1066,7 @@ fn integrate_openclaw_rejects_direct_bundle_root_targets() {
     let target = tempdir().expect("target dir");
     let forbidden_target = target.path().join("openclaw-codex-bundle");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("integrate")
         .arg("openclaw")
@@ -1083,7 +1083,7 @@ fn integrate_openclaw_rejects_bundles_child_targets() {
     let target = tempdir().expect("target dir");
     let forbidden_target = target.path().join("bundles").join("live-bundle");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("integrate")
         .arg("openclaw")
@@ -1100,7 +1100,7 @@ fn onboard_openclaw_rejects_plugins_child_targets() {
     let target = tempdir().expect("target dir");
     let forbidden_target = target.path().join("plugins").join("live-plugin");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("onboard")
         .arg("openclaw")
@@ -1118,7 +1118,7 @@ fn integrate_claude_code_refuses_to_overwrite_existing_files() {
     let conflict = target.path().join(".mcp.json");
     fs::write(&conflict, "{ \"existing\": true }\n").expect("write conflict");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("integrate")
         .arg("claude-code")
@@ -1134,7 +1134,7 @@ fn integrate_claude_code_refuses_to_overwrite_existing_files() {
 fn doctor_integrations_reports_codex_ready_after_materialization() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("codex")
@@ -1143,7 +1143,7 @@ fn doctor_integrations_reports_codex_ready_after_materialization() {
         .assert()
         .success();
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")
@@ -1174,7 +1174,7 @@ fn doctor_integrations_reports_missing_when_target_is_absent() {
     let target = tempdir().expect("target dir");
     let missing = target.path().join("missing-codex-pack");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")
@@ -1189,7 +1189,7 @@ fn doctor_integrations_reports_missing_when_target_is_absent() {
         .stdout(predicate::str::contains("Readiness    : missing"))
         .stdout(predicate::str::contains("Next Steps"))
         .stdout(predicate::str::contains(
-            "Run `BeamMe integrate claude-code --target",
+            "Run `AgentExport integrate claude-code --target",
         ))
         .stdout(predicate::str::contains("target_root [missing]"));
 }
@@ -1198,7 +1198,7 @@ fn doctor_integrations_reports_missing_when_target_is_absent() {
 fn doctor_integrations_reports_claude_ready_after_materialization() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("claude-code")
@@ -1207,7 +1207,7 @@ fn doctor_integrations_reports_claude_ready_after_materialization() {
         .assert()
         .success();
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")
@@ -1231,7 +1231,7 @@ fn doctor_integrations_reports_claude_ready_after_materialization() {
 fn doctor_integrations_reports_claude_partial_when_mcp_json_is_invalid() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("claude-code")
@@ -1242,7 +1242,7 @@ fn doctor_integrations_reports_claude_partial_when_mcp_json_is_invalid() {
 
     fs::write(target.path().join(".mcp.json"), "{ invalid json\n").expect("write invalid json");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")
@@ -1263,7 +1263,7 @@ fn doctor_integrations_reports_claude_partial_when_mcp_json_is_invalid() {
 fn integrate_openclaw_materializes_both_bundle_variants() {
     let target = tempdir().expect("target dir");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("integrate")
         .arg("openclaw")
@@ -1311,7 +1311,7 @@ fn integrate_openclaw_materializes_both_bundle_variants() {
 fn doctor_integrations_reports_openclaw_ready_after_materialization() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("openclaw")
@@ -1320,7 +1320,7 @@ fn doctor_integrations_reports_openclaw_ready_after_materialization() {
         .assert()
         .success();
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")
@@ -1343,7 +1343,7 @@ fn doctor_integrations_reports_openclaw_ready_after_materialization() {
 fn doctor_integrations_reports_codex_partial_when_config_shape_is_incomplete() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("codex")
@@ -1354,11 +1354,11 @@ fn doctor_integrations_reports_codex_partial_when_config_shape_is_incomplete() {
 
     fs::write(
         target.path().join(".codex").join("config.toml"),
-        "[mcp_servers.beamme]\ncommand = \"python3\"\n",
+        "[mcp_servers.agent-export]\ncommand = \"python3\"\n",
     )
     .expect("write incomplete codex config");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")
@@ -1379,7 +1379,7 @@ fn doctor_integrations_reports_codex_partial_when_config_shape_is_incomplete() {
 fn doctor_integrations_reports_claude_partial_when_pack_shape_is_incomplete() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("claude-code")
@@ -1394,11 +1394,11 @@ fn doctor_integrations_reports_claude_partial_when_pack_shape_is_incomplete() {
             .join(".claude")
             .join("commands")
             .join("publish-archive.md"),
-        "Run:\n\nBeamMe publish archive-index --workspace-root .\n",
+        "Run:\n\nAgentExport publish archive-index --workspace-root .\n",
     )
     .expect("write incomplete claude command");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")
@@ -1419,7 +1419,7 @@ fn doctor_integrations_reports_claude_partial_when_pack_shape_is_incomplete() {
 fn doctor_integrations_reports_partial_when_target_drifted() {
     let target = tempdir().expect("target dir");
 
-    Command::cargo_bin("BeamMe")
+    Command::cargo_bin("AgentExport")
         .expect("binary should build")
         .arg("integrate")
         .arg("codex")
@@ -1430,10 +1430,10 @@ fn doctor_integrations_reports_partial_when_target_drifted() {
 
     let drifted_agents = target.path().join("AGENTS.md");
     let original = read(&drifted_agents);
-    let drifted = original.replace(&expected_launcher_fragment(), "BeamMe");
+    let drifted = original.replace(&expected_launcher_fragment(), "AgentExport");
     fs::write(&drifted_agents, drifted).expect("write drifted agents");
 
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("doctor")
         .arg("integrations")

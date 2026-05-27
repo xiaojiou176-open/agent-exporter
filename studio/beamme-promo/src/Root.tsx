@@ -1,16 +1,16 @@
 import React from "react";
 import {Composition} from "remotion";
 
-import {BeamMePromo} from "./Promo";
-import {BeamMeSocialCard} from "./SocialCard";
-import {BeamMeVerticalPromo} from "./VerticalPromo";
+import {AgentExportPromo} from "./Promo";
+import {AgentExportSocialCard} from "./SocialCard";
+import {AgentExportVerticalPromo} from "./VerticalPromo";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
-        id="BeamMePromo"
-        component={BeamMePromo}
+        id="AgentExportPromo"
+        component={AgentExportPromo}
         durationInFrames={540}
         fps={30}
         width={1280}
@@ -18,8 +18,8 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="BeamMeSocialCard"
-        component={BeamMeSocialCard}
+        id="AgentExportSocialCard"
+        component={AgentExportSocialCard}
         durationInFrames={1}
         fps={30}
         width={1200}
@@ -27,8 +27,8 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{}}
       />
       <Composition
-        id="BeamMeVerticalPromo"
-        component={BeamMeVerticalPromo}
+        id="AgentExportVerticalPromo"
+        component={AgentExportVerticalPromo}
         durationInFrames={450}
         fps={30}
         width={1080}

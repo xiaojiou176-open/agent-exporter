@@ -4,7 +4,7 @@ use std::fs;
 
 #[test]
 fn ui_cockpit_help_lists_local_webui_command() {
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command.arg("ui").arg("cockpit").arg("--help");
     command
         .assert()

@@ -2,16 +2,16 @@
   <img src="https://em-content.zobj.net/source/apple/391/satellite-antenna_1f4e1.png" width="120" alt="satellite antenna" />
 </p>
 
-<h1 align="center">BeamMe</h1>
+<h1 align="center">AgentExport</h1>
 
 <p align="center">
   <strong>beam your agent config to any planet</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/xiaojiou176-open/BeamMe/stargazers"><img src="https://img.shields.io/github/stars/xiaojiou176-open/BeamMe?style=flat&color=yellow" alt="Stars"></a>
-  <a href="https://github.com/xiaojiou176-open/BeamMe/commits/main"><img src="https://img.shields.io/github/last-commit/xiaojiou176-open/BeamMe?style=flat" alt="Last Commit"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/xiaojiou176-open/BeamMe?style=flat" alt="License"></a>
+  <a href="https://github.com/xiaojiou176-open/agent-export/stargazers"><img src="https://img.shields.io/github/stars/xiaojiou176-open/agent-export?style=flat&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/xiaojiou176-open/agent-export/commits/main"><img src="https://img.shields.io/github/last-commit/xiaojiou176-open/agent-export?style=flat" alt="Last Commit"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/xiaojiou176-open/agent-export?style=flat" alt="License"></a>
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 
 ---
 
-BeamMe is a Rust workbench that exports your agent setup — skills, prompts, tools, modes — to every coding-agent surface in one shot. Configure once. Beam everywhere.
+AgentExport is a Rust workbench that exports your agent setup — skills, prompts, tools, modes — to every coding-agent surface in one shot. Configure once. Beam everywhere.
 
 ```
 ┌──────────────────────────────────────┐
@@ -41,11 +41,11 @@ BeamMe is a Rust workbench that exports your agent setup — skills, prompts, to
 
 | Surface | What |
 |---|---|
-| `beamme cockpit` | Visual workbench. Pick targets, hit beam. |
-| `beamme studio` | Live preview each agent's surface before you ship. |
-| `beamme policies` | Per-agent guardrails. Same intent, different houses. |
-| `beamme skill catalog` | One source of truth, fanned out to N hosts. |
-| `beamme cli` | Reproducible exports. Diff what changed. Roll back clean. |
+| `agent-export cockpit` | Visual workbench. Pick targets, hit beam. |
+| `agent-export studio` | Live preview each agent's surface before you ship. |
+| `agent-export policies` | Per-agent guardrails. Same intent, different houses. |
+| `agent-export skill catalog` | One source of truth, fanned out to N hosts. |
+| `agent-export cli` | Reproducible exports. Diff what changed. Roll back clean. |
 
 > [!IMPORTANT]
 > Local-first by default. No silent telemetry. No cloud round-trip. Your data stays on your machine until you explicitly ship it somewhere.
@@ -53,14 +53,14 @@ BeamMe is a Rust workbench that exports your agent setup — skills, prompts, to
 ## Install
 
 ```bash
-git clone https://github.com/xiaojiou176-open/BeamMe.git
-cd BeamMe
+git clone https://github.com/xiaojiou176-open/agent-export.git
+cd AgentExport
 # follow the per-stack quickstart in INSTALL.md or docs/
 ```
 
 Three commands. No `curl | sh`. No login. Read what you run.
 
-Install break? Open your favorite agent and say *"Read AGENTS.md and bootstrap BeamMe for me."* Agent fix own brain. Long version: [`docs/`](./docs/).
+Install break? Open your favorite agent and say *"Read AGENTS.md and bootstrap AgentExport for me."* Agent fix own brain. Long version: [`docs/`](./docs/).
 
 ## How It Work
 
@@ -69,7 +69,7 @@ The repo is seven layers — exactly the seven commits in `git log`. New work go
 | Layer | What |
 |---|---|
 | `chore: scaffold` | License, governance, hygiene gates, CI scaffolding. |
-| `feat(core)` | The primary engine. The reason BeamMe exists. |
+| `feat(core)` | The primary engine. The reason AgentExport exists. |
 | `feat(modules)` | Packages, adapters, services, plugins. The second floor. |
 | `feat(contracts)` | Schemas, configs, public boundaries. Other code talks here. |
 | `test:` | Receipts. Everything in this layer must run. |
@@ -80,25 +80,25 @@ The repo is seven layers — exactly the seven commits in `git log`. New work go
 
 ## Ecosystem
 
-BeamMe lives in the ***Me family**: three personal tools. command-style names, stupid-simple jobs.
+AgentExport lives in the ***Me family**: three personal tools. command-style names, stupid-simple jobs.
 
 | Repo | What |
 |---|---|
-| [**BeamMe**](https://github.com/xiaojiou176-open/BeamMe) *(you here)* | beam your agent config to any planet |
+| [**AgentExport**](https://github.com/xiaojiou176-open/agent-export) *(you here)* | beam your agent config to any planet |
 | [**BrewMe**](https://github.com/xiaojiou176-open/BrewMe) | wake up, news already brewed |
 | [**AgentGangGang**](https://github.com/xiaojiou176-open/AgentGangGang) | five AIs in one sidebar |
 
 Cross-family taste:
-[**BeamMe**](https://github.com/xiaojiou176-open/BeamMe) ·
+[**AgentExport**](https://github.com/xiaojiou176-open/agent-export) ·
 [**BrewMe**](https://github.com/xiaojiou176-open/BrewMe) ·
 [**OpenVibeCoding**](https://github.com/xiaojiou176-open/OpenVibeCoding) ·
 [**proofyard**](https://github.com/xiaojiou176-open/proofyard).
 
 ## Star This Repo
 
-If BeamMe saves you a click, an hour, or a headache — star costs zero. Fair trade. ⭐
+If AgentExport saves you a click, an hour, or a headache — star costs zero. Fair trade. ⭐
 
-[![Star History Chart](https://api.star-history.com/svg?repos=xiaojiou176-open/BeamMe&type=Date)](https://star-history.com/#xiaojiou176-open/BeamMe&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=xiaojiou176-open/agent-export&type=Date)](https://star-history.com/#xiaojiou176-open/agent-export&Date)
 
 ## Also by Yifeng[Terry] Yu
 

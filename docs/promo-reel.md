@@ -1,7 +1,7 @@
 ---
 title: Promo Reel
-description: A short visual walkthrough of BeamMe's CLI-first archive workbench.
-image: /assets/media/BeamMe-social-card.png
+description: A short visual walkthrough of AgentExport's CLI-first archive workbench.
+image: /assets/media/AgentExport-social-card.png
 ---
 
 <main id="main-content" role="main" markdown="1">
@@ -59,20 +59,20 @@ image: /assets/media/BeamMe-social-card.png
       playsinline
       muted
       preload="metadata"
-      poster="./assets/media/BeamMe-promo-poster.png"
+      poster="./assets/media/AgentExport-promo-poster.png"
       style="width: 100%; border-radius: 26px; display: block; background: #0F172A;"
     >
-      <source src="./assets/media/BeamMe-promo.mp4" type="video/mp4" />
+      <source src="./assets/media/AgentExport-promo.mp4" type="video/mp4" />
       <track
         default
         kind="captions"
-        src="./assets/media/BeamMe-promo.vtt"
+        src="./assets/media/AgentExport-promo.vtt"
         srclang="en"
         label="English captions"
       />
       <track
         kind="subtitles"
-        src="./assets/media/BeamMe-promo-zh-CN.vtt"
+        src="./assets/media/AgentExport-promo-zh-CN.vtt"
         srclang="zh-CN"
         label="Simplified Chinese subtitles"
       />
@@ -98,7 +98,7 @@ image: /assets/media/BeamMe-social-card.png
       <h3>Social card</h3>
       <p>
         Download the
-        <a href="./assets/media/BeamMe-social-card.png">share card image</a>
+        <a href="./assets/media/AgentExport-social-card.png">share card image</a>
         when you need a single-frame public preview for posts, cards, or reviewer packets.
       </p>
     </article>
@@ -107,7 +107,7 @@ image: /assets/media/BeamMe-social-card.png
       <h3>Vertical promo</h3>
       <p>
         Download the
-        <a href="./assets/media/BeamMe-promo-vertical.mp4">9:16 vertical cut</a>
+        <a href="./assets/media/AgentExport-promo-vertical.mp4">9:16 vertical cut</a>
         when the channel expects portrait video and fast mobile-first orientation.
       </p>
     </article>
@@ -116,9 +116,9 @@ image: /assets/media/BeamMe-social-card.png
       <h3>WebVTT captions</h3>
       <p>
         Download the
-        <a href="./assets/media/BeamMe-promo.vtt">English caption file</a>
+        <a href="./assets/media/AgentExport-promo.vtt">English caption file</a>
         or the
-        <a href="./assets/media/BeamMe-promo-zh-CN.vtt">Simplified Chinese subtitle file</a>
+        <a href="./assets/media/AgentExport-promo-zh-CN.vtt">Simplified Chinese subtitle file</a>
         if you want the reel text as standalone assets.
       </p>
     </article>
@@ -127,7 +127,7 @@ image: /assets/media/BeamMe-social-card.png
       <h3>Narration track</h3>
       <p>
         Download the
-        <a href="./assets/media/BeamMe-promo-landscape-voiceover.m4a">landscape voiceover</a>
+        <a href="./assets/media/AgentExport-promo-landscape-voiceover.m4a">landscape voiceover</a>
         when you need the spoken promo track as a standalone asset for editing or reuse.
       </p>
     </article>

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PROMO_DIR="$ROOT/studio/BeamMe-promo"
+PROMO_DIR="$ROOT/studio/AgentExport-promo"
 VOICEOVER_DIR="$PROMO_DIR/voiceover"
 PUBLIC_DIR="$PROMO_DIR/public"
 MEDIA_DIR="$ROOT/docs/assets/media"
@@ -22,10 +22,10 @@ mkdir -p "$PUBLIC_DIR" "$MEDIA_DIR"
 build_voiceover() {
   local name="$1"
   local rate="$2"
-  local aiff_file="/tmp/BeamMe-$name-voiceover.aiff"
+  local aiff_file="/tmp/AgentExport-$name-voiceover.aiff"
   local text_file="$VOICEOVER_DIR/$name.txt"
-  local public_output="$PUBLIC_DIR/BeamMe-promo-$name-voiceover.m4a"
-  local media_output="$MEDIA_DIR/BeamMe-promo-$name-voiceover.m4a"
+  local public_output="$PUBLIC_DIR/AgentExport-promo-$name-voiceover.m4a"
+  local media_output="$MEDIA_DIR/AgentExport-promo-$name-voiceover.m4a"
 
   say -v Samantha -r "$rate" -o "$aiff_file" -f "$text_file"
   ffmpeg -y -i "$aiff_file" -c:a aac -b:a 128k "$public_output" >/dev/null 2>&1
