@@ -31,9 +31,9 @@ pub fn render_html_document(
         .map(|navigation| {
             format!(
                 concat!(
-                    "  <meta name=\"agent-exporter:workspace-shell-href\" content=\"{shell}\">\n",
-                    "  <meta name=\"agent-exporter:workspace-reports-shell-href\" content=\"{reports}\">\n",
-                    "  <meta name=\"agent-exporter:workspace-integration-shell-href\" content=\"{integration}\">\n"
+                    "  <meta name=\"BeamMe:workspace-shell-href\" content=\"{shell}\">\n",
+                    "  <meta name=\"BeamMe:workspace-reports-shell-href\" content=\"{reports}\">\n",
+                    "  <meta name=\"BeamMe:workspace-integration-shell-href\" content=\"{integration}\">\n"
                 ),
                 shell = escape_html(&navigation.archive_shell_href),
                 reports = escape_html(&navigation.reports_shell_href),
@@ -62,20 +62,20 @@ pub fn render_html_document(
             "  <meta charset=\"utf-8\">\n",
             "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
             "  <title>{title}</title>\n",
-            "  <meta name=\"agent-exporter:archive-title\" content=\"{archive_title_meta}\">\n",
-            "  <meta name=\"agent-exporter:thread-display-name\" content=\"{thread_display_name_meta}\">\n",
-            "  <meta name=\"agent-exporter:connector\" content=\"{connector_meta}\">\n",
-            "  <meta name=\"agent-exporter:thread-id\" content=\"{thread_id_meta}\">\n",
-            "  <meta name=\"agent-exporter:exported-at\" content=\"{exported_at_meta}\">\n",
-            "  <meta name=\"agent-exporter:completeness\" content=\"{completeness_meta}\">\n",
-            "  <meta name=\"agent-exporter:source-kind\" content=\"{source_kind_meta}\">\n",
+            "  <meta name=\"BeamMe:archive-title\" content=\"{archive_title_meta}\">\n",
+            "  <meta name=\"BeamMe:thread-display-name\" content=\"{thread_display_name_meta}\">\n",
+            "  <meta name=\"BeamMe:connector\" content=\"{connector_meta}\">\n",
+            "  <meta name=\"BeamMe:thread-id\" content=\"{thread_id_meta}\">\n",
+            "  <meta name=\"BeamMe:exported-at\" content=\"{exported_at_meta}\">\n",
+            "  <meta name=\"BeamMe:completeness\" content=\"{completeness_meta}\">\n",
+            "  <meta name=\"BeamMe:source-kind\" content=\"{source_kind_meta}\">\n",
             "{workspace_meta}",
             "  <style>\n{style}\n  </style>\n",
             "</head>\n",
             "<body>\n",
             "  <main class=\"page-shell\">\n",
             "    <header class=\"hero-card\">\n",
-            "      <p class=\"eyebrow\">agent-exporter transcript export</p>\n",
+            "      <p class=\"eyebrow\">BeamMe transcript export</p>\n",
             "      <h1>{title_html}</h1>\n",
             "      <p class=\"hero-copy\">单文件 HTML transcript export。它像一份可直接打开阅读的网页打印稿，继续复用同一份 typed archive core，而不是另造一套浏览平台。</p>\n",
             "      <dl class=\"meta-grid\">\n",
@@ -900,14 +900,14 @@ mod tests {
     fn render_html_document_wraps_transcript_in_single_page() {
         let document = render_html_document(
             &sample_transcript(),
-            "agent-exporter",
+            "BeamMe",
             "2026-04-05T00:00:00Z",
             None,
         );
 
         assert!(document.contains("<!DOCTYPE html>"));
-        assert!(document.contains("agent-exporter 对话归档"));
-        assert!(document.contains("agent-exporter:archive-title"));
+        assert!(document.contains("BeamMe 对话归档"));
+        assert!(document.contains("BeamMe:archive-title"));
         assert!(document.contains("第1轮"));
         assert!(document.contains("用户"));
         assert!(document.contains("助手") || document.contains("工具"));
@@ -919,7 +919,7 @@ mod tests {
     fn render_html_document_escapes_transcript_text() {
         let document = render_html_document(
             &sample_transcript(),
-            "agent-exporter",
+            "BeamMe",
             "2026-04-05T00:00:00Z",
             None,
         );
@@ -939,7 +939,7 @@ mod tests {
         transcript.preview = Some("preview fallback".to_string());
 
         let document =
-            render_html_document(&transcript, "agent-exporter", "2026-04-05T00:00:00Z", None);
+            render_html_document(&transcript, "BeamMe", "2026-04-05T00:00:00Z", None);
 
         assert!(document.contains("preview fallback"));
         assert!(document.contains("第1轮"));
@@ -954,7 +954,7 @@ mod tests {
         };
         let document = render_html_document(
             &sample_transcript(),
-            "agent-exporter",
+            "BeamMe",
             "2026-04-05T00:00:00Z",
             Some(&navigation),
         );
@@ -962,9 +962,9 @@ mod tests {
         assert!(document.contains("Open archive shell"));
         assert!(document.contains("Open retrieval reports"));
         assert!(document.contains("Open integration reports"));
-        assert!(document.contains("agent-exporter:workspace-shell-href"));
-        assert!(document.contains("agent-exporter:workspace-reports-shell-href"));
-        assert!(document.contains("agent-exporter:workspace-integration-shell-href"));
+        assert!(document.contains("BeamMe:workspace-shell-href"));
+        assert!(document.contains("BeamMe:workspace-reports-shell-href"));
+        assert!(document.contains("BeamMe:workspace-integration-shell-href"));
         assert!(document.contains("../Search/Reports/index.html"));
         assert!(document.contains("../Integration/Reports/index.html"));
     }
@@ -989,7 +989,7 @@ mod tests {
         )];
 
         let document =
-            render_html_document(&transcript, "agent-exporter", "2026-04-05T00:00:00Z", None);
+            render_html_document(&transcript, "BeamMe", "2026-04-05T00:00:00Z", None);
 
         assert!(document.contains("该工具结果过长，已省略"));
         assert!(!document.contains("line 21"));

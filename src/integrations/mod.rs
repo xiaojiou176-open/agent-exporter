@@ -7,7 +7,7 @@ use serde_json::Value as JsonValue;
 use toml::{Table as TomlTable, Value as TomlValue};
 
 const MCP_SCRIPT_PLACEHOLDER: &str =
-    "/absolute/path/to/agent-exporter/scripts/agent_exporter_mcp.py";
+    "/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IntegrationPlatform {
@@ -295,10 +295,10 @@ pub fn doctor_integration(request: &IntegrationDoctorRequest) -> Result<Integrat
             content.contains(MCP_SCRIPT_PLACEHOLDER)
                 || contains_generic_launcher_reference(
                     content,
-                    "agent-exporter publish archive-index",
+                    "BeamMe publish archive-index",
                 )
-                || contains_generic_launcher_reference(content, "agent-exporter search semantic")
-                || contains_generic_launcher_reference(content, "agent-exporter search hybrid")
+                || contains_generic_launcher_reference(content, "BeamMe search semantic")
+                || contains_generic_launcher_reference(content, "BeamMe search hybrid")
         })
         .count();
 
@@ -395,7 +395,7 @@ pub fn doctor_next_steps(outcome: &IntegrationDoctorOutcome) -> Vec<String> {
         || has_check(outcome, "target_files", IntegrationReadiness::Missing)
     {
         next_steps.push(format!(
-            "Run `agent-exporter integrate {} --target {}` first.",
+            "Run `BeamMe integrate {} --target {}` first.",
             outcome.platform.as_str(),
             outcome.target_root.display()
         ));
@@ -439,7 +439,7 @@ pub fn doctor_next_steps(outcome: &IntegrationDoctorOutcome) -> Vec<String> {
         IntegrationReadiness::Partial,
     ) {
         next_steps.push(
-            "Ensure `.mcp.json` parses and contains `mcpServers.agent-exporter.command`."
+            "Ensure `.mcp.json` parses and contains `mcpServers.BeamMe.command`."
                 .to_string(),
         );
     }
@@ -520,7 +520,7 @@ fn bridge_script_path(repo_root: &Path) -> PathBuf {
 }
 
 fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
-    if let Ok(current_bin) = std::env::var("CARGO_BIN_EXE_agent-exporter") {
+    if let Ok(current_bin) = std::env::var("CARGO_BIN_EXE_BeamMe") {
         let current_bin_path = PathBuf::from(&current_bin);
         if current_bin_path.is_file() {
             return Ok(LauncherSpec {
@@ -534,7 +534,7 @@ fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
     let release_bin = repo_root
         .join("target")
         .join("release")
-        .join("agent-exporter");
+        .join("BeamMe");
     if release_bin.is_file() {
         return Ok(LauncherSpec {
             kind: "repo-local-release",
@@ -546,7 +546,7 @@ fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
     let debug_bin = repo_root
         .join("target")
         .join("debug")
-        .join("agent-exporter");
+        .join("BeamMe");
     if debug_bin.is_file() {
         return Ok(LauncherSpec {
             kind: "repo-local-debug",
@@ -565,7 +565,7 @@ fn resolve_launcher(repo_root: &Path) -> Result<LauncherSpec> {
                 "--manifest-path".to_string(),
                 repo_root.join("Cargo.toml").display().to_string(),
                 "--bin".to_string(),
-                "agent-exporter".to_string(),
+                "BeamMe".to_string(),
                 "--".to_string(),
             ],
         });
@@ -737,15 +737,15 @@ fn render_template(
 fn rewrite_launcher_commands(raw: &str, launcher: &LauncherSpec) -> String {
     let launcher_shell = launcher.shell_command();
     raw.replace(
-        "agent-exporter publish archive-index",
+        "BeamMe publish archive-index",
         &format!("{launcher_shell} publish archive-index"),
     )
     .replace(
-        "agent-exporter search semantic",
+        "BeamMe search semantic",
         &format!("{launcher_shell} search semantic"),
     )
     .replace(
-        "agent-exporter search hybrid",
+        "BeamMe search hybrid",
         &format!("{launcher_shell} search hybrid"),
     )
 }
@@ -1016,7 +1016,7 @@ fn check_claude_mcp(target_root: &Path) -> IntegrationDoctorCheck {
         Ok(value)
             if value
                 .get("mcpServers")
-                .and_then(|servers| servers.get("agent-exporter"))
+                .and_then(|servers| servers.get("BeamMe"))
                 .and_then(|entry| entry.get("command"))
                 .and_then(|value| value.as_str())
                 .is_some() =>
@@ -1024,13 +1024,13 @@ fn check_claude_mcp(target_root: &Path) -> IntegrationDoctorCheck {
             IntegrationDoctorCheck {
                 label: "claude_project_shape",
                 readiness: IntegrationReadiness::Ready,
-                detail: "`.mcp.json` contains `mcpServers.agent-exporter.command`".to_string(),
+                detail: "`.mcp.json` contains `mcpServers.BeamMe.command`".to_string(),
             }
         }
         Ok(_) => IntegrationDoctorCheck {
             label: "claude_project_shape",
             readiness: IntegrationReadiness::Partial,
-            detail: "`.mcp.json` parsed, but `mcpServers.agent-exporter.command` is missing"
+            detail: "`.mcp.json` parsed, but `mcpServers.BeamMe.command` is missing"
                 .to_string(),
         },
         Err(error) => IntegrationDoctorCheck {
@@ -1161,13 +1161,13 @@ fn parse_mcp_config(path: &Path) -> Result<(), String> {
         .map_err(|error| format!("`{}` failed to parse: {error}", path.display()))?;
     if value
         .get("mcpServers")
-        .and_then(|servers| servers.get("agent-exporter"))
+        .and_then(|servers| servers.get("BeamMe"))
         .and_then(|entry| entry.get("command"))
         .and_then(|value| value.as_str())
         .is_none()
     {
         return Err(format!(
-            "`{}` parsed, but `mcpServers.agent-exporter.command` is missing",
+            "`{}` parsed, but `mcpServers.BeamMe.command` is missing",
             path.display()
         ));
     }
@@ -1189,7 +1189,7 @@ mod tests {
                 "--manifest-path".to_string(),
                 "/tmp/demo/Cargo.toml".to_string(),
                 "--bin".to_string(),
-                "agent-exporter".to_string(),
+                "BeamMe".to_string(),
                 "--".to_string(),
             ],
         };

@@ -16,14 +16,14 @@ fn mcp_script_path() -> PathBuf {
 }
 
 fn agent_exporter_bin() -> PathBuf {
-    PathBuf::from(env!("CARGO_BIN_EXE_agent-exporter"))
+    PathBuf::from(env!("CARGO_BIN_EXE_BeamMe"))
 }
 
 fn repo_local_debug_bin() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .join("target")
         .join("debug")
-        .join("agent-exporter")
+        .join("BeamMe")
 }
 
 fn write_message(stdin: &mut impl Write, value: &Value) {
@@ -131,7 +131,7 @@ fn mcp_bridge_lists_tools_and_can_publish_archive_index() {
     let initialize = read_message(&mut stdout);
     assert_eq!(
         initialize["result"]["serverInfo"]["name"],
-        "agent-exporter-mcp"
+        "BeamMe-mcp"
     );
 
     write_message(
@@ -572,7 +572,7 @@ fn mcp_bridge_uses_repo_local_default_launcher_without_explicit_bin_override() {
     let initialize = read_message(&mut stdout);
     assert_eq!(
         initialize["result"]["serverInfo"]["name"],
-        "agent-exporter-mcp"
+        "BeamMe-mcp"
     );
 
     write_message(

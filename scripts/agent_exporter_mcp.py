@@ -215,8 +215,8 @@ def tool_specs() -> list[dict[str, Any]]:
 
 def default_base_command() -> list[str]:
     for candidate in (
-        REPO_ROOT / "target" / "release" / "agent-exporter",
-        REPO_ROOT / "target" / "debug" / "agent-exporter",
+        REPO_ROOT / "target" / "release" / "BeamMe",
+        REPO_ROOT / "target" / "debug" / "BeamMe",
     ):
         if candidate.is_file() and os.access(candidate, os.X_OK):
             return [str(candidate)]
@@ -227,7 +227,7 @@ def default_base_command() -> list[str]:
         "--manifest-path",
         str(REPO_ROOT / "Cargo.toml"),
         "--bin",
-        "agent-exporter",
+        "BeamMe",
         "--",
     ]
 
@@ -425,7 +425,7 @@ def handle_request(message: dict[str, Any]) -> dict[str, Any] | None:
             "result": {
                 "protocolVersion": PROTOCOL_VERSION,
                 "capabilities": {"tools": {"listChanged": False}},
-                "serverInfo": {"name": "agent-exporter-mcp", "version": "0.1.10"},
+                "serverInfo": {"name": "BeamMe-mcp", "version": "0.1.10"},
             },
         }
 

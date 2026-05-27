@@ -179,18 +179,18 @@ pub fn render_integration_report_document(report: &IntegrationReportDocument) ->
             "  <meta charset=\"utf-8\">\n",
             "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
             "  <title>{title}</title>\n",
-            "  <meta name=\"agent-exporter:report-title\" content=\"{title}\">\n",
-            "  <meta name=\"agent-exporter:report-kind\" content=\"{kind}\">\n",
-            "  <meta name=\"agent-exporter:integration-platform\" content=\"{platform}\">\n",
-            "  <meta name=\"agent-exporter:integration-readiness\" content=\"{readiness}\">\n",
-            "  <meta name=\"agent-exporter:integration-target\" content=\"{target_root}\">\n",
-            "  <meta name=\"agent-exporter:generated-at\" content=\"{generated_at}\">\n",
+            "  <meta name=\"BeamMe:report-title\" content=\"{title}\">\n",
+            "  <meta name=\"BeamMe:report-kind\" content=\"{kind}\">\n",
+            "  <meta name=\"BeamMe:integration-platform\" content=\"{platform}\">\n",
+            "  <meta name=\"BeamMe:integration-readiness\" content=\"{readiness}\">\n",
+            "  <meta name=\"BeamMe:integration-target\" content=\"{target_root}\">\n",
+            "  <meta name=\"BeamMe:generated-at\" content=\"{generated_at}\">\n",
             "  <style>\n{style}\n  </style>\n",
             "</head>\n",
             "<body>\n",
             "  <main class=\"page-shell\">\n",
             "    <header class=\"hero-card\">\n",
-            "      <p class=\"eyebrow\">agent-exporter integration evidence</p>\n",
+            "      <p class=\"eyebrow\">BeamMe integration evidence</p>\n",
             "      <h1>{title}</h1>\n",
             "      <p class=\"hero-copy\">{description} 这页属于 repo-owned integration pack 这条 secondary surface：它是接线结果单，不是整个产品的主门。真正的 primary front door 仍然是 CLI quickstart，archive shell proof 是第一层可浏览证明，transcript/archive 则继续是最先可浏览的工作线。</p>\n",
             "      <dl class=\"meta-grid\">\n",
@@ -932,7 +932,7 @@ mod tests {
             readiness: "ready".to_string(),
             summary: "codex pack looks ready".to_string(),
             launcher_kind: "repo-local-debug".to_string(),
-            launcher_command: "/tmp/agent-exporter".to_string(),
+            launcher_command: "/tmp/BeamMe".to_string(),
             written_files: Vec::new(),
             unchanged_files: Vec::new(),
             checks: vec![IntegrationDoctorCheck {
@@ -943,10 +943,10 @@ mod tests {
             next_steps: vec!["Review the generated pack".to_string()],
         });
 
-        assert!(html.contains("agent-exporter:report-kind\" content=\"doctor"));
-        assert!(html.contains("agent-exporter:integration-platform\" content=\"codex"));
-        assert!(html.contains("agent-exporter:integration-readiness\" content=\"ready"));
-        assert!(html.contains("agent-exporter:integration-target\" content=\"/tmp/codex-pack"));
+        assert!(html.contains("BeamMe:report-kind\" content=\"doctor"));
+        assert!(html.contains("BeamMe:integration-platform\" content=\"codex"));
+        assert!(html.contains("BeamMe:integration-readiness\" content=\"ready"));
+        assert!(html.contains("BeamMe:integration-target\" content=\"/tmp/codex-pack"));
         assert!(html.contains("Open integration reports"));
         assert!(html.contains("Open archive shell"));
         assert!(html.contains("Open retrieval reports"));
@@ -1003,7 +1003,7 @@ mod tests {
             readiness: "ready".to_string(),
             summary: "codex pack looks ready".to_string(),
             launcher_kind: "repo-local-debug".to_string(),
-            launcher_command: "/tmp/agent-exporter".to_string(),
+            launcher_command: "/tmp/BeamMe".to_string(),
             written_files: Vec::new(),
             unchanged_files: Vec::new(),
             checks: vec![
@@ -1056,7 +1056,7 @@ mod tests {
             summary: "ready".to_string(),
             launcher_status: "ready".to_string(),
             launcher_kind: "repo-local-debug".to_string(),
-            launcher_command: "/tmp/agent-exporter".to_string(),
+            launcher_command: "/tmp/BeamMe".to_string(),
             bridge_status: "ready".to_string(),
             pack_shape_checks: Vec::new(),
             checks: Vec::new(),

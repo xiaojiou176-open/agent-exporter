@@ -80,16 +80,16 @@ pub fn render_search_report_document(report: &SearchReportDocument) -> String {
             "  <meta charset=\"utf-8\">\n",
             "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
             "  <title>{title}</title>\n",
-            "  <meta name=\"agent-exporter:report-title\" content=\"{title}\">\n",
-            "  <meta name=\"agent-exporter:report-kind\" content=\"{kind}\">\n",
-            "  <meta name=\"agent-exporter:search-query\" content=\"{query}\">\n",
-            "  <meta name=\"agent-exporter:generated-at\" content=\"{generated_at}\">\n",
+            "  <meta name=\"BeamMe:report-title\" content=\"{title}\">\n",
+            "  <meta name=\"BeamMe:report-kind\" content=\"{kind}\">\n",
+            "  <meta name=\"BeamMe:search-query\" content=\"{query}\">\n",
+            "  <meta name=\"BeamMe:generated-at\" content=\"{generated_at}\">\n",
             "  <style>\n{style}\n  </style>\n",
             "</head>\n",
             "<body>\n",
             "  <main class=\"page-shell\">\n",
             "    <header class=\"hero-card\">\n",
-            "      <p class=\"eyebrow\">agent-exporter retrieval report</p>\n",
+            "      <p class=\"eyebrow\">BeamMe retrieval report</p>\n",
             "      <h1>{title}</h1>\n",
             "      <p class=\"hero-copy\">{description} 这页属于 local archive shell / reports shell 这条 secondary surface：检索动作仍然从 CLI 发起，这里保存的是可回看的 receipt，不是产品主门本身。真正的 primary front door 仍然是 CLI quickstart，archive shell proof 则是第一层可浏览证明。</p>\n",
             "      <dl class=\"meta-grid\">\n",
@@ -835,7 +835,7 @@ mod tests {
         });
 
         assert!(html.contains("Semantic Retrieval Report"));
-        assert!(html.contains("agent-exporter:report-kind"));
+        assert!(html.contains("BeamMe:report-kind"));
         assert!(html.contains("semantic score"));
         assert!(html.contains("../../Conversations/demo.html"));
         assert!(html.contains("Open reports shell"));

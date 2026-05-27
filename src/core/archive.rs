@@ -8,7 +8,7 @@ use serde_json::Value;
 use crate::model::{ConnectorKind, OutputFormat};
 use crate::output::markdown::RenderedArchivePart;
 
-const DEFAULT_EXPORT_STEM: &str = "agent-exporter-thread";
+const DEFAULT_EXPORT_STEM: &str = "BeamMe-thread";
 const MAX_THREAD_DISPLAY_NAME_FILENAME_CHARS: usize = 48;
 // HOST_SAFETY_RULES_BEGIN
 const BLOCKED_APP_SERVER_COMMANDS: &[&str] = &[
@@ -327,7 +327,7 @@ impl ArchiveTranscript {
                 })
             })
             .filter(|value| !value.trim().is_empty())
-            .unwrap_or_else(|| "agent-exporter".to_string())
+            .unwrap_or_else(|| "BeamMe".to_string())
     }
 
     pub fn thread_display_name(&self) -> Option<&str> {
@@ -798,7 +798,7 @@ pub(crate) fn build_thread_archive_filename_stem(
     thread_id: &str,
 ) -> String {
     let safe_workspace_name =
-        sanitize_filename_component(workspace_name.unwrap_or("agent-exporter"));
+        sanitize_filename_component(workspace_name.unwrap_or("BeamMe"));
     let safe_thread_id =
         sanitize_filename_component(&thread_id.chars().take(8).collect::<String>());
     let safe_thread_display_name = normalize_optional_filename_component(thread_display_name)

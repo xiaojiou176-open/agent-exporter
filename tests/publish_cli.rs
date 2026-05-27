@@ -101,7 +101,7 @@ fn report_readiness(path: &Path) -> String {
 }
 
 fn build_codex_export_command(thread_id: &str, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -121,7 +121,7 @@ fn build_codex_export_command(thread_id: &str, workspace_root: &Path) -> Command
 }
 
 fn build_claude_export_command(session_path: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("claude-code")
@@ -137,7 +137,7 @@ fn build_claude_export_command(session_path: &Path, workspace_root: &Path) -> Co
 }
 
 fn build_json_export_command(thread_id: &str, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -157,7 +157,7 @@ fn build_json_export_command(thread_id: &str, workspace_root: &Path) -> Command 
 }
 
 fn build_publish_command(workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("publish")
         .arg("archive-index")
@@ -177,7 +177,7 @@ fn build_pin_answer_command_with_options(
     note: Option<&str>,
     supersedes: Option<&str>,
 ) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("publish")
         .arg("pin-answer")
@@ -197,7 +197,7 @@ fn build_pin_answer_command_with_options(
 }
 
 fn build_unpin_answer_command(workspace_root: &Path, label: &str) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("publish")
         .arg("unpin-answer")
@@ -209,7 +209,7 @@ fn build_unpin_answer_command(workspace_root: &Path, label: &str) -> Command {
 }
 
 fn build_resolve_answer_command(workspace_root: &Path, label: &str, note: Option<&str>) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("publish")
         .arg("resolve-answer")
@@ -300,7 +300,7 @@ fn write_structured_summary_fixture(
 }
 
 fn build_onboard_report_command(target: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .current_dir(workspace_root)
         .arg("onboard")
@@ -312,7 +312,7 @@ fn build_onboard_report_command(target: &Path, workspace_root: &Path) -> Command
 }
 
 fn build_doctor_report_command(target: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .current_dir(workspace_root)
         .arg("doctor")
@@ -351,7 +351,7 @@ fn collect_integration_report_jsons(workspace_root: &Path) -> Vec<PathBuf> {
 }
 
 fn build_evidence_baseline_promote_command(report: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .current_dir(workspace_root)
         .arg("evidence")
@@ -369,7 +369,7 @@ fn build_evidence_baseline_promote_command(report: &Path, workspace_root: &Path)
 }
 
 fn build_evidence_promote_command(candidate: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .current_dir(workspace_root)
         .arg("evidence")
@@ -533,10 +533,10 @@ fn publish_archive_index_links_saved_search_reports() {
         concat!(
             "<!DOCTYPE html><html><head>",
             "<title>Semantic Retrieval Report</title>",
-            "<meta name=\"agent-exporter:report-title\" content=\"Semantic Retrieval Report\">",
-            "<meta name=\"agent-exporter:report-kind\" content=\"semantic\">",
-            "<meta name=\"agent-exporter:search-query\" content=\"login issue\">",
-            "<meta name=\"agent-exporter:generated-at\" content=\"2026-04-05T12:00:00Z\">",
+            "<meta name=\"BeamMe:report-title\" content=\"Semantic Retrieval Report\">",
+            "<meta name=\"BeamMe:report-kind\" content=\"semantic\">",
+            "<meta name=\"BeamMe:search-query\" content=\"login issue\">",
+            "<meta name=\"BeamMe:generated-at\" content=\"2026-04-05T12:00:00Z\">",
             "</head><body></body></html>"
         ),
     )
@@ -616,7 +616,7 @@ fn publish_archive_index_renders_decision_desk_from_integration_evidence() {
         (&report_jsons[1], &report_jsons[0])
     };
 
-    Command::cargo_bin("agent-exporter")
+    Command::cargo_bin("BeamMe")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -631,7 +631,7 @@ fn publish_archive_index_renders_decision_desk_from_integration_evidence() {
         .assert()
         .success();
 
-    Command::cargo_bin("agent-exporter")
+    Command::cargo_bin("BeamMe")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -678,7 +678,7 @@ fn publish_archive_index_shows_insufficient_when_reports_are_not_comparable() {
         .assert()
         .success();
 
-    Command::cargo_bin("agent-exporter")
+    Command::cargo_bin("BeamMe")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("onboard")
@@ -713,7 +713,7 @@ fn publish_archive_index_renders_phase31_governance_fields() {
         .find(|path| report_readiness(path) == "ready")
         .expect("ready report");
 
-    Command::cargo_bin("agent-exporter")
+    Command::cargo_bin("BeamMe")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -743,7 +743,7 @@ fn publish_archive_index_renders_phase31_governance_fields() {
         .find(|path| report_readiness(path) == "partial")
         .expect("partial report");
 
-    Command::cargo_bin("agent-exporter")
+    Command::cargo_bin("BeamMe")
         .expect("binary should build")
         .current_dir(workspace.path())
         .arg("evidence")
@@ -1336,7 +1336,7 @@ fn publish_archive_index_filters_temporary_fleet_targets_from_workspace_views() 
     let real_target = workspace.path().join("codex-pack");
     fs::create_dir_all(&real_target).expect("mkdir real target");
     let temp_target = std::env::temp_dir()
-        .join("agent-exporter-public-smoke-fleet-fixture")
+        .join("BeamMe-public-smoke-fleet-fixture")
         .join("codex-pack");
     fs::create_dir_all(&temp_target).expect("mkdir temp target");
 

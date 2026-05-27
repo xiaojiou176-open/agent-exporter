@@ -272,10 +272,10 @@ fn ai_summary_capture_paths(thread_id: &str) -> (PathBuf, PathBuf) {
     let root = std::env::temp_dir();
     (
         root.join(format!(
-            "agent-exporter-ai-summary-{slug}-{stamp}.stdout.log"
+            "BeamMe-ai-summary-{slug}-{stamp}.stdout.log"
         )),
         root.join(format!(
-            "agent-exporter-ai-summary-{slug}-{stamp}.stderr.log"
+            "BeamMe-ai-summary-{slug}-{stamp}.stderr.log"
         )),
     )
 }
@@ -369,10 +369,10 @@ fn render_summary_html_document(
             "  <meta charset=\"utf-8\">\n",
             "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n",
             "  <title>AI summary - {title}</title>\n",
-            "  <meta name=\"agent-exporter:summary-kind\" content=\"ai-summary\">\n",
-            "  <meta name=\"agent-exporter:thread-id\" content=\"{thread_id}\">\n",
-            "  <meta name=\"agent-exporter:thread-display-name\" content=\"{title}\">\n",
-            "  <meta name=\"agent-exporter:exported-at\" content=\"{exported_at}\">\n",
+            "  <meta name=\"BeamMe:summary-kind\" content=\"ai-summary\">\n",
+            "  <meta name=\"BeamMe:thread-id\" content=\"{thread_id}\">\n",
+            "  <meta name=\"BeamMe:thread-display-name\" content=\"{title}\">\n",
+            "  <meta name=\"BeamMe:exported-at\" content=\"{exported_at}\">\n",
             "  <style>\n",
             "    body {{ margin: 0; font-family: \"IBM Plex Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; background: #f7fafc; color: #0f172a; }}\n",
             "    main {{ width: min(960px, calc(100vw - 32px)); margin: 28px auto 64px; display: grid; gap: 20px; }}\n",

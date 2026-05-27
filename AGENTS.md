@@ -1,8 +1,8 @@
-# agent-exporter Agent Guide
+# BeamMe Agent Guide
 
 ## Repo Summary
 
-`agent-exporter` 是一个 **local-first archive and governance workbench for AI agent transcripts**。
+`BeamMe` 是一个 **local-first archive and governance workbench for AI agent transcripts**。
 
 - `Product Kernel`：本地优先地导出、归档、检索 transcript 与 evidence，并把治理决策收进 repo-owned workbench
 - `Primary Surface`：**CLI-first**
@@ -117,7 +117,7 @@
 - `degraded` archival semantics for local source
 - integration pack 默认按 repo-local MCP bridge 理解
   - bridge 会先尝试 repo-local build 产物
-  - 再尝试 `cargo run --manifest-path <repo>/Cargo.toml --bin agent-exporter --`
+  - 再尝试 `cargo run --manifest-path <repo>/Cargo.toml --bin BeamMe --`
   - OpenClaw 当前是 bundle content / plugin skeleton，不是 repo-native runtime
   - doctor 现在还会检查 target 内容是否与当前 repo 重新材料化后的版本一致，并做 launcher probe
   - 如果 launcher 只剩 `cargo run` 回退，doctor 会保守报告 `partial`，不会在只读模式下触发 build
@@ -130,7 +130,7 @@
   - 这批 reports 是 integration-owned local artifacts，不回流 transcript corpus，也不混进 search-owned reports shell
   - integration evidence shell 现在还支持本地静态 search/facets，重点是 `platform` / `readiness`
   - `doctor` / `onboard` 现在还会同写 `report.html + report.json`，并维护 `index.html + index.json`
-  - `agent-exporter evidence diff --left <report> --right <report>` 现在能解释 readiness、check、next-step 的变化
+  - `BeamMe evidence diff --left <report> --right <report>` 现在能解释 readiness、check、next-step 的变化
 
 ### 当前明确非目标
 

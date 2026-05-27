@@ -160,7 +160,7 @@ fn read_search_report_entry(path: PathBuf) -> Result<SearchReportEntry> {
 }
 
 fn extract_meta_value(content: &str, key: &str) -> Option<String> {
-    let needle = format!("name=\"agent-exporter:{key}\" content=\"");
+    let needle = format!("name=\"BeamMe:{key}\" content=\"");
     let start = content.find(&needle)? + needle.len();
     let tail = &content[start..];
     let end = tail.find('"')?;
@@ -225,10 +225,10 @@ mod tests {
             concat!(
                 "<!DOCTYPE html><html><head>",
                 "<title>Semantic Retrieval Report</title>",
-                "<meta name=\"agent-exporter:report-title\" content=\"Semantic Retrieval Report\">",
-                "<meta name=\"agent-exporter:report-kind\" content=\"semantic\">",
-                "<meta name=\"agent-exporter:search-query\" content=\"login issue\">",
-                "<meta name=\"agent-exporter:generated-at\" content=\"2026-04-05T12:00:00Z\">",
+                "<meta name=\"BeamMe:report-title\" content=\"Semantic Retrieval Report\">",
+                "<meta name=\"BeamMe:report-kind\" content=\"semantic\">",
+                "<meta name=\"BeamMe:search-query\" content=\"login issue\">",
+                "<meta name=\"BeamMe:generated-at\" content=\"2026-04-05T12:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )
@@ -255,10 +255,10 @@ mod tests {
             concat!(
                 "<!DOCTYPE html><html><head>",
                 "<title>Semantic Retrieval Report</title>",
-                "<meta name=\"agent-exporter:report-title\" content=\"Semantic Retrieval Report\">",
-                "<meta name=\"agent-exporter:report-kind\" content=\"semantic\">",
-                "<meta name=\"agent-exporter:search-query\" content=\"login issue\">",
-                "<meta name=\"agent-exporter:generated-at\" content=\"2026-04-05T12:00:00Z\">",
+                "<meta name=\"BeamMe:report-title\" content=\"Semantic Retrieval Report\">",
+                "<meta name=\"BeamMe:report-kind\" content=\"semantic\">",
+                "<meta name=\"BeamMe:search-query\" content=\"login issue\">",
+                "<meta name=\"BeamMe:generated-at\" content=\"2026-04-05T12:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )

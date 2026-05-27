@@ -2,16 +2,16 @@
 
 ## 适用场景
 
-Claude Code 当前最稳的接法，是把 `agent-exporter` 作为 **project skills / commands**
+Claude Code 当前最稳的接法，是把 `BeamMe` 作为 **project skills / commands**
 接进 `.claude/` 目录。
 
 ## 当前最稳接法
 
-1. 先运行 `agent-exporter integrate claude-code --target <DIR>` 材料化一份可审计的 Claude Code pack
+1. 先运行 `BeamMe integrate claude-code --target <DIR>` 材料化一份可审计的 Claude Code pack
    - `<DIR>` 应该是 staging/pack 目录，不要直接指向 `~/.claude*`
 2. 在项目里加入 `CLAUDE.md`
 3. 在项目里加入 `.claude/commands/` 或 `.claude/skills/`
-4. 让命令直接调用本地 `agent-exporter`
+4. 让命令直接调用本地 `BeamMe`
 5. 如果你想走 MCP，再加 `.mcp.json` 指向 `scripts/agent_exporter_mcp.py`
 
 ## Doctor
@@ -19,7 +19,7 @@ Claude Code 当前最稳的接法，是把 `agent-exporter` 作为 **project ski
 材料化后，可以用：
 
 ```bash
-agent-exporter doctor integrations --platform claude-code --target <DIR>
+BeamMe doctor integrations --platform claude-code --target <DIR>
 ```
 
 去检查 `CLAUDE.md`、`.claude/commands/*`、`.mcp.json`、bridge script 路径和 launcher readiness。
@@ -29,7 +29,7 @@ agent-exporter doctor integrations --platform claude-code --target <DIR>
 如果你更想要一条一次性更顺手的 first-run 路径，可以直接用：
 
 ```bash
-agent-exporter onboard claude-code --target <DIR>
+BeamMe onboard claude-code --target <DIR>
 ```
 
 这条主链也会拒绝直接把材料写进 `~/.claude*` 这类 live Claude home roots。
@@ -39,13 +39,13 @@ agent-exporter onboard claude-code --target <DIR>
 如果你想把这次接线结果留成一张可复查的本地 evidence report，可以再加：
 
 ```bash
-agent-exporter onboard claude-code --target <DIR> --save-report
+BeamMe onboard claude-code --target <DIR> --save-report
 ```
 
 或：
 
 ```bash
-agent-exporter doctor integrations --platform claude-code --target <DIR> --save-report
+BeamMe doctor integrations --platform claude-code --target <DIR> --save-report
 ```
 
 报告会写到当前工作目录下的 `.agents/Integration/Reports/`，不会混进 transcript 或 retrieval report 壳。
@@ -71,9 +71,9 @@ bridge 会优先尝试 repo-local build 产物；如果你还没提前 build，�
 ## 推荐命令面
 
 ```bash
-agent-exporter publish archive-index --workspace-root .
-agent-exporter search semantic --workspace-root . --query "$ARGUMENTS" --save-report
-agent-exporter search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
+BeamMe publish archive-index --workspace-root .
+BeamMe search semantic --workspace-root . --query "$ARGUMENTS" --save-report
+BeamMe search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
 ```
 
 ## 模板

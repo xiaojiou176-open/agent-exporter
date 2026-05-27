@@ -54,7 +54,7 @@ fn exported_paths_with_extension(workspace_root: &Path, extension: &str) -> Vec<
 }
 
 fn build_local_command(workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -68,7 +68,7 @@ fn build_local_command(workspace_root: &Path) -> Command {
 }
 
 fn build_app_server_command(thread_id: &str, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -86,7 +86,7 @@ fn build_app_server_command(thread_id: &str, workspace_root: &Path) -> Command {
 }
 
 fn build_claude_command(session_path: &Path, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("claude-code")
@@ -350,8 +350,8 @@ fn local_source_with_thread_id_exports_degraded_html() {
     assert!(content.contains("spawn_agent"));
     assert!(content.contains("Open archive shell"));
     assert!(content.contains("Open retrieval reports"));
-    assert!(content.contains("agent-exporter:workspace-shell-href"));
-    assert!(content.contains("agent-exporter:workspace-reports-shell-href"));
+    assert!(content.contains("BeamMe:workspace-shell-href"));
+    assert!(content.contains("BeamMe:workspace-reports-shell-href"));
 }
 
 #[test]
@@ -426,7 +426,7 @@ fn local_source_rejects_both_thread_id_and_rollout_path() {
 #[test]
 fn app_server_source_rejects_rollout_path() {
     let workspace = tempdir().expect("workspace");
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")

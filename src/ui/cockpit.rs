@@ -315,7 +315,7 @@ async fn script() -> Response {
 }
 
 fn preferences_path(codex_home: &Path) -> PathBuf {
-    codex_home.join("agent-exporter-cockpit-preferences.json")
+    codex_home.join("BeamMe-cockpit-preferences.json")
 }
 
 fn load_preferences_file(codex_home: &Path) -> Result<CockpitPreferences> {
@@ -1381,7 +1381,7 @@ fn ensure_integration_reports_shell(workspace_root: &Path) -> Result<()> {
             .file_name()
             .and_then(|name| name.to_str())
             .filter(|value| !value.trim().is_empty())
-            .unwrap_or("agent-exporter")
+            .unwrap_or("BeamMe")
     );
     let index_document =
         render_integration_reports_index_document(&title, &generated_at, &html_entries);

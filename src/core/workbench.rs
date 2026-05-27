@@ -1797,10 +1797,10 @@ fn is_temporary_integration_target(target: &str) -> bool {
         .file_name()
         .and_then(|value| value.to_str())
         .unwrap_or("");
-    target.contains("agent-exporter-public-smoke-")
+    target.contains("BeamMe-public-smoke-")
         || target.contains("/TemporaryItems/")
-        || target.contains("/tmp/agent-exporter-")
-        || target.contains("/private/tmp/agent-exporter-")
+        || target.contains("/tmp/BeamMe-")
+        || target.contains("/private/tmp/BeamMe-")
         || file_name.starts_with("tmp.")
 }
 
@@ -1919,7 +1919,7 @@ mod tests {
             summary: "ready".to_string(),
             launcher_status: "ready".to_string(),
             launcher_kind: "binary".to_string(),
-            launcher_command: "agent-exporter".to_string(),
+            launcher_command: "BeamMe".to_string(),
             bridge_status: "ready".to_string(),
             pack_shape_checks: Vec::new(),
             checks: Vec::new(),

@@ -1,6 +1,6 @@
-# agent-exporter Archive Governance Workbench Public Skill
+# BeamMe Archive Governance Workbench Public Skill
 
-This folder is the host-native public skill packet for `agent-exporter`.
+This folder is the host-native public skill packet for `BeamMe`.
 
 ## Quick Truth
 
@@ -90,18 +90,18 @@ This packet teaches an agent how to:
 
 ## Proof links
 
-- Landing: [xiaojiou176-open.github.io/agent-exporter](https://xiaojiou176-open.github.io/agent-exporter/)
-- Archive shell proof: [archive-shell-proof.html](https://xiaojiou176-open.github.io/agent-exporter/archive-shell-proof.html)
-- Repo map: [repo-map.html](https://xiaojiou176-open.github.io/agent-exporter/repo-map.html)
-- Releases: [GitHub releases](https://github.com/xiaojiou176-open/agent-exporter/releases)
+- Landing: [xiaojiou176-open.github.io/BeamMe](https://xiaojiou176-open.github.io/BeamMe/)
+- Archive shell proof: [archive-shell-proof.html](https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html)
+- Repo map: [repo-map.html](https://xiaojiou176-open.github.io/BeamMe/repo-map.html)
+- Releases: [GitHub releases](https://github.com/xiaojiou176-open/BeamMe/releases)
 
 ## Current registry truth
 
 - `Official MCP Registry`: `listed-live`
-  - server name: `io.github.xiaojiou176-open/agent-exporter-mcp`
+  - server name: `io.github.xiaojiou176-open/BeamMe-mcp`
   - fresh read-back: `mcp-publisher publish server.json` completed successfully on `2026-04-20`
 - `ClawHub`: `listed-live`
-  - fresh read-back: `clawhub inspect agent-exporter-archive-governance-workbench --no-input`
+  - fresh read-back: `clawhub inspect BeamMe-archive-governance-workbench --no-input`
 - `Goose Skills Marketplace`: `review-pending`
   - submission ref: `https://github.com/block/agent-skills/pull/24`
 - `agent-skill.co source repo`: `platform-not-accepted-yet`
@@ -111,7 +111,7 @@ This packet teaches an agent how to:
   - submission ref: `https://github.com/OpenHands/extensions/pull/162`
   - maintainer note: distribute a custom `marketplace.json` instead of expecting an upstream listing
 - `Smithery`: `build-contract-blocked`
-  - attempted command: `smithery mcp publish . -n xiaojiou176-open/agent-exporter-mcp --json`
+  - attempted command: `smithery mcp publish . -n xiaojiou176-open/BeamMe-mcp --json`
   - current blocker: Smithery's repo-root build path tried to build an shttp bundle and failed to resolve the Rust repo root as a supported publish entrypoint
 - `awesome-opencode`: `exact_blocker_with_fresh_evidence`
   - exact blocker: this packet is a host-native skill folder for an archive/governance workbench, not an honest opencode-native project/resource entry today

@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
-    {% assign social_image = page.image | default: '/assets/media/agent-exporter-social-card.png' %}
+    {% assign social_image = page.image | default: '/assets/media/BeamMe-social-card.png' %}
     <meta property="og:image" content="{{ social_image | absolute_url }}">
-    <meta property="og:image:alt" content="agent-exporter social card showing the transcript-first archive workbench product sentence">
+    <meta property="og:image:alt" content="BeamMe social card showing the transcript-first archive workbench product sentence">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ social_image | absolute_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
-    <link rel="apple-touch-icon" href="{{ '/assets/marketplace/agent-exporter-cline-logo-400.png' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/marketplace/BeamMe-cline-logo-400.png' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/agent-exporter.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/BeamMe.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
   </head>
   {% assign current_url = page.url | default: '/' %}
@@ -25,7 +25,7 @@
     <header class="ae-site-header">
       <div class="ae-site-header-inner">
         <a class="ae-brand" href="{{ '/' | relative_url }}">
-          <span class="ae-brand-kicker">agent-exporter</span>
+          <span class="ae-brand-kicker">BeamMe</span>
           <span class="ae-brand-title">Archive workbench</span>
         </a>
         <div class="ae-nav-cluster">

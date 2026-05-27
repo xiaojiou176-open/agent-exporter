@@ -1,4 +1,4 @@
-# agent-exporter Local Stdio Host Packet Install
+# BeamMe Local Stdio Host Packet Install
 
 This page is the shortest truthful install path for host reviewers who want the
 local stdio host packet instead of the CLI-first front door.
@@ -31,7 +31,7 @@ Keep this reviewer packet together:
 | --- | --- | --- |
 | install note | `./llms-install.md` | shortest truthful attach path |
 | canonical descriptor | `./server.json` | metadata for registry/read-back review lanes |
-| square logo | `./docs/assets/marketplace/agent-exporter-cline-logo-400.png` | host/reviewer-facing logo asset |
+| square logo | `./docs/assets/marketplace/BeamMe-cline-logo-400.png` | host/reviewer-facing logo asset |
 | square proof tile | `./docs/assets/marketplace/archive-shell-proof.svg.png` | reviewer-facing proof art that still points back to the archive shell |
 
 ## Quick install
@@ -39,32 +39,32 @@ Keep this reviewer packet together:
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/xiaojiou176-open/agent-exporter.git
-cd agent-exporter
+git clone https://github.com/xiaojiou176-open/BeamMe.git
+cd BeamMe
 ```
 
 2. Make sure one of these is available:
 
-- `target/release/agent-exporter`
-- `target/debug/agent-exporter`
+- `target/release/BeamMe`
+- `target/debug/BeamMe`
 - or a working `cargo` toolchain
 
 The bridge script looks for the binary in this order:
 
 1. `AGENT_EXPORTER_BIN` when you explicitly pin one
-2. `target/release/agent-exporter`
-3. `target/debug/agent-exporter`
-4. `cargo run --quiet --manifest-path <repo>/Cargo.toml --bin agent-exporter --`
+2. `target/release/BeamMe`
+3. `target/debug/BeamMe`
+4. `cargo run --quiet --manifest-path <repo>/Cargo.toml --bin BeamMe --`
 
 3. Point your MCP host at the bridge script:
 
 ```json
 {
   "mcpServers": {
-    "agent-exporter": {
+    "BeamMe": {
       "command": "python3",
       "args": [
-        "/absolute/path/to/agent-exporter/scripts/agent_exporter_mcp.py"
+        "/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py"
       ]
     }
   }
@@ -104,8 +104,8 @@ real workspace, then you ask it for deeper governance work.
 
 - canonical MCP descriptor: [`server.json`](./server.json)
 - current public proof pages:
-  - Docs landing: `https://xiaojiou176-open.github.io/agent-exporter/`
-  - Archive shell proof: `https://xiaojiou176-open.github.io/agent-exporter/archive-shell-proof.html`
+  - Docs landing: `https://xiaojiou176-open.github.io/BeamMe/`
+  - Archive shell proof: `https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html`
 
 ## Tool families
 

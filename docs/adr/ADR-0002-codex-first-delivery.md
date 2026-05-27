@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-`agent-exporter` 最终会扩展到 Claude Code 和其他本地 CLI。
+`BeamMe` 最终会扩展到 Claude Code 和其他本地 CLI。
 
 但当前如果同时推进：
 

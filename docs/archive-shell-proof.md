@@ -1,6 +1,6 @@
 ---
 title: Archive Shell Proof
-description: What the archive shell proves, what it does not prove, and how to reproduce it locally with agent-exporter.
+description: What the archive shell proves, what it does not prove, and how to reproduce it locally with BeamMe.
 ---
 
 <main id="main-content" role="main" markdown="1">
@@ -16,7 +16,7 @@ description: What the archive shell proves, what it does not prove, and how to r
       It does <strong>not</strong> turn the repo into a hosted product or a live remote service.
     </p>
     <div class="ae-actions">
-      <a class="ae-button ae-button-primary" href="https://github.com/xiaojiou176-open/agent-exporter">Back to GitHub front door</a>
+      <a class="ae-button ae-button-primary" href="https://github.com/xiaojiou176-open/BeamMe">Back to GitHub front door</a>
       <a class="ae-button" href="./repo-map.html">Open repo map</a>
       <a class="ae-button" href="./">Return to docs home</a>
     </div>
@@ -79,11 +79,11 @@ description: What the archive shell proves, what it does not prove, and how to r
   </div>
   <div class="ae-media-grid">
     <figure class="ae-media-card">
-      <img src="./assets/archive-shell-proof.svg" alt="agent-exporter archive shell proof diagram">
+      <img src="./assets/archive-shell-proof.svg" alt="BeamMe archive shell proof diagram">
       <figcaption class="ae-caption">Archive shell proof map: how transcripts, retrieval receipts, and governance evidence sit on the same local desk.</figcaption>
     </figure>
     <figure class="ae-media-card">
-      <img src="./assets/proof-ladder.svg" alt="agent-exporter proof ladder from CLI to transcript receipt to archive shell">
+      <img src="./assets/proof-ladder.svg" alt="BeamMe proof ladder from CLI to transcript receipt to archive shell">
       <figcaption class="ae-caption">Proof ladder: the order in which confidence should increase.</figcaption>
     </figure>
   </div>
@@ -214,7 +214,7 @@ description: What the archive shell proves, what it does not prove, and how to r
       <h3>Latest release</h3>
       <p>Use this when you need the newest frozen public packet rather than the newest repository-side wording on <code>main</code>.</p>
       <div class="ae-inline-links">
-        <a class="ae-button" href="https://github.com/xiaojiou176-open/agent-exporter/releases/latest">Open latest release</a>
+        <a class="ae-button" href="https://github.com/xiaojiou176-open/BeamMe/releases/latest">Open latest release</a>
       </div>
     </article>
     <article class="ae-proof-card">
@@ -222,8 +222,8 @@ description: What the archive shell proves, what it does not prove, and how to r
       <h3>Local stdio host packet</h3>
       <p>Use <code>llms-install.md</code> and <code>server.json</code> when the question is specifically about host-side wiring and review packet truth.</p>
       <div class="ae-inline-links">
-        <a class="ae-button" href="https://github.com/xiaojiou176-open/agent-exporter/blob/main/llms-install.md">Open install note on GitHub</a>
-        <a class="ae-button" href="https://github.com/xiaojiou176-open/agent-exporter/blob/main/server.json">Open server.json on GitHub</a>
+        <a class="ae-button" href="https://github.com/xiaojiou176-open/BeamMe/blob/main/llms-install.md">Open install note on GitHub</a>
+        <a class="ae-button" href="https://github.com/xiaojiou176-open/BeamMe/blob/main/server.json">Open server.json on GitHub</a>
       </div>
     </article>
     <article class="ae-proof-card">
@@ -247,7 +247,7 @@ description: What the archive shell proves, what it does not prove, and how to r
     <article class="ae-note-card">
       <p class="ae-kicker">why this matters</p>
       <h3>Truthful product positioning depends on ordering.</h3>
-      <p><code>agent-exporter</code> is already more than an export utility, but its first public proof still has to start with CLI quickstart, transcript export, and archive shell generation.</p>
+      <p><code>BeamMe</code> is already more than an export utility, but its first public proof still has to start with CLI quickstart, transcript export, and archive shell generation.</p>
     </article>
   </div>
 </section>

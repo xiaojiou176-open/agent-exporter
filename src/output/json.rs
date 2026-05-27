@@ -249,13 +249,13 @@ mod tests {
     fn render_json_document_wraps_transcript_with_export_metadata() {
         let document = render_json_document(
             &sample_transcript(),
-            "agent-exporter",
+            "BeamMe",
             "2026-04-05T00:00:00Z",
         );
 
         assert_eq!(document["schema_version"], 1);
         assert_eq!(document["format"], "json");
-        assert_eq!(document["archive_title"], "agent-exporter");
+        assert_eq!(document["archive_title"], "BeamMe");
         assert_eq!(document["transcript"]["connector"], "claude-code");
         assert_eq!(document["transcript"]["completeness"], "degraded");
         assert_eq!(document["transcript"]["round_count"], 1);
@@ -266,7 +266,7 @@ mod tests {
     fn render_json_document_keeps_tool_call_kind_tags() {
         let document = render_json_document(
             &sample_transcript(),
-            "agent-exporter",
+            "BeamMe",
             "2026-04-05T00:00:00Z",
         );
 
@@ -302,7 +302,7 @@ mod tests {
                 exit_code: Some(0),
             }));
 
-        let document = render_json_document(&transcript, "agent-exporter", "2026-04-05T00:00:00Z");
+        let document = render_json_document(&transcript, "BeamMe", "2026-04-05T00:00:00Z");
 
         assert_eq!(
             document["transcript"]["rounds"][0]["items"][1]["tool_call"]["aggregated_output"],

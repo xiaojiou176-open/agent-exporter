@@ -99,7 +99,7 @@ fn runtime_code_stays_free_of_banned_host_control_primitives() {
 
 #[test]
 fn codex_export_rejects_host_control_override_commands() {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -119,7 +119,7 @@ fn codex_export_rejects_host_control_override_commands() {
 
 #[test]
 fn codex_export_rejects_inline_eval_launchers() {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -140,7 +140,7 @@ fn codex_export_rejects_inline_eval_launchers() {
 #[test]
 fn codex_export_allows_repo_owned_fixture_server() {
     let workspace_root = tempfile::tempdir().expect("temp workspace root should be created");
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("export")
         .arg("codex")

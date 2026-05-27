@@ -1,15 +1,15 @@
-# agent-exporter
+# BeamMe
 
-`agent-exporter` helps you export one AI agent transcript into a local HTML receipt, then turn that receipt, reports, and governance evidence into an **archive and governance workbench**.
+`BeamMe` helps you export one AI agent transcript into a local HTML receipt, then turn that receipt, reports, and governance evidence into an **archive and governance workbench**.
 
-[Try It In 3 Steps](#first-success-path) · [Archive Shell Proof](https://xiaojiou176-open.github.io/agent-exporter/archive-shell-proof.html) · [Watch 20s Reel](https://xiaojiou176-open.github.io/agent-exporter/promo-reel.html) · [launch kit](https://xiaojiou176-open.github.io/agent-exporter/launch-kit.html)
+[Try It In 3 Steps](#first-success-path) · [Archive Shell Proof](https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html) · [Watch 20s Reel](https://xiaojiou176-open.github.io/BeamMe/promo-reel.html) · [launch kit](https://xiaojiou176-open.github.io/BeamMe/launch-kit.html)
 
-![agent-exporter proof map showing CLI quickstart, transcript export, archive shell proof, reports shell, and integration evidence as one inspectable workbench](./docs/assets/archive-shell-proof.svg)
+![BeamMe proof map showing CLI quickstart, transcript export, archive shell proof, reports shell, and integration evidence as one inspectable workbench](./docs/assets/archive-shell-proof.svg)
 
-[![agent-exporter promo reel poster showing CLI quickstart, archive proof, and workbench lane hierarchy](./docs/assets/media/agent-exporter-promo-poster.png)](https://xiaojiou176-open.github.io/agent-exporter/promo-reel.html)
+[![BeamMe promo reel poster showing CLI quickstart, archive proof, and workbench lane hierarchy](./docs/assets/media/BeamMe-promo-poster.png)](https://xiaojiou176-open.github.io/BeamMe/promo-reel.html)
 
 > Prefer a 20-second visual pass first?
-> Watch the [promo reel](https://xiaojiou176-open.github.io/agent-exporter/promo-reel.html), then come back to the quickstart path for real proof.
+> Watch the [promo reel](https://xiaojiou176-open.github.io/BeamMe/promo-reel.html), then come back to the quickstart path for real proof.
 
 > First-success strip:
 > run `cargo run -- scaffold` and `cargo run -- connectors`,
@@ -136,8 +136,8 @@ Use this route map instead:
 
 | If your next question is... | Open this | Why |
 | --- | --- | --- |
-| "What exactly does the proof page prove?" | [Archive Shell Proof](https://xiaojiou176-open.github.io/agent-exporter/archive-shell-proof.html) | it is the first public proof layer after the CLI path |
-| "What should I share or post after the product story is clear?" | [Launch Kit](https://xiaojiou176-open.github.io/agent-exporter/launch-kit.html) | this is the second-ring distribution-prep lane |
+| "What exactly does the proof page prove?" | [Archive Shell Proof](https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html) | it is the first public proof layer after the CLI path |
+| "What should I share or post after the product story is clear?" | [Launch Kit](https://xiaojiou176-open.github.io/BeamMe/launch-kit.html) | this is the second-ring distribution-prep lane |
 | "Where do the repo lanes actually live?" | [`docs/README.md`](./docs/README.md) | it keeps the product map and proof hierarchy in one place |
 | "What does the MCP bridge packet include?" | [`llms-install.md`](./llms-install.md) + [`server.json`](./server.json) | these are the honest bridge packet surfaces |
 | "What is the current packet/listing status?" | [`docs/distribution-packet-ledger.md`](./docs/distribution-packet-ledger.md) | packet status belongs in the second ring, not the first screen |
@@ -147,7 +147,7 @@ Use this route map instead:
 If you want a browser front door for **local Codex export** or **workspace-local Claude session export** without manually finding every source artifact, open the local cockpit:
 
 ```bash
-agent-exporter ui cockpit --workspace-root /absolute/path/to/repo
+BeamMe ui cockpit --workspace-root /absolute/path/to/repo
 ```
 
 What it does:
@@ -170,7 +170,7 @@ What it does **not** do:
 - **Host install note:** [`llms-install.md`](./llms-install.md) for the shortest local stdio MCP bridge setup
 - **GitHub Pages landing:** a lightweight public docs layer that repeats the same product sentence and first-success path
 - **Archive shell proof page:** a tracked public explanation of what the archive shell proves, what it does not prove, and how to reproduce it locally
-- **Host-native public skill packet:** `public-skills/agent-exporter-archive-governance-workbench/` for host reviewers who need a self-contained folder
+- **Host-native public skill packet:** `public-skills/BeamMe-archive-governance-workbench/` for host reviewers who need a self-contained folder
 - **Canonical MCP descriptor:** `server.json` for registry/read-back lanes around the local stdio bridge
 - **Latest release shelf:** release/tag truth for the current public packet
 
@@ -191,7 +191,7 @@ Use it when a registry, host reviewer, or packet intake lane asks:
 | --- | --- | --- |
 | Install note | [`llms-install.md`](./llms-install.md) | shortest truthful attach path for the local stdio bridge |
 | Descriptor | [`server.json`](./server.json) | canonical metadata for registry/read-back review lanes |
-| Logo asset | [`docs/assets/marketplace/agent-exporter-cline-logo-400.png`](./docs/assets/marketplace/agent-exporter-cline-logo-400.png) | square logo for host/reviewer queues |
+| Logo asset | [`docs/assets/marketplace/BeamMe-cline-logo-400.png`](./docs/assets/marketplace/BeamMe-cline-logo-400.png) | square logo for host/reviewer queues |
 | Proof tile | [`docs/assets/marketplace/archive-shell-proof.svg.png`](./docs/assets/marketplace/archive-shell-proof.svg.png) | square proof image that points back to the archive shell |
 
 What this packet proves:
@@ -317,7 +317,7 @@ question instead of treating every lane as the same thing:
 
 | If you want to... | Open this next | Why |
 | --- | --- | --- |
-| understand what the archive shell proves | [archive shell proof](https://xiaojiou176-open.github.io/agent-exporter/archive-shell-proof.html) | this is the first public proof layer after the CLI path |
+| understand what the archive shell proves | [archive shell proof](https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html) | this is the first public proof layer after the CLI path |
 | inspect the docs map and current lane hierarchy | [`docs/README.md`](./docs/README.md) | it keeps the product map and proof hierarchy in one place |
 | inspect packet and listing truth after the product story is clear | [`docs/distribution-packet-ledger.md`](./docs/distribution-packet-ledger.md) | packet status is a second-ring truth surface, not the first success path |
 | inspect the host-native skill packet | [`public-skills/README.md`](./public-skills/README.md) | this is the secondary host-review lane, not the flagship front door |
@@ -331,7 +331,7 @@ Treat it as a 3-step ladder:
 | --- | --- | --- |
 | `L1` | the CLI can get you through the front door | `First Success Path` |
 | `L2` | transcript export leaves behind a browsable receipt | `.agents/Conversations/*.html` |
-| `L3` | the archive shell organizes transcript, reports, and integration evidence into one inspectable workbench | [archive shell proof](https://xiaojiou176-open.github.io/agent-exporter/archive-shell-proof.html) |
+| `L3` | the archive shell organizes transcript, reports, and integration evidence into one inspectable workbench | [archive shell proof](https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html) |
 
 ## Public Boundary Right Now
 
@@ -369,7 +369,7 @@ See [docs/reference/host-safety-contract.md](./docs/reference/host-safety-contra
 
 ## Current Positioning
 
-You can think of `agent-exporter` as an **archive and governance workbench**, not a hosted platform.
+You can think of `BeamMe` as an **archive and governance workbench**, not a hosted platform.
 The front door still has to preserve one order: **CLI first, archive shell proof second, secondary surfaces after that**.
 
 The current stage is easier to understand through this table than through a giant landed-feature paragraph:
@@ -588,7 +588,7 @@ The source model is easiest to understand as "two legal doors, one primary door"
 
 ### `CODEX_HOME` resolution
 
-Under `--source local`, `agent-exporter` resolves the local Codex ledger in this order:
+Under `--source local`, `BeamMe` resolves the local Codex ledger in this order:
 
 1. `--codex-home <PATH>`
 2. environment variable `CODEX_HOME`
@@ -728,7 +728,7 @@ cargo run -- doctor integrations --platform codex --target /absolute/path/to/cod
 
 ## Integration Pack
 
-If you want to wire `agent-exporter` into another agent workflow, treat it as a **repo-owned companion lane**, not the public primary door.
+If you want to wire `BeamMe` into another agent workflow, treat it as a **repo-owned companion lane**, not the public primary door.
 
 Best entrypoints:
 

@@ -12,13 +12,13 @@ OpenClaw 当前最稳的接法，是走它已经支持的 **bundle/plugin** 兼�
 
 ## 当前最稳接法
 
-1. 先运行 `agent-exporter integrate openclaw --target <DIR>` 材料化一份 OpenClaw bundle pack
+1. 先运行 `BeamMe integrate openclaw --target <DIR>` 材料化一份 OpenClaw bundle pack
    - `<DIR>` 应该是 staging/pack 目录本身，不要直接指向 live OpenClaw bundle/plugin root，例如 `bundles/<name>` 或 `plugins/<name>`
 2. 在材料化结果里选一个 bundle 变体
    - `openclaw-codex-bundle/`
    - `openclaw-claude-bundle/`
 3. 把对应目录里的内容复制进你的 OpenClaw bundle/plugin root
-4. 让 bundle 内的 skills / commands 继续调用本地 `agent-exporter`
+4. 让 bundle 内的 skills / commands 继续调用本地 `BeamMe`
 5. 如果你要 OpenClaw 直接吃 MCP，再把 bundle 内的 `.mcp.json` 一起带上
 
 ## Doctor
@@ -26,7 +26,7 @@ OpenClaw 当前最稳的接法，是走它已经支持的 **bundle/plugin** 兼�
 材料化后，可以用：
 
 ```bash
-agent-exporter doctor integrations --platform openclaw --target <DIR>
+BeamMe doctor integrations --platform openclaw --target <DIR>
 ```
 
 去检查 bundle/plugin 元数据、命令/skill 文件、`.mcp.json` 以及 repo-local bridge readiness。
@@ -36,7 +36,7 @@ agent-exporter doctor integrations --platform openclaw --target <DIR>
 如果你更想要一条一次性更顺手的 first-run 路径，可以直接用：
 
 ```bash
-agent-exporter onboard openclaw --target <DIR>
+BeamMe onboard openclaw --target <DIR>
 ```
 
 它会把 materialize + doctor + next steps 串在一起，但仍然不会替你静默装进 OpenClaw host。
@@ -45,13 +45,13 @@ agent-exporter onboard openclaw --target <DIR>
 如果你想把这次体检/引导结果保存成一张本地 evidence report，可以再加：
 
 ```bash
-agent-exporter doctor integrations --platform openclaw --target <DIR> --save-report
+BeamMe doctor integrations --platform openclaw --target <DIR> --save-report
 ```
 
 或：
 
 ```bash
-agent-exporter onboard openclaw --target <DIR> --save-report
+BeamMe onboard openclaw --target <DIR> --save-report
 ```
 
 报告会写到当前工作目录下的 `.agents/Integration/Reports/`，但它表达的仍然只是 bundle-content readiness，不是 host runtime installation。
