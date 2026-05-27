@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BeamMe Export Cockpit</title>
+    <link rel="stylesheet" href="/assets/cockpit.css" />
+  </head>
+  <body data-boot-state="booting">
+    <main class="cockpit-shell">
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <p class="eyebrow" id="hero-eyebrow">local-first export cockpit</p>
+            <h1 id="hero-title">Export a Codex or Claude session into your local archive workbench.</h1>
+            <p class="lead" id="hero-lead">
+              The cockpit helps you pick a local session, export it, then return to the
+              Markdown-first archive workbench for that workspace.
+            </p>
+            <p class="hero-note" id="hero-note">
+              Optional local helper after the CLI quickstart is already clear. The primary public
+              front door remains the CLI quickstart.
+            </p>
+          </div>
+          <button id="locale-toggle" class="ghost-button" type="button">中文</button>
+        </div>
+        <div class="hero-meta" id="hero-meta">
+          <div class="hero-meta-card">
+            <span class="hero-meta-label" id="launch-root-label">launch root</span>
+            <span class="hero-meta-value" id="workspace-root-value">Loading…</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="hero-meta-label" id="codex-home-label">codex home</span>
+            <span class="hero-meta-value" id="codex-home-value">Loading…</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="hero-meta-label" id="discovery-mode-label">discovery mode</span>
+            <span class="hero-meta-value" id="discovery-mode-value">Loading…</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="workbench-layout">
+        <section class="panel detection-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow" id="detection-eyebrow">detection</p>
+              <h2 id="detection-title">Detected workspaces and threads</h2>
+            </div>
+            <button id="refresh-button" type="button">Refresh</button>
+          </div>
+          <p id="detection-status" class="muted">Loading active local sessions…</p>
+          <div class="search-stack">
+            <label class="input-stack" for="thread-search">
+              <span class="muted" id="thread-search-label">Search detected threads</span>
+              <input
+                id="thread-search"
+                type="search"
+                placeholder="Search by title, workspace, model, or thread id"
+              />
+            </label>
+            <p id="thread-search-status" class="muted">No threads loaded yet.</p>
+          </div>
+          <div id="thread-list" class="thread-list workspace-groups"></div>
+        </section>
+
+        <aside class="rail-stack">
+          <section class="panel rail-panel rail-control-panel">
+            <div class="panel-head rail-panel-head">
+              <div>
+                <p class="eyebrow" id="action-eyebrow">action</p>
+                <p id="selection-summary" class="muted">No sessions selected.</p>
+              </div>
+              <div class="action-toolbar">
+                <button id="clear-selection-button" class="ghost-button" type="button">Clear selection</button>
+              </div>
+            </div>
+            <div class="detail-shell">
+              <p class="eyebrow" id="selected-thread-eyebrow">selected sessions</p>
+              <div id="thread-detail" class="detail-empty">
+                Select one or more sessions to see export details.
+              </div>
+            </div>
+            <label class="toggle-row">
+              <input id="ai-summary-toggle" type="checkbox" />
+              <span id="ai-summary-label">Add optional AI summary</span>
+            </label>
+            <div id="ai-summary-panel" hidden>
+              <label class="input-stack" for="ai-summary-preset">
+                <span class="muted" id="ai-summary-preset-label">Optional AI summary preset</span>
+                <input
+                  id="ai-summary-preset"
+                  type="text"
+                  placeholder="handoff, bug-rca, decision, release..."
+                />
+              </label>
+              <details id="ai-summary-advanced" class="advanced-panel">
+                <summary id="ai-summary-advanced-summary">Advanced AI summary overrides</summary>
+                <div class="ai-summary-control-grid">
+                  <label class="input-stack" for="ai-summary-profile">
+                    <span class="muted" id="ai-summary-profile-label">Optional AI summary profile</span>
+                    <input
+                      id="ai-summary-profile"
+                      type="text"
+                      placeholder="Use a Codex config profile, if needed."
+                    />
+                  </label>
+                  <label class="input-stack" for="ai-summary-model">
+                    <span class="muted" id="ai-summary-model-label">Optional AI summary model</span>
+                    <input
+                      id="ai-summary-model"
+                      type="text"
+                      placeholder="Override the model for this summary."
+                    />
+                  </label>
+                  <label class="input-stack" for="ai-summary-provider">
+                    <span class="muted" id="ai-summary-provider-label">Optional AI summary provider</span>
+                    <input
+                      id="ai-summary-provider"
+                      type="text"
+                      placeholder="Override the model provider for this summary."
+                    />
+                  </label>
+                  <label class="input-stack" for="ai-summary-timeout-seconds">
+                    <span class="muted" id="ai-summary-timeout-seconds-label">Optional AI summary timeout (seconds)</span>
+                    <input
+                      id="ai-summary-timeout-seconds"
+                      type="number"
+                      min="1"
+                      step="1"
+                      placeholder="Override the timeout budget for this summary."
+                    />
+                  </label>
+                </div>
+              </details>
+              <label class="input-stack" for="ai-summary-instructions">
+                <span class="muted" id="ai-summary-instructions-label">Optional AI summary instructions</span>
+                <textarea
+                  id="ai-summary-instructions"
+                  rows="4"
+                  placeholder="Extra instructions for the AI synthesis, if needed."
+                ></textarea>
+              </label>
+            </div>
+            <button id="export-button" class="primary" type="button" disabled>
+              Export to workbench
+            </button>
+            <p class="muted" id="action-note">
+              Uses the canonical export path, then refreshes the matching workspace shell.
+            </p>
+          </section>
+
+          <section class="panel rail-panel rail-output-panel">
+            <p class="eyebrow" id="result-eyebrow">result</p>
+            <p id="result-status" class="muted">No export has run yet.</p>
+            <div id="result-links" class="result-links"></div>
+            <details id="cli-preview-panel" class="cli-preview-panel">
+              <summary class="cli-preview-summary">
+                <span class="eyebrow" id="cli-eyebrow">cli equivalent</span>
+                <span class="muted" id="cli-summary-note">Show the closest CLI path</span>
+              </summary>
+              <p class="muted" id="cli-note">
+                This cockpit is a local helper, not a hidden execution layer. The command below
+                shows the closest CLI path for the current selection.
+              </p>
+              <pre class="command-preview"><code id="command-preview">Select one or more sessions to preview the equivalent CLI command.</code></pre>
+            </details>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <script src="/assets/cockpit.js"></script>
+  </body>
+</html>
