@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible problem in BeamMe.
+description: Report a reproducible problem in AgentExport.
 title: "[Bug] "
 labels:
   - bug

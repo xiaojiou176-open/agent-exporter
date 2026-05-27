@@ -100,7 +100,7 @@ for raw_line in sys.stdin:
             {
                 "id": message["id"],
                 "result": {
-                    "userAgent": "mock-BeamMe",
+                    "userAgent": "mock-AgentExport",
                     "codexHome": "/tmp/mock-codex-home",
                     "platformFamily": "unix",
                     "platformOs": "darwin",

@@ -1,12 +1,12 @@
 # Host Safety Contract
 
-`BeamMe` 是一个导出 CLI，不是桌面自动化器，也不是宿主机清理器。
+`AgentExport` 是一个导出 CLI，不是桌面自动化器，也不是宿主机清理器。
 
 说得更直白一点，这个仓应该像“只会拿自己外卖号”的前台，而不是“能拿整栋楼总闸”的管理员。
 
 ## 为什么这个仓也要写这份合同
 
-虽然 `BeamMe` 当前没有 `killall`、`pkill`、`osascript` 这类高风险原语，但它确实会做一件和宿主机有关的事:
+虽然 `AgentExport` 当前没有 `killall`、`pkill`、`osascript` 这类高风险原语，但它确实会做一件和宿主机有关的事:
 
 - 启动一个本地 Codex app-server 子进程
 - 在结束时回收这个**自己亲手启动**的子进程
@@ -26,7 +26,7 @@
 
 ## 这个仓明确禁止什么
 
-下面这些原语或行为，不应该进入 `BeamMe` 的运行时代码：
+下面这些原语或行为，不应该进入 `AgentExport` 的运行时代码：
 
 1. `killall`
 2. `pkill`

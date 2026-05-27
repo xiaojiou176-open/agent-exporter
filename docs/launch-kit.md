@@ -1,7 +1,7 @@
 ---
 title: Launch Kit
-description: A second-ring distribution-prep kit for BeamMe's public packet, copy variants, and reviewer-safe claims.
-image: /assets/media/BeamMe-social-card.png
+description: A second-ring distribution-prep kit for AgentExport's public packet, copy variants, and reviewer-safe claims.
+image: /assets/media/AgentExport-social-card.png
 ---
 
 <main id="main-content" role="main" markdown="1">
@@ -12,7 +12,7 @@ image: /assets/media/BeamMe-social-card.png
     <h1>Use this page only after the product story and first visible proof are already clear.</h1>
     <p class="ae-lead">
       This is a <strong>second-ring distribution-prep lane</strong>.
-      It exists so you do not have to reinvent copy, assets, or claim brakes every time you want to share <code>BeamMe</code>.
+      It exists so you do not have to reinvent copy, assets, or claim brakes every time you want to share <code>AgentExport</code>.
       It is not the first screen and it does not replace the CLI quickstart, the first-success strip, or the archive shell proof.
     </p>
     <div class="ae-actions">
@@ -49,7 +49,7 @@ image: /assets/media/BeamMe-social-card.png
     <article class="ae-proof-card">
       <p class="ae-mini-label">product sentence</p>
       <h3>Identity first</h3>
-      <p><code>BeamMe</code> turns one AI agent transcript into a local HTML receipt, then expands that receipt into an archive and governance workbench.</p>
+      <p><code>AgentExport</code> turns one AI agent transcript into a local HTML receipt, then expands that receipt into an archive and governance workbench.</p>
     </article>
     <article class="ae-proof-card">
       <p class="ae-mini-label">first success</p>
@@ -79,14 +79,14 @@ image: /assets/media/BeamMe-social-card.png
       <span class="ae-step-number">01</span>
       <h3>Short blurb</h3>
       <div class="ae-command">
-        <pre tabindex="0"><code>BeamMe helps you export one AI agent transcript into a local HTML receipt, then turn that receipt, reports, and governance evidence into one inspectable archive workbench.</code></pre>
+        <pre tabindex="0"><code>AgentExport helps you export one AI agent transcript into a local HTML receipt, then turn that receipt, reports, and governance evidence into one inspectable archive workbench.</code></pre>
       </div>
     </article>
     <article class="ae-step">
       <span class="ae-step-number">02</span>
       <h3>Medium blurb</h3>
       <div class="ae-command">
-        <pre tabindex="0"><code>BeamMe is a local-first archive and governance workbench for AI agent transcripts. Run scaffold and connectors, export one HTML receipt, then publish the archive shell to keep transcripts, reports, and evidence on one desk.</code></pre>
+        <pre tabindex="0"><code>AgentExport is a local-first archive and governance workbench for AI agent transcripts. Run scaffold and connectors, export one HTML receipt, then publish the archive shell to keep transcripts, reports, and evidence on one desk.</code></pre>
       </div>
     </article>
     <article class="ae-step">
@@ -108,12 +108,12 @@ image: /assets/media/BeamMe-social-card.png
     <article class="ae-split-card">
       <p class="ae-kicker">x / short post</p>
       <h3>Compact proof-first post</h3>
-      <p><code>BeamMe</code> is a local-first archive and governance workbench for AI agent transcripts. The honest path is still CLI quickstart -> transcript receipt -> archive shell proof, not hosted-platform theatre.</p>
+      <p><code>AgentExport</code> is a local-first archive and governance workbench for AI agent transcripts. The honest path is still CLI quickstart -> transcript receipt -> archive shell proof, not hosted-platform theatre.</p>
     </article>
     <article class="ae-split-card">
       <p class="ae-kicker">linkedin / longer post</p>
       <h3>Story-first version</h3>
-      <p>I wanted a calmer way to export AI agent transcripts into local artifacts I could inspect and keep. <code>BeamMe</code> now turns transcript receipts, reports, and governance evidence into one archive workbench, while staying honest about what it is not: not a hosted archive platform, not a generic MCP product, and not remote workflow theatre.</p>
+      <p>I wanted a calmer way to export AI agent transcripts into local artifacts I could inspect and keep. <code>AgentExport</code> now turns transcript receipts, reports, and governance evidence into one archive workbench, while staying honest about what it is not: not a hosted archive platform, not a generic MCP product, and not remote workflow theatre.</p>
     </article>
   </div>
 </section>
@@ -133,22 +133,22 @@ image: /assets/media/BeamMe-social-card.png
   <article class="ae-proof-card">
     <p class="ae-mini-label">shared preview</p>
     <h3>Social card</h3>
-    <p><a href="./assets/media/BeamMe-social-card.png">Use the social card image</a> for chat cards, posts, and previews.</p>
+    <p><a href="./assets/media/AgentExport-social-card.png">Use the social card image</a> for chat cards, posts, and previews.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">mobile-first share</p>
     <h3>Vertical cut</h3>
-    <p><a href="./assets/media/BeamMe-promo-vertical.mp4">Use the vertical cut</a> when the channel expects portrait video and mobile-first motion.</p>
+    <p><a href="./assets/media/AgentExport-promo-vertical.mp4">Use the vertical cut</a> when the channel expects portrait video and mobile-first motion.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">spoken narration</p>
     <h3>Landscape voiceover</h3>
-    <p><a href="./assets/media/BeamMe-promo-landscape-voiceover.m4a">Download the landscape voiceover</a> when you need a reusable standalone narration track.</p>
+    <p><a href="./assets/media/AgentExport-promo-landscape-voiceover.m4a">Download the landscape voiceover</a> when you need a reusable standalone narration track.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">portrait narration</p>
     <h3>Vertical voiceover</h3>
-    <p><a href="./assets/media/BeamMe-promo-vertical-voiceover.m4a">Download the vertical voiceover</a> for the shorter mobile-first cut.</p>
+    <p><a href="./assets/media/AgentExport-promo-vertical-voiceover.m4a">Download the vertical voiceover</a> for the shorter mobile-first cut.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">proof still</p>
@@ -158,7 +158,7 @@ image: /assets/media/BeamMe-social-card.png
   <article class="ae-proof-card">
     <p class="ae-mini-label">caption pack</p>
     <h3>Bilingual subtitles</h3>
-    <p>Use the <a href="./assets/media/BeamMe-promo.vtt">landscape EN</a>, <a href="./assets/media/BeamMe-promo-zh-CN.vtt">landscape zh-CN</a>, <a href="./assets/media/BeamMe-promo-vertical.vtt">vertical EN</a>, and <a href="./assets/media/BeamMe-promo-vertical-zh-CN.vtt">vertical zh-CN</a> files to keep both cuts reviewer-safe and share-ready.</p>
+    <p>Use the <a href="./assets/media/AgentExport-promo.vtt">landscape EN</a>, <a href="./assets/media/AgentExport-promo-zh-CN.vtt">landscape zh-CN</a>, <a href="./assets/media/AgentExport-promo-vertical.vtt">vertical EN</a>, and <a href="./assets/media/AgentExport-promo-vertical-zh-CN.vtt">vertical zh-CN</a> files to keep both cuts reviewer-safe and share-ready.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">proof explanation</p>

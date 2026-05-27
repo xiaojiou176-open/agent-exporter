@@ -47,7 +47,7 @@ const panel: React.CSSProperties = {
     "0 30px 70px rgba(15,23,42,0.08), 0 0 0 1px rgba(255,255,255,0.82) inset",
 };
 
-export const BeamMeVerticalPromo: React.FC = () => {
+export const AgentExportVerticalPromo: React.FC = () => {
   const frame = useCurrentFrame();
 
   const hero = reveal(frame, 0);
@@ -62,7 +62,7 @@ export const BeamMeVerticalPromo: React.FC = () => {
         color: palette.ink,
       }}
     >
-      <Audio src={staticFile("BeamMe-promo-vertical-voiceover.m4a")} volume={0.94} />
+      <Audio src={staticFile("AgentExport-promo-vertical-voiceover.m4a")} volume={0.94} />
       <AbsoluteFill
         style={{
           opacity: 0.2,

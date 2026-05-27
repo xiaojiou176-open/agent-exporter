@@ -1,5 +1,5 @@
 [package]
-name = "beamme"
+name = "agent-export"
 version = "0.1.10"
 edition = "2024"
 

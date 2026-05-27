@@ -1,6 +1,6 @@
 ---
 title: Repo Map
-description: Public repo map for the BeamMe workbench, with clear routing between primary and secondary surfaces.
+description: Public repo map for the AgentExport workbench, with clear routing between primary and secondary surfaces.
 ---
 
 <main id="main-content" role="main" markdown="1">
@@ -18,7 +18,7 @@ description: Public repo map for the BeamMe workbench, with clear routing betwee
     <div class="ae-actions">
       <a class="ae-button ae-button-primary" href="./">Return to docs home</a>
       <a class="ae-button" href="./archive-shell-proof.html">Open archive proof</a>
-      <a class="ae-button" href="https://github.com/xiaojiou176-open/BeamMe">Open GitHub front door</a>
+      <a class="ae-button" href="https://github.com/xiaojiou176-open/agent-export">Open GitHub front door</a>
     </div>
   </div>
   <div class="ae-hero-side ae-panel">
@@ -74,7 +74,7 @@ description: Public repo map for the BeamMe workbench, with clear routing betwee
   <article class="ae-proof-card">
     <p class="ae-mini-label">front door</p>
     <h3>How do I get one successful result?</h3>
-    <p><a href="https://github.com/xiaojiou176-open/BeamMe">Open the GitHub front door</a> because the flagship packet still lives there.</p>
+    <p><a href="https://github.com/xiaojiou176-open/agent-export">Open the GitHub front door</a> because the flagship packet still lives there.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">visual companion</p>
@@ -94,27 +94,27 @@ description: Public repo map for the BeamMe workbench, with clear routing betwee
   <article class="ae-proof-card">
     <p class="ae-mini-label">renderers</p>
     <h3>Where are transcripts, reports, and evidence rendered?</h3>
-    <p><a href="https://github.com/xiaojiou176-open/BeamMe/tree/main/src/output"><code>src/output/</code></a> is the visible shell layer.</p>
+    <p><a href="https://github.com/xiaojiou176-open/agent-export/tree/main/src/output"><code>src/output/</code></a> is the visible shell layer.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">connectors</p>
     <h3>Where are connector boundaries defined?</h3>
-    <p><a href="https://github.com/xiaojiou176-open/BeamMe/tree/main/src/connectors"><code>src/connectors/</code></a> is the source adapter layer.</p>
+    <p><a href="https://github.com/xiaojiou176-open/agent-export/tree/main/src/connectors"><code>src/connectors/</code></a> is the source adapter layer.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">contracts</p>
     <h3>Where does archive and governance logic live?</h3>
-    <p><a href="https://github.com/xiaojiou176-open/BeamMe/tree/main/src/core"><code>src/core/</code></a> is the contract and decision layer.</p>
+    <p><a href="https://github.com/xiaojiou176-open/agent-export/tree/main/src/core"><code>src/core/</code></a> is the contract and decision layer.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">integration lane</p>
     <h3>Where is the repo-owned integration lane?</h3>
-    <p><a href="https://github.com/xiaojiou176-open/BeamMe/tree/main/docs/integrations"><code>docs/integrations/</code></a> is the integration pack surface.</p>
+    <p><a href="https://github.com/xiaojiou176-open/agent-export/tree/main/docs/integrations"><code>docs/integrations/</code></a> is the integration pack surface.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">reference shelf</p>
     <h3>Where are the truth boundaries and upstream reading lists?</h3>
-    <p><a href="https://github.com/xiaojiou176-open/BeamMe/tree/main/docs/reference"><code>docs/reference/</code></a> is the constraint shelf.</p>
+    <p><a href="https://github.com/xiaojiou176-open/agent-export/tree/main/docs/reference"><code>docs/reference/</code></a> is the constraint shelf.</p>
   </article>
 </div>
 
@@ -210,7 +210,7 @@ description: Public repo map for the BeamMe workbench, with clear routing betwee
       <p class="ae-kicker">what to do next</p>
       <h2>Leave the map as soon as it has done its job.</h2>
       <ul class="ae-bullet-list">
-        <li>go back to the <a href="https://github.com/xiaojiou176-open/BeamMe">GitHub front door</a> for first success</li>
+        <li>go back to the <a href="https://github.com/xiaojiou176-open/agent-export">GitHub front door</a> for first success</li>
         <li>open <a href="./archive-shell-proof.html">archive shell proof</a> for proof interpretation</li>
         <li>open <a href="./promo-reel.html">promo reel</a> for the shortest visual walkthrough</li>
         <li>open <a href="./launch-kit.html">launch kit</a> for second-ring sharing and distribution-prep</li>

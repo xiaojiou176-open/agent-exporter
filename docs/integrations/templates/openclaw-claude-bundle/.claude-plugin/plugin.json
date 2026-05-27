@@ -1,5 +1,5 @@
 {
-  "name": "BeamMe-claude-bundle",
+  "name": "AgentExport-claude-bundle",
   "version": "0.1.0",
-  "description": "CLI-first BeamMe workflow bundle for OpenClaw Claude-compatible plugin ingestion"
+  "description": "CLI-first AgentExport workflow bundle for OpenClaw Claude-compatible plugin ingestion"
 }

@@ -2,17 +2,17 @@
 
 ## What you need
 
-1. a local checkout of `BeamMe`
+1. a local checkout of `AgentExport`
 2. `python3`
 3. either:
-   - `target/release/BeamMe`
-   - `target/debug/BeamMe`
+   - `target/release/AgentExport`
+   - `target/debug/AgentExport`
    - or a working `cargo` toolchain
 
 The bridge script is:
 
 ```text
-/absolute/path/to/BeamMe/scripts/beamme_mcp.py
+/absolute/path/to/AgentExport/scripts/agent-export_mcp.py
 ```
 
 ## OpenHands-style MCP config

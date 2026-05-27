@@ -7,7 +7,7 @@ disable-model-invocation: true
 Run:
 
 ```bash
-BeamMe publish archive-index --workspace-root .
+AgentExport publish archive-index --workspace-root .
 ```
 
 Return:

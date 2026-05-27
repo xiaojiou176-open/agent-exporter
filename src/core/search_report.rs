@@ -160,7 +160,7 @@ fn read_search_report_entry(path: PathBuf) -> Result<SearchReportEntry> {
 }
 
 fn extract_meta_value(content: &str, key: &str) -> Option<String> {
-    let needle = format!("name=\"BeamMe:{key}\" content=\"");
+    let needle = format!("name=\"AgentExport:{key}\" content=\"");
     let start = content.find(&needle)? + needle.len();
     let tail = &content[start..];
     let end = tail.find('"')?;
@@ -225,10 +225,10 @@ mod tests {
             concat!(
                 "<!DOCTYPE html><html><head>",
                 "<title>Semantic Retrieval Report</title>",
-                "<meta name=\"BeamMe:report-title\" content=\"Semantic Retrieval Report\">",
-                "<meta name=\"BeamMe:report-kind\" content=\"semantic\">",
-                "<meta name=\"BeamMe:search-query\" content=\"login issue\">",
-                "<meta name=\"BeamMe:generated-at\" content=\"2026-04-05T12:00:00Z\">",
+                "<meta name=\"AgentExport:report-title\" content=\"Semantic Retrieval Report\">",
+                "<meta name=\"AgentExport:report-kind\" content=\"semantic\">",
+                "<meta name=\"AgentExport:search-query\" content=\"login issue\">",
+                "<meta name=\"AgentExport:generated-at\" content=\"2026-04-05T12:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )
@@ -255,10 +255,10 @@ mod tests {
             concat!(
                 "<!DOCTYPE html><html><head>",
                 "<title>Semantic Retrieval Report</title>",
-                "<meta name=\"BeamMe:report-title\" content=\"Semantic Retrieval Report\">",
-                "<meta name=\"BeamMe:report-kind\" content=\"semantic\">",
-                "<meta name=\"BeamMe:search-query\" content=\"login issue\">",
-                "<meta name=\"BeamMe:generated-at\" content=\"2026-04-05T12:00:00Z\">",
+                "<meta name=\"AgentExport:report-title\" content=\"Semantic Retrieval Report\">",
+                "<meta name=\"AgentExport:report-kind\" content=\"semantic\">",
+                "<meta name=\"AgentExport:search-query\" content=\"login issue\">",
+                "<meta name=\"AgentExport:generated-at\" content=\"2026-04-05T12:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )

@@ -21,7 +21,7 @@ fn conversations_dir(workspace_root: &Path) -> PathBuf {
 }
 
 fn build_export_command(thread_id: &str, workspace_root: &Path) -> Command {
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("codex")
@@ -169,9 +169,9 @@ fn export_codex_writes_workspace_conversations_html() {
     assert!(content.contains("app-server-thread-read"));
     assert!(content.contains("pwd"));
     assert!(content.contains("Open archive shell"));
-    assert!(content.contains("BeamMe:workspace-shell-href"));
+    assert!(content.contains("AgentExport:workspace-shell-href"));
     assert!(content.contains("Open retrieval reports"));
-    assert!(content.contains("BeamMe:workspace-reports-shell-href"));
+    assert!(content.contains("AgentExport:workspace-reports-shell-href"));
 }
 
 #[test]
@@ -197,7 +197,7 @@ fn export_codex_html_marks_incomplete_when_resume_fallback_is_used() {
 
 #[test]
 fn workspace_conversations_requires_workspace_root() {
-    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
+    let mut command = Command::cargo_bin("AgentExport").expect("binary should build");
     command
         .arg("export")
         .arg("codex")

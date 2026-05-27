@@ -70,8 +70,8 @@ impl AppServerClient {
             "initialize",
             json!({
                 "clientInfo": {
-                    "name": "beamme",
-                    "title": "BeamMe",
+                    "name": "agent-export",
+                    "title": "AgentExport",
                     "version": env!("CARGO_PKG_VERSION"),
                 }
             }),

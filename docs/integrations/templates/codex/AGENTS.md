@@ -1,4 +1,4 @@
-# BeamMe Project Workflow
+# AgentExport Project Workflow
 
 当你在这个项目里需要：
 
@@ -9,9 +9,9 @@
 优先调用这些本地命令：
 
 ```bash
-BeamMe publish archive-index --workspace-root .
-BeamMe search semantic --workspace-root . --query "<query>" --save-report
-BeamMe search hybrid --workspace-root . --query "<query>" --save-report
+AgentExport publish archive-index --workspace-root .
+AgentExport search semantic --workspace-root . --query "<query>" --save-report
+AgentExport search hybrid --workspace-root . --query "<query>" --save-report
 ```
 
 规则：

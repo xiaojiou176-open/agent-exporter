@@ -1,8 +1,8 @@
-use beamme::cli;
+use agent-export::cli;
 
 fn main() {
     if let Err(error) = cli::run() {
-        eprintln!("BeamMe failed: {error:#}");
+        eprintln!("AgentExport failed: {error:#}");
         std::process::exit(1);
     }
 }

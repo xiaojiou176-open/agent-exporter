@@ -5,7 +5,7 @@ description: Run hybrid retrieval and save a local report artifact
 Run:
 
 ```bash
-beamme search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
+agent-export search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
 ```
 
 Then report:

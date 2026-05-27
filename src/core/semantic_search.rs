@@ -80,7 +80,7 @@ impl FastEmbedSemanticEmbedder {
             bail!("failed to resolve local data directory for semantic model storage");
         };
         Ok(data_dir
-            .join("BeamMe")
+            .join("AgentExport")
             .join("models")
             .join(DEFAULT_MODEL_DIR_NAME))
     }
@@ -858,12 +858,12 @@ mod tests {
             concat!(
                 "<!DOCTYPE html><html><head>",
                 "<title>demo transcript</title>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Demo transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Demo transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-1\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "<style>.hidden { display:none; }</style>",
                 "</head><body><h1>Login issue</h1><p>Auth flow broken</p></body></html>"
             ),
@@ -934,12 +934,12 @@ mod tests {
             archive_dir.join("auth.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Auth transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"auth-thread\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Auth transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"auth-thread\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body><p>login auth bug</p></body></html>"
             ),
         )
@@ -974,12 +974,12 @@ mod tests {
             archive_dir.join("auth.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Auth transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"auth-thread\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Auth transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"auth-thread\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body><p>login auth bug</p></body></html>"
             ),
         )
@@ -1014,12 +1014,12 @@ mod tests {
             archive_dir.join("thread-1.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"General transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"General transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-1\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body><p>misc notes only</p></body></html>"
             ),
         )
@@ -1028,12 +1028,12 @@ mod tests {
             archive_dir.join("thread-2.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"General transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-2\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"General transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-2\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body><p>misc notes only</p></body></html>"
             ),
         )
@@ -1093,12 +1093,12 @@ mod tests {
             archive_dir.join("demo.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Demo transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Demo transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-1\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body><p>real transcript</p></body></html>"
             ),
         )
@@ -1135,12 +1135,12 @@ mod tests {
             archive_dir.join("demo.html"),
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"BeamMe:thread-display-name\" content=\"Demo transcript\">",
-                "<meta name=\"BeamMe:connector\" content=\"codex\">",
-                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
-                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
-                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"AgentExport:thread-display-name\" content=\"Demo transcript\">",
+                "<meta name=\"AgentExport:connector\" content=\"codex\">",
+                "<meta name=\"AgentExport:thread-id\" content=\"thread-1\">",
+                "<meta name=\"AgentExport:completeness\" content=\"complete\">",
+                "<meta name=\"AgentExport:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"AgentExport:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body><p>real transcript</p></body></html>"
             ),
         )

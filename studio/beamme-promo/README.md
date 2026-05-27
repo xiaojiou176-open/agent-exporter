@@ -1,4 +1,4 @@
-# BeamMe Promo Source
+# AgentExport Promo Source
 
 This studio lane owns the source for the repo's public-facing promo reel.
 
@@ -11,7 +11,7 @@ It is intentionally separate from `docs/`:
 ## Local preview
 
 ```bash
-cd studio/BeamMe-promo
+cd studio/AgentExport-promo
 pnpm install
 pnpm studio
 ```
@@ -24,5 +24,5 @@ pnpm studio
 
 That script renders:
 
-- `docs/assets/media/BeamMe-promo.mp4`
-- `docs/assets/media/BeamMe-promo-poster.png`
+- `docs/assets/media/AgentExport-promo.mp4`
+- `docs/assets/media/AgentExport-promo-poster.png`

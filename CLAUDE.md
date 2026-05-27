@@ -1,4 +1,4 @@
-# BeamMe CLAUDE Guide
+# AgentExport CLAUDE Guide
 
 ## Quick Index
 
@@ -15,7 +15,7 @@
 - Current implementation delivery is **Codex dual-source export + minimal Claude Code session-path export + shared JSON/HTML export + local archive index + local metadata search + semantic retrieval + hybrid retrieval + local multi-agent archive shell + local retrieval report artifacts + workspace-local transcript backlinks + local reports shell + reports-shell metadata search + repo-owned integration materializer/doctor + integration doctor hardening + platform-aware integration doctor diagnostics + integration pack-shape hardening + integration onboarding experience + integration evidence pack + integration evidence shell search + machine-readable integration evidence + integration evidence timeline/diff + evidence gate / explain + baseline registry + policy packs + promotion engine/history + remediation bundle studio + read-only governance MCP surface + current-decision automation + local governance workbench**.
 - Current integration-pack semantics:
   - Codex and Claude Code are ready through CLI-first templates plus an optional minimal stdio MCP bridge
-  - the MCP bridge resolves repo-local launcher paths before any explicit `BEAMME_BIN` / `BEAMME_ARGS` override
+  - the MCP bridge resolves repo-local launcher paths before any explicit `AGENT_EXPORT_BIN` / `AGENT_EXPORT_ARGS` override
   - OpenClaw is prepared as bundle content and plugin skeletons, not as a repo-native runtime
   - `integrate <platform> --target <dir>` materializes repo-owned assets into explicit targets only
   - `doctor integrations --platform <platform> --target <dir>` stays read-only and reports `ready / partial / missing`
@@ -29,12 +29,12 @@
   - integration evidence reports are integration-owned artifacts and must not be re-ingested into transcript/search corpora
   - the integration evidence front door now supports static shell search/facets for `platform` and `readiness`
   - integration evidence now also writes paired `report.html + report.json` artifacts plus `index.html + index.json`
-  - `BeamMe evidence diff --left <report> --right <report>` now compares saved integration evidence snapshots without rerunning doctor/onboard
-  - `BeamMe evidence gate --baseline <report> --candidate <report>` now classifies evidence as `pass / warn / fail`
-  - `BeamMe evidence explain --report <report>` and `doctor integrations --explain` now expose remediation order
-  - `BeamMe evidence baseline list|show|promote` now manages the official baseline registry
-  - `BeamMe evidence policy list|show` now exposes repo-owned governance policy packs
-  - `BeamMe evidence promote` / `evidence history` now record decision promotion and auditable governance history
+  - `AgentExport evidence diff --left <report> --right <report>` now compares saved integration evidence snapshots without rerunning doctor/onboard
+  - `AgentExport evidence gate --baseline <report> --candidate <report>` now classifies evidence as `pass / warn / fail`
+  - `AgentExport evidence explain --report <report>` and `doctor integrations --explain` now expose remediation order
+  - `AgentExport evidence baseline list|show|promote` now manages the official baseline registry
+  - `AgentExport evidence policy list|show` now exposes repo-owned governance policy packs
+  - `AgentExport evidence promote` / `evidence history` now record decision promotion and auditable governance history
   - the MCP bridge now also exposes read-only governance consumption tools
 - The repository is designed to grow into multiple connectors later, but not all at once.
 - Current export semantics stay aligned with CodexMonitor:

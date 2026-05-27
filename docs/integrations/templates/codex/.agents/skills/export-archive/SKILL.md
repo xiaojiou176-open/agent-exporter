@@ -7,7 +7,7 @@ disable-model-invocation: true
 Run:
 
 ```bash
-beamme publish archive-index --workspace-root .
+agent-export publish archive-index --workspace-root .
 ```
 
 Return:
