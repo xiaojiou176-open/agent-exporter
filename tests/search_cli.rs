@@ -12,12 +12,12 @@ fn write_transcript_fixture(workspace_root: &Path, file_name: &str, title: &str,
         format!(
             concat!(
                 "<!DOCTYPE html><html><head>",
-                "<meta name=\"agent-exporter:thread-display-name\" content=\"{title}\">",
-                "<meta name=\"agent-exporter:connector\" content=\"codex\">",
-                "<meta name=\"agent-exporter:thread-id\" content=\"thread-1\">",
-                "<meta name=\"agent-exporter:completeness\" content=\"complete\">",
-                "<meta name=\"agent-exporter:source-kind\" content=\"app-server-thread-read\">",
-                "<meta name=\"agent-exporter:exported-at\" content=\"2026-04-05T00:00:00Z\">",
+                "<meta name=\"BeamMe:thread-display-name\" content=\"{title}\">",
+                "<meta name=\"BeamMe:connector\" content=\"codex\">",
+                "<meta name=\"BeamMe:thread-id\" content=\"thread-1\">",
+                "<meta name=\"BeamMe:completeness\" content=\"complete\">",
+                "<meta name=\"BeamMe:source-kind\" content=\"app-server-thread-read\">",
+                "<meta name=\"BeamMe:exported-at\" content=\"2026-04-05T00:00:00Z\">",
                 "</head><body><p>{body}</p></body></html>"
             ),
             title = title,
@@ -63,7 +63,7 @@ fn maybe_model_dir() -> Option<PathBuf> {
 #[test]
 fn semantic_search_requires_query() {
     let workspace = tempdir().expect("workspace");
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("search")
         .arg("semantic")
@@ -79,7 +79,7 @@ fn semantic_search_requires_query() {
 #[test]
 fn hybrid_search_requires_query() {
     let workspace = tempdir().expect("workspace");
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("search")
         .arg("hybrid")
@@ -97,7 +97,7 @@ fn semantic_search_errors_when_model_dir_is_missing() {
     let workspace = tempdir().expect("workspace");
     let missing_model_dir = workspace.path().join("missing-model");
 
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("search")
         .arg("semantic")
@@ -118,7 +118,7 @@ fn hybrid_search_errors_when_model_dir_is_missing() {
     let workspace = tempdir().expect("workspace");
     let missing_model_dir = workspace.path().join("missing-model");
 
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("search")
         .arg("hybrid")
@@ -136,7 +136,7 @@ fn hybrid_search_errors_when_model_dir_is_missing() {
 
 #[test]
 fn semantic_search_help_describes_embedding_based_retrieval() {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command.arg("search").arg("semantic").arg("--help");
 
     command
@@ -151,7 +151,7 @@ fn semantic_search_help_describes_embedding_based_retrieval() {
 
 #[test]
 fn hybrid_search_help_describes_blended_retrieval() {
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command.arg("search").arg("hybrid").arg("--help");
 
     command
@@ -178,7 +178,7 @@ fn semantic_search_save_report_writes_html_report_when_model_assets_exist() {
         "How do I fix login issues in auth flow?",
     );
 
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("search")
         .arg("semantic")
@@ -199,7 +199,7 @@ fn semantic_search_save_report_writes_html_report_when_model_assets_exist() {
     let reports = report_files(workspace.path());
     assert_eq!(reports.len(), 1);
     let content = fs::read_to_string(&reports[0]).expect("report content");
-    assert!(content.contains("agent-exporter:report-kind"));
+    assert!(content.contains("BeamMe:report-kind"));
     assert!(content.contains("Semantic Retrieval Report"));
     assert!(content.contains("../../Conversations/index.html"));
 }
@@ -218,7 +218,7 @@ fn hybrid_search_save_report_writes_html_report_when_model_assets_exist() {
         "How do I fix login issues in auth flow?",
     );
 
-    let mut command = Command::cargo_bin("agent-exporter").expect("binary should build");
+    let mut command = Command::cargo_bin("BeamMe").expect("binary should build");
     command
         .arg("search")
         .arg("hybrid")
@@ -239,7 +239,7 @@ fn hybrid_search_save_report_writes_html_report_when_model_assets_exist() {
     let reports = report_files(workspace.path());
     assert_eq!(reports.len(), 1);
     let content = fs::read_to_string(&reports[0]).expect("report content");
-    assert!(content.contains("agent-exporter:report-kind"));
+    assert!(content.contains("BeamMe:report-kind"));
     assert!(content.contains("Hybrid Retrieval Report"));
     assert!(content.contains("lexical score"));
 }

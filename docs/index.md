@@ -1,7 +1,7 @@
 ---
-title: agent-exporter
+title: BeamMe
 description: Archive and governance workbench for AI agent transcripts, with a quickstart path and archive-shell proof routing.
-image: /assets/media/agent-exporter-social-card.png
+image: /assets/media/BeamMe-social-card.png
 ---
 
 <style>
@@ -23,7 +23,7 @@ image: /assets/media/agent-exporter-social-card.png
     <p class="ae-kicker">archive and governance workbench</p>
     <h1>Export one transcript, then open a local archive workbench.</h1>
     <p class="ae-lead">
-      <code>agent-exporter</code> keeps the front door honest:
+      <code>BeamMe</code> keeps the front door honest:
       run <code>scaffold</code> and <code>connectors</code>, export one HTML receipt, then publish the archive shell.
       This companion page exists to lower orientation cost after that:
       show the result, point at the proof, then open the right lane.
@@ -31,7 +31,7 @@ image: /assets/media/agent-exporter-social-card.png
     <div class="ae-actions">
       <a class="ae-button ae-button-primary" href="#first-success">Try the first success path</a>
       <a class="ae-button" href="./archive-shell-proof.html">Inspect archive shell proof</a>
-      <a class="ae-button" href="https://github.com/xiaojiou176-open/agent-exporter">Open GitHub front door</a>
+      <a class="ae-button" href="https://github.com/xiaojiou176-open/BeamMe">Open GitHub front door</a>
     </div>
     <p class="ae-caption">
       Pages is a <strong>companion docs surface</strong>.
@@ -106,7 +106,7 @@ image: /assets/media/agent-exporter-social-card.png
   </div>
   <figure class="ae-media-card">
     <a href="./promo-reel.html">
-      <img src="./assets/media/agent-exporter-promo-poster.png" alt="Poster frame from the agent-exporter promo reel">
+      <img src="./assets/media/BeamMe-promo-poster.png" alt="Poster frame from the BeamMe promo reel">
     </a>
     <figcaption class="ae-caption">
       Promo reel: a short visual walkthrough of the transcript-first workbench, proof ladder, and lane hierarchy.
@@ -116,7 +116,7 @@ image: /assets/media/agent-exporter-social-card.png
     <article class="ae-proof-card">
       <p class="ae-mini-label">share-ready asset</p>
       <h3>Social card</h3>
-      <p>Need a single-frame preview for a post, chat share, or reviewer packet? Use the <a href="./assets/media/agent-exporter-social-card.png">social card image</a>.</p>
+      <p>Need a single-frame preview for a post, chat share, or reviewer packet? Use the <a href="./assets/media/BeamMe-social-card.png">social card image</a>.</p>
     </article>
     <article class="ae-proof-card">
       <p class="ae-mini-label">distribution-prep</p>

@@ -2,7 +2,7 @@
 
 这份文档记录的是：
 
-> 做 `agent-exporter` 时，哪些外部仓真的值得参考，  
+> 做 `BeamMe` 时，哪些外部仓真的值得参考，  
 > 以及每个仓到底该借哪一层、不该抄哪一层。
 
 这里的原则很简单：
@@ -106,7 +106,7 @@
 
 ## 当前参考优先级矩阵
 
-| Repo | 现在值不值得看 | 该借哪一层 | 不该照抄哪一层 | 对 `agent-exporter` 的角色 |
+| Repo | 现在值不值得看 | 该借哪一层 | 不该照抄哪一层 | 对 `BeamMe` 的角色 |
 | --- | --- | --- | --- | --- |
 | `claude-conversation-extractor` | 必须看 | local direct-read、detailed transcript、offline framing | 单来源、小工具整体形态 | `local source` 参考 |
 | `claude-code-log` | 必须看 | 项目层级导出、TUI 浏览、HTML/Markdown 双输出 | 浏览器日志站式产品重心 | 输出层 / 浏览层参考 |

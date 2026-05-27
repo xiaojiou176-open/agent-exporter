@@ -10,7 +10,7 @@ Start with the smallest proof path:
 
 Expected outcome:
 
-- the host can talk to `agent-exporter`
+- the host can talk to `BeamMe`
 - the bridge responds with governance data
 - no hosted or listing claim is needed
 

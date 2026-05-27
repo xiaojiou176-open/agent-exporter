@@ -1,4 +1,4 @@
-# agent-exporter CLAUDE Guide
+# BeamMe CLAUDE Guide
 
 ## Quick Index
 
@@ -29,12 +29,12 @@
   - integration evidence reports are integration-owned artifacts and must not be re-ingested into transcript/search corpora
   - the integration evidence front door now supports static shell search/facets for `platform` and `readiness`
   - integration evidence now also writes paired `report.html + report.json` artifacts plus `index.html + index.json`
-  - `agent-exporter evidence diff --left <report> --right <report>` now compares saved integration evidence snapshots without rerunning doctor/onboard
-  - `agent-exporter evidence gate --baseline <report> --candidate <report>` now classifies evidence as `pass / warn / fail`
-  - `agent-exporter evidence explain --report <report>` and `doctor integrations --explain` now expose remediation order
-  - `agent-exporter evidence baseline list|show|promote` now manages the official baseline registry
-  - `agent-exporter evidence policy list|show` now exposes repo-owned governance policy packs
-  - `agent-exporter evidence promote` / `evidence history` now record decision promotion and auditable governance history
+  - `BeamMe evidence diff --left <report> --right <report>` now compares saved integration evidence snapshots without rerunning doctor/onboard
+  - `BeamMe evidence gate --baseline <report> --candidate <report>` now classifies evidence as `pass / warn / fail`
+  - `BeamMe evidence explain --report <report>` and `doctor integrations --explain` now expose remediation order
+  - `BeamMe evidence baseline list|show|promote` now manages the official baseline registry
+  - `BeamMe evidence policy list|show` now exposes repo-owned governance policy packs
+  - `BeamMe evidence promote` / `evidence history` now record decision promotion and auditable governance history
   - the MCP bridge now also exposes read-only governance consumption tools
 - The repository is designed to grow into multiple connectors later, but not all at once.
 - Current export semantics stay aligned with CodexMonitor:

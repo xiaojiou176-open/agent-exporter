@@ -1,7 +1,7 @@
 ---
 title: Docs Index
-description: Documentation hub for agent-exporter public pages, proof shelves, and companion lanes.
-image: /assets/media/agent-exporter-social-card.png
+description: Documentation hub for BeamMe public pages, proof shelves, and companion lanes.
+image: /assets/media/BeamMe-social-card.png
 permalink: /docs-index.html
 ---
 
@@ -14,13 +14,13 @@ permalink: /docs-index.html
     <p class="ae-kicker">documentation hub</p>
     <h1>Use this hub only after the front door has told you what the product is and what to run first.</h1>
     <p class="ae-lead">
-      This is the documentation hub for <code>agent-exporter</code>.
+      This is the documentation hub for <code>BeamMe</code>.
       It is designed to reduce navigation overhead after first orientation:
       lock the product sentence, run the shortest truthful path, then come here for the matching shelf.
       If you still need the product story itself, go back to the flagship front door first.
     </p>
     <div class="ae-actions">
-      <a class="ae-button ae-button-primary" href="https://github.com/xiaojiou176-open/agent-exporter">Open GitHub front door</a>
+      <a class="ae-button ae-button-primary" href="https://github.com/xiaojiou176-open/BeamMe">Open GitHub front door</a>
       <a class="ae-button" href="./archive-shell-proof.html">Open archive proof</a>
       <a class="ae-button" href="./repo-map.html">Open repo map</a>
     </div>
@@ -63,7 +63,7 @@ permalink: /docs-index.html
   <article class="ae-proof-card">
     <p class="ae-mini-label">front door</p>
     <h3>What is the product and what should I do first?</h3>
-    <p><a href="https://github.com/xiaojiou176-open/agent-exporter">Open the GitHub front door</a> when you still need the product sentence and first success path.</p>
+    <p><a href="https://github.com/xiaojiou176-open/BeamMe">Open the GitHub front door</a> when you still need the product sentence and first success path.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">visual companion</p>
@@ -103,7 +103,7 @@ permalink: /docs-index.html
     <article class="ae-surface-card">
       <p class="ae-mini-label">Product kernel</p>
       <h3>Archive and governance workbench</h3>
-      <p><code>agent-exporter</code> is an <strong>archive and governance workbench</strong> that stays grounded in inspectable artifacts and proof rather than a hosted platform story.</p>
+      <p><code>BeamMe</code> is an <strong>archive and governance workbench</strong> that stays grounded in inspectable artifacts and proof rather than a hosted platform story.</p>
     </article>
     <article class="ae-surface-card">
       <p class="ae-mini-label">Primary surface</p>
@@ -135,12 +135,12 @@ permalink: /docs-index.html
   </div>
 
 <ul class="ae-bullet-list">
-  <li>If you want to decide whether the repo is worth trying once, open the <a href="https://github.com/xiaojiou176-open/agent-exporter">GitHub front door</a> and follow the first-success strip: <code>scaffold</code> + <code>connectors</code> -> HTML receipt -> archive shell.</li>
+  <li>If you want to decide whether the repo is worth trying once, open the <a href="https://github.com/xiaojiou176-open/BeamMe">GitHub front door</a> and follow the first-success strip: <code>scaffold</code> + <code>connectors</code> -> HTML receipt -> archive shell.</li>
   <li>If you want the first truthful visible proof, open <a href="./archive-shell-proof.html">archive shell proof</a>.</li>
   <li>If you want the structure of the workbench, open the <a href="./repo-map.html">repo map</a>.</li>
   <li>If you want registry or packet/listing truth, open the <a href="./distribution-packet-ledger.html">distribution packet ledger</a>.</li>
-  <li>If you want host-native packet lanes, open the <a href="https://github.com/xiaojiou176-open/agent-exporter/blob/main/public-skills/README.md">public skills packet</a>.</li>
-  <li>If you want a local browser cockpit for Codex export or workspace-local Claude session export after the CLI path is already clear, run <code>agent-exporter ui cockpit --workspace-root /absolute/path/to/repo</code>.</li>
+  <li>If you want host-native packet lanes, open the <a href="https://github.com/xiaojiou176-open/BeamMe/blob/main/public-skills/README.md">public skills packet</a>.</li>
+  <li>If you want a local browser cockpit for Codex export or workspace-local Claude session export after the CLI path is already clear, run <code>BeamMe ui cockpit --workspace-root /absolute/path/to/repo</code>.</li>
 </ul>
 
 </section>
@@ -195,7 +195,7 @@ permalink: /docs-index.html
     <article class="ae-proof-card">
       <p class="ae-mini-label">Companion docs home</p>
       <h3>Pages landing</h3>
-      <p><code>https://xiaojiou176-open.github.io/agent-exporter/</code></p>
+      <p><code>https://xiaojiou176-open.github.io/BeamMe/</code></p>
       <div class="ae-inline-links">
         <a class="ae-button" href="./">Open Pages landing</a>
       </div>
@@ -203,7 +203,7 @@ permalink: /docs-index.html
     <article class="ae-proof-card">
       <p class="ae-mini-label">Proof page</p>
       <h3>Archive shell proof</h3>
-      <p><code>https://xiaojiou176-open.github.io/agent-exporter/archive-shell-proof.html</code></p>
+      <p><code>https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html</code></p>
       <div class="ae-inline-links">
         <a class="ae-button" href="./archive-shell-proof.html">Open archive shell proof</a>
       </div>
@@ -211,7 +211,7 @@ permalink: /docs-index.html
     <article class="ae-proof-card">
       <p class="ae-mini-label">Structure page</p>
       <h3>Repo map</h3>
-      <p><code>https://xiaojiou176-open.github.io/agent-exporter/repo-map.html</code></p>
+      <p><code>https://xiaojiou176-open.github.io/BeamMe/repo-map.html</code></p>
       <div class="ae-inline-links">
         <a class="ae-button" href="./repo-map.html">Open repo map</a>
       </div>
@@ -219,9 +219,9 @@ permalink: /docs-index.html
     <article class="ae-proof-card">
       <p class="ae-mini-label">Published shelf</p>
       <h3>Latest release</h3>
-      <p><code>https://github.com/xiaojiou176-open/agent-exporter/releases/latest</code></p>
+      <p><code>https://github.com/xiaojiou176-open/BeamMe/releases/latest</code></p>
       <div class="ae-inline-links">
-        <a class="ae-button" href="https://github.com/xiaojiou176-open/agent-exporter/releases/latest">Open latest release</a>
+        <a class="ae-button" href="https://github.com/xiaojiou176-open/BeamMe/releases/latest">Open latest release</a>
       </div>
     </article>
   </div>
@@ -233,8 +233,8 @@ permalink: /docs-index.html
       <p class="ae-kicker">secondary local stdio host packet</p>
       <h2>Keep this packet small, narrow, and honest.</h2>
       <ul class="ae-bullet-list">
-        <li><a href="https://github.com/xiaojiou176-open/agent-exporter/blob/main/llms-install.md">llms-install.md on GitHub</a> for the shortest attach path</li>
-        <li><a href="https://github.com/xiaojiou176-open/agent-exporter/blob/main/server.json">server.json on GitHub</a> for the canonical descriptor</li>
+        <li><a href="https://github.com/xiaojiou176-open/BeamMe/blob/main/llms-install.md">llms-install.md on GitHub</a> for the shortest attach path</li>
+        <li><a href="https://github.com/xiaojiou176-open/BeamMe/blob/main/server.json">server.json on GitHub</a> for the canonical descriptor</li>
         <li>marketplace logo/proof tile only for reviewer lanes</li>
       </ul>
     </article>
@@ -309,7 +309,7 @@ permalink: /docs-index.html
   <article class="ae-proof-card">
     <p class="ae-mini-label">MCP descriptor</p>
     <h3>Canonical registry/read-back descriptor</h3>
-    <p>The root <a href="https://github.com/xiaojiou176-open/agent-exporter/blob/main/server.json"><code>server.json</code></a> remains the canonical local stdio bridge descriptor.</p>
+    <p>The root <a href="https://github.com/xiaojiou176-open/BeamMe/blob/main/server.json"><code>server.json</code></a> remains the canonical local stdio bridge descriptor.</p>
   </article>
   <article class="ae-proof-card">
     <p class="ae-mini-label">governance lane</p>
@@ -327,7 +327,7 @@ permalink: /docs-index.html
       <h2>Use packet/listing files only when lane truth matters.</h2>
       <ul class="ae-bullet-list">
         <li><a href="./distribution-packet-ledger.html">distribution packet ledger</a></li>
-        <li><a href="https://github.com/xiaojiou176-open/agent-exporter/blob/main/public-skills/README.md">public-skills packet README</a></li>
+        <li><a href="https://github.com/xiaojiou176-open/BeamMe/blob/main/public-skills/README.md">public-skills packet README</a></li>
       </ul>
       <p>Those files hold <code>listed-live</code>, <code>review-pending</code>, <code>platform-not-accepted-yet</code>, <code>closed-not-accepted</code>, <code>build-contract-blocked</code>, and <code>exact_blocker_with_fresh_evidence</code> states without turning packet status into the first screen.</p>
     </article>

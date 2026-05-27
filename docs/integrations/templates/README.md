@@ -4,7 +4,7 @@
 
 你可以先这样理解：
 
-> 这层负责把 `agent-exporter` 的命令、技能、bundle 内容和最小 MCP bridge
+> 这层负责把 `BeamMe` 的命令、技能、bundle 内容和最小 MCP bridge
 > 打包成开发者能直接复制的模板，
 > 但不会替你猜宿主机上的最终安装目录。
 
@@ -28,13 +28,13 @@
 所有 `.mcp.json` / `config.toml` snippet 默认都只需要指向：
 
 - `python3`
-- `/absolute/path/to/agent-exporter/scripts/agent_exporter_mcp.py`
+- `/absolute/path/to/BeamMe/scripts/agent_exporter_mcp.py`
 
 bridge 自己会按顺序尝试：
 
-1. repo-local `target/release/agent-exporter`
-2. repo-local `target/debug/agent-exporter`
-3. `cargo run --manifest-path <repo>/Cargo.toml --bin agent-exporter --`
+1. repo-local `target/release/BeamMe`
+2. repo-local `target/debug/BeamMe`
+3. `cargo run --manifest-path <repo>/Cargo.toml --bin BeamMe --`
 
 如果你有更稳定的安装方式，再额外设置：
 
@@ -53,9 +53,9 @@ bridge 自己会按顺序尝试：
 如果你不想手工复制模板目录，现在已经可以直接让仓库替你把这些材料化到一个显式 target：
 
 ```bash
-agent-exporter integrate codex --target /absolute/path/to/codex-pack
-agent-exporter integrate claude-code --target /absolute/path/to/claude-pack
-agent-exporter integrate openclaw --target /absolute/path/to/openclaw-pack
+BeamMe integrate codex --target /absolute/path/to/codex-pack
+BeamMe integrate claude-code --target /absolute/path/to/claude-pack
+BeamMe integrate openclaw --target /absolute/path/to/openclaw-pack
 ```
 
 它只会写到你明确给出的 target 下，不会静默改你的 `~/.codex`、`~/.claude` 或 OpenClaw host 目录。
@@ -72,7 +72,7 @@ agent-exporter integrate openclaw --target /absolute/path/to/openclaw-pack
 材料化之后，可以再用 doctor 做只读验收：
 
 ```bash
-agent-exporter doctor integrations --platform codex --target /absolute/path/to/codex-pack
+BeamMe doctor integrations --platform codex --target /absolute/path/to/codex-pack
 ```
 
 doctor 会检查：
@@ -103,9 +103,9 @@ doctor 会检查：
 如果你更想要一条一次性更顺手的 first-run 路径，现在已经可以直接用：
 
 ```bash
-agent-exporter onboard codex --target /absolute/path/to/codex-pack
-agent-exporter onboard claude-code --target /absolute/path/to/claude-pack
-agent-exporter onboard openclaw --target /absolute/path/to/openclaw-pack
+BeamMe onboard codex --target /absolute/path/to/codex-pack
+BeamMe onboard claude-code --target /absolute/path/to/claude-pack
+BeamMe onboard openclaw --target /absolute/path/to/openclaw-pack
 ```
 
 它会：

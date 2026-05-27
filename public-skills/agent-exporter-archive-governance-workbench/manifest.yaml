@@ -2,8 +2,8 @@ schema_version: 1
 artifact: public-skill-listing-manifest
 
 skill:
-  name: agent-exporter-archive-governance-workbench
-  display_name: agent-exporter Archive Governance Workbench
+  name: BeamMe-archive-governance-workbench
+  display_name: BeamMe Archive Governance Workbench
   version: 1.0.0
   entrypoint: SKILL.md
   package_shape: skill-folder
@@ -12,8 +12,8 @@ registry_targets:
   clawhub:
     status: listed-live
     package_shape: skill-folder
-    submit_via: clawhub publish . --slug agent-exporter-archive-governance-workbench --name "agent-exporter Archive Governance Workbench" --version 1.0.0 --tags ai-agents,archive,governance,mcp,local-first
-    read_back: clawhub inspect agent-exporter-archive-governance-workbench --no-input
+    submit_via: clawhub publish . --slug BeamMe-archive-governance-workbench --name "BeamMe Archive Governance Workbench" --version 1.0.0 --tags ai-agents,archive,governance,mcp,local-first
+    read_back: clawhub inspect BeamMe-archive-governance-workbench --no-input
   goose-skills-marketplace:
     status: review-pending
     package_shape: skill-folder
@@ -26,7 +26,7 @@ registry_targets:
   openhands-extensions:
     status: closed-not-accepted
     package_shape: skill-folder
-    submit_via: submit this folder as skills/agent-exporter-archive-governance-workbench/ in OpenHands/extensions
+    submit_via: submit this folder as skills/BeamMe-archive-governance-workbench/ in OpenHands/extensions
     submission_ref: https://github.com/OpenHands/extensions/pull/162
     blocker: Maintainer closed the lane and pointed contributors to a custom marketplace.json distribution alternative instead of an upstream listing.
   awesome-opencode:
@@ -35,7 +35,7 @@ registry_targets:
     blocker: The current packet is a host-native skill folder for a local-first archive/governance workbench, not an honest opencode-native project/resource entry today.
 
 boundaries:
-  product_identity: Local-first archive and governance workbench packet for agent-exporter.
+  product_identity: Local-first archive and governance workbench packet for BeamMe.
   canonical_repo_version: 0.1.10
   listing_state_summary: Official MCP Registry published; ClawHub listed-live; Goose review-pending; agent-skill.co blocked by external Vercel authorization; OpenHands/extensions closed-not-accepted; Smithery repo-root publish currently build-contract-blocked; awesome-opencode exact_blocker_with_fresh_evidence.
   not_claimed:

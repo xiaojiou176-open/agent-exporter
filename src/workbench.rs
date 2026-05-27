@@ -68,7 +68,7 @@ pub fn refresh_workspace_workbench(workspace_root: &Path) -> Result<WorkbenchRef
         .and_then(|name| name.to_str())
         .map(|name| format!("{name} archive index"))
         .filter(|value| !value.trim().is_empty())
-        .unwrap_or_else(|| "agent-exporter archive index".to_string());
+        .unwrap_or_else(|| "BeamMe archive index".to_string());
     let generated_at = Utc::now().to_rfc3339();
     let input_fingerprint = compute_refresh_input_fingerprint(workspace_root)?;
     let previous_manifest = read_refresh_manifest_document(workspace_root)?;

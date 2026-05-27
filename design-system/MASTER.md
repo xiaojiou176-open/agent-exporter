@@ -1,4 +1,4 @@
-# agent-exporter Design System
+# BeamMe Design System
 
 ## Purpose
 
@@ -10,7 +10,7 @@
 说得更直白一点：
 
 > 它不是“给页面加点样式”的笔记，
-> 而是规定 `agent-exporter` 应该长得像什么、先讲什么、绝不能装成什么。
+> 而是规定 `BeamMe` 应该长得像什么、先讲什么、绝不能装成什么。
 
 ---
 
@@ -79,7 +79,7 @@
 
 ### 为什么这样
 
-`agent-exporter` 的可信度来自：
+`BeamMe` 的可信度来自：
 
 1. 它像工程工具，而不是营销页
 2. 它有明确的 proof boundary

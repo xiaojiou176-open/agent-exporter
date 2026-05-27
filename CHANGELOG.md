@@ -47,7 +47,7 @@ The format is based on Keep a Changelog.
 ## [0.1.5] - 2026-04-21
 
 ### Added
-- a local `agent-exporter ui cockpit` WebUI that auto-discovers workspace-relevant Codex threads and exports them through the canonical backend path
+- a local `BeamMe ui cockpit` WebUI that auto-discovers workspace-relevant Codex threads and exports them through the canonical backend path
 - optional AI export summary sidecars for both `export codex` and `export claude-code`
 - explicit `--ai-summary-profile`, `--ai-summary-model`, and `--ai-summary-provider` controls for AI summary generation
 - `ui_cockpit_cli` and `ui_cockpit_e2e` coverage for the cockpit command and AI summary control surface
@@ -67,7 +67,7 @@ The format is based on Keep a Changelog.
 ## [0.1.3] - 2026-04-20
 
 ### Added
-- Official MCP Registry publication for `io.github.xiaojiou176-open/agent-exporter-mcp`
+- Official MCP Registry publication for `io.github.xiaojiou176-open/BeamMe-mcp`
 
 ### Changed
 - public packet truth now records Official MCP Registry as live instead of a missing lane

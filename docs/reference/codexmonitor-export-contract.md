@@ -2,7 +2,7 @@
 
 这份文档回答一个最基础的问题：
 
-> 如果 `agent-exporter` 要从 CodexMonitor 当前能力里“继承导出语义”，那我们到底必须继承什么？
+> 如果 `BeamMe` 要从 CodexMonitor 当前能力里“继承导出语义”，那我们到底必须继承什么？
 
 说得更直白一点：
 
@@ -67,7 +67,7 @@
 - 当 `isComplete = false` 时，提示  
   `当前导出来自 live fallback，可能缺少尚未 materialize 的历史。`
 
-这点很关键，因为它提醒未来 `agent-exporter`：
+这点很关键，因为它提醒未来 `BeamMe`：
 
 > 不能把“能导出来”误包装成“完整历史已经被证明导出来了”。
 
@@ -109,7 +109,7 @@
 
 ---
 
-## 未来 `agent-exporter` 应该怎么继承
+## 未来 `BeamMe` 应该怎么继承
 
 ### v1 必须继承
 
@@ -130,7 +130,7 @@
 
 ---
 
-## 当前 `agent-exporter` dual-source 落地状态
+## 当前 `BeamMe` dual-source 落地状态
 
 当前仓已经把下面两层入口真正落到了实现里：
 
@@ -149,7 +149,7 @@
 
 说得更直白一点：
 
-> `agent-exporter` 现在不是“只有正门”，而是“正门 + 侧门都已经装好”。
+> `BeamMe` 现在不是“只有正门”，而是“正门 + 侧门都已经装好”。
 > 但正门仍然是 `app-server`，local 侧门不能反过来改写 CodexMonitor 的 canonical contract。
 
 ---

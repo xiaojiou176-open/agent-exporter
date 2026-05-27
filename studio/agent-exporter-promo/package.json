@@ -1,14 +1,14 @@
 {
-  "name": "agent-exporter-promo",
+  "name": "BeamMe-promo",
   "private": true,
   "version": "0.1.0",
   "scripts": {
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts AgentExporterPromo ../../docs/assets/media/agent-exporter-promo.mp4 --codec=h264",
-    "poster": "remotion still src/index.ts AgentExporterPromo ../../docs/assets/media/agent-exporter-promo-poster.png --frame=60",
-    "social-card": "remotion still src/index.ts AgentExporterSocialCard ../../docs/assets/media/agent-exporter-social-card.png",
-    "vertical": "remotion render src/index.ts AgentExporterVerticalPromo ../../docs/assets/media/agent-exporter-promo-vertical.mp4 --codec=h264",
-    "vertical-poster": "remotion still src/index.ts AgentExporterVerticalPromo ../../docs/assets/media/agent-exporter-promo-vertical-poster.png --frame=360"
+    "render": "remotion render src/index.ts AgentExporterPromo ../../docs/assets/media/BeamMe-promo.mp4 --codec=h264",
+    "poster": "remotion still src/index.ts AgentExporterPromo ../../docs/assets/media/BeamMe-promo-poster.png --frame=60",
+    "social-card": "remotion still src/index.ts AgentExporterSocialCard ../../docs/assets/media/BeamMe-social-card.png",
+    "vertical": "remotion render src/index.ts AgentExporterVerticalPromo ../../docs/assets/media/BeamMe-promo-vertical.mp4 --codec=h264",
+    "vertical-poster": "remotion still src/index.ts AgentExporterVerticalPromo ../../docs/assets/media/BeamMe-promo-vertical-poster.png --frame=360"
   },
   "dependencies": {
     "react": "19.2.0",

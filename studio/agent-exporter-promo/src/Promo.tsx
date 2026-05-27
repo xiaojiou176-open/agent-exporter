@@ -171,7 +171,7 @@ export const AgentExporterPromo: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      <Audio src={staticFile("agent-exporter-promo-landscape-voiceover.m4a")} volume={0.92} />
+      <Audio src={staticFile("BeamMe-promo-landscape-voiceover.m4a")} volume={0.92} />
       <AbsoluteFill
         style={{
           opacity: 0.25,

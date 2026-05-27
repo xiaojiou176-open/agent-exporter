@@ -538,7 +538,7 @@ mod tests {
             1000, 1000, 1000, 1280, 1280, 1296, 600, 4200, 200, 200,
         ]);
         let parts =
-            render_markdown_parts(&transcript, "agent-exporter", "2026-04-04T00:00:00Z", 4000);
+            render_markdown_parts(&transcript, "BeamMe", "2026-04-04T00:00:00Z", 4000);
 
         assert_eq!(
             parts
@@ -556,7 +556,7 @@ mod tests {
     fn render_markdown_keeps_round_sections() {
         let transcript = sample_transcript_with_assistant_line_counts(&[2]);
         let parts =
-            render_markdown_parts(&transcript, "agent-exporter", "2026-04-04T00:00:00Z", 4000);
+            render_markdown_parts(&transcript, "BeamMe", "2026-04-04T00:00:00Z", 4000);
 
         assert_eq!(parts.len(), 1);
         assert!(parts[0].content.contains("# 第1轮"));
@@ -592,7 +592,7 @@ mod tests {
         };
 
         let parts =
-            render_markdown_parts(&transcript, "agent-exporter", "2026-04-04T00:00:00Z", 4000);
+            render_markdown_parts(&transcript, "BeamMe", "2026-04-04T00:00:00Z", 4000);
 
         assert!(parts[0].content.contains("synthetic opening"));
     }
@@ -635,7 +635,7 @@ mod tests {
         };
 
         let parts =
-            render_markdown_parts(&transcript, "agent-exporter", "2026-04-04T00:00:00Z", 4000);
+            render_markdown_parts(&transcript, "BeamMe", "2026-04-04T00:00:00Z", 4000);
 
         assert!(parts[0].content.contains("该工具结果过长，已省略"));
         assert!(!parts[0].content.contains("line 21"));

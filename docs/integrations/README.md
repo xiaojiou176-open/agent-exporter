@@ -8,7 +8,7 @@
 
 你可以先把它理解成：
 
-> `agent-exporter` 现在已经是一个稳定的本地 CLI / artifact graph，
+> `BeamMe` 现在已经是一个稳定的本地 CLI / artifact graph，
 > 这一层要做的是把它更容易接进 **Codex / Claude Code / OpenClaw** 的日常工作流。
 
 ## 当前交付边界
@@ -34,17 +34,17 @@
 
 当前仓里已经有两条 repo-owned 接入入口：
 
-- `agent-exporter integrate codex --target <DIR>`
-- `agent-exporter integrate claude-code --target <DIR>`
-- `agent-exporter integrate openclaw --target <DIR>`
-- `agent-exporter doctor integrations --platform <platform> --target <DIR>`
-- `agent-exporter onboard codex --target <DIR>`
-- `agent-exporter onboard claude-code --target <DIR>`
-- `agent-exporter onboard openclaw --target <DIR>`
-- `agent-exporter doctor integrations --platform <platform> --target <DIR> --save-report`
-- `agent-exporter onboard codex --target <DIR> --save-report`
-- `agent-exporter onboard claude-code --target <DIR> --save-report`
-- `agent-exporter onboard openclaw --target <DIR> --save-report`
+- `BeamMe integrate codex --target <DIR>`
+- `BeamMe integrate claude-code --target <DIR>`
+- `BeamMe integrate openclaw --target <DIR>`
+- `BeamMe doctor integrations --platform <platform> --target <DIR>`
+- `BeamMe onboard codex --target <DIR>`
+- `BeamMe onboard claude-code --target <DIR>`
+- `BeamMe onboard openclaw --target <DIR>`
+- `BeamMe doctor integrations --platform <platform> --target <DIR> --save-report`
+- `BeamMe onboard codex --target <DIR> --save-report`
+- `BeamMe onboard claude-code --target <DIR> --save-report`
+- `BeamMe onboard openclaw --target <DIR> --save-report`
 
 你可以把它理解成：
 
@@ -103,11 +103,11 @@
 你可以先把 MCP bridge 理解成一个“本地转接头”：
 
 - 你需要保留 repo checkout，因为 bridge 本体就是 `scripts/agent_exporter_mcp.py`
-- 默认 first-run 不再要求你先手写 `AGENT_EXPORTER_BIN=/absolute/path/to/target/release/agent-exporter`
+- 默认 first-run 不再要求你先手写 `AGENT_EXPORTER_BIN=/absolute/path/to/target/release/BeamMe`
 - bridge 会按这个顺序找本地执行入口：
-  1. repo-local `target/release/agent-exporter`
-  2. repo-local `target/debug/agent-exporter`
-  3. `cargo run --manifest-path <repo>/Cargo.toml --bin agent-exporter --`
+  1. repo-local `target/release/BeamMe`
+  2. repo-local `target/debug/BeamMe`
+  3. `cargo run --manifest-path <repo>/Cargo.toml --bin BeamMe --`
 - 如果你本机已经有一个更稳定的安装方式，再显式设置 `AGENT_EXPORTER_BIN` / `AGENT_EXPORTER_ARGS`
 
 说得更直白一点：
@@ -131,7 +131,7 @@ OpenClaw 这一层当前**没有**声称的是：
 
 所以这层的正确理解是：
 
-> `agent-exporter` 已经把“可复制进 bundle 的内容”准备好了，
+> `BeamMe` 已经把“可复制进 bundle 的内容”准备好了，
 > 但具体复制到你哪一个 OpenClaw host 目录，仍然由你的本机安装方式决定。
 
 ## 目录
@@ -148,7 +148,7 @@ OpenClaw 这一层当前**没有**声称的是：
    - 不把“未来可能做的 MCP server”写成今天已经存在
 
 2. **继续保持 repo-local**
-   - 模板默认调用本地 `agent-exporter` CLI
+   - 模板默认调用本地 `BeamMe` CLI
 
 3. **让 artifact graph 可复用**
    - archive shell、reports shell、transcript、saved reports 继续是本地静态工件
@@ -205,7 +205,7 @@ Phase 28 之后，integration evidence 不再只有给人看的 HTML 页。
 
 Phase 29 之后，这条 integration evidence 主链还额外长出了一把“小扳手”：
 
-- `agent-exporter evidence diff --left <report.json|html> --right <report.json|html>`
+- `BeamMe evidence diff --left <report.json|html> --right <report.json|html>`
 
 它只会比较**已经保存好的** integration evidence snapshots，回答：
 
@@ -219,8 +219,8 @@ Phase 29 之后，这条 integration evidence 主链还额外长出了一把“�
 
 Phase 30 之后，这条 integration evidence 主链又多了三层只读能力：
 
-- `agent-exporter evidence gate --baseline <report> --candidate <report>`
-- `agent-exporter evidence explain --report <report>`
+- `BeamMe evidence gate --baseline <report> --candidate <report>`
+- `BeamMe evidence explain --report <report>`
 - `doctor integrations --explain`
 
 你可以把它理解成：
@@ -232,10 +232,10 @@ Phase 30 之后，这条 integration evidence 主链又多了三层只读能力�
 
 Phase 31 之后，这条 integration evidence 主链又多了四层治理能力：
 
-- `agent-exporter evidence baseline list|show|promote`
-- `agent-exporter evidence policy list|show`
-- `agent-exporter evidence promote`
-- `agent-exporter evidence history`
+- `BeamMe evidence baseline list|show|promote`
+- `BeamMe evidence policy list|show`
+- `BeamMe evidence promote`
+- `BeamMe evidence history`
 
 你可以把它理解成：
 
@@ -247,8 +247,8 @@ Phase 31 之后，这条 integration evidence 主链又多了四层治理能力�
 
 Phase 32-34 之后，这条主链又多了三层工作台能力：
 
-- `agent-exporter evidence remediation --report <report>`
-- `agent-exporter evidence current --baseline-name <name>`
+- `BeamMe evidence remediation --report <report>`
+- `BeamMe evidence current --baseline-name <name>`
 - polished local governance workbench via `publish archive-index`
 
 你可以把它理解成：

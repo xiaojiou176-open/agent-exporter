@@ -11,7 +11,7 @@ use serde_json::Value;
 use tempfile::tempdir;
 
 fn cockpit_binary() -> PathBuf {
-    cargo_bin("agent-exporter")
+    cargo_bin("BeamMe")
 }
 
 fn seed_codex_state(codex_home: &Path, workspace_root: &Path) {

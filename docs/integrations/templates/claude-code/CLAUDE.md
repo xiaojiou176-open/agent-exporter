@@ -1,4 +1,4 @@
-# agent-exporter Project Workflow
+# BeamMe Project Workflow
 
 When you need to:
 
@@ -9,9 +9,9 @@ When you need to:
 prefer these local commands:
 
 ```bash
-agent-exporter publish archive-index --workspace-root .
-agent-exporter search semantic --workspace-root . --query "$ARGUMENTS" --save-report
-agent-exporter search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
+BeamMe publish archive-index --workspace-root .
+BeamMe search semantic --workspace-root . --query "$ARGUMENTS" --save-report
+BeamMe search hybrid --workspace-root . --query "$ARGUMENTS" --save-report
 ```
 
 Rules:

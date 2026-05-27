@@ -1,6 +1,6 @@
 # Maintainer Reference Hub
 
-This folder is the maintainer-only reference layer for `agent-exporter`.
+This folder is the maintainer-only reference layer for `BeamMe`.
 
 It is not part of the public first-run route.
 The English-first public route stops at:
@@ -48,12 +48,12 @@ maintainer reference shelf, not a public product landing page.
 - integration evidence reports under `.agents/Integration/Reports` 已经 landed，不再是 future plan
 - integration evidence shell search/facets 已经 landed，不再是 future plan
 - machine-readable integration evidence via `report.json + index.json` 已经 landed，不再是 future plan
-- integration evidence timeline/diff via `agent-exporter evidence diff` 已经 landed，不再是 future plan
+- integration evidence timeline/diff via `BeamMe evidence diff` 已经 landed，不再是 future plan
 - evidence gate / explain 已经 landed，不再是 future plan
-- baseline registry via `agent-exporter evidence baseline ...` 已经 landed，不再是 future plan
-- policy packs via `agent-exporter evidence policy ...` 已经 landed，不再是 future plan
-- decision promotion/history via `agent-exporter evidence promote` / `evidence history` 已经 landed，不再是 future plan
-- remediation bundle studio via `agent-exporter evidence remediation` 已经 landed，不再是 future plan
+- baseline registry via `BeamMe evidence baseline ...` 已经 landed，不再是 future plan
+- policy packs via `BeamMe evidence policy ...` 已经 landed，不再是 future plan
+- decision promotion/history via `BeamMe evidence promote` / `evidence history` 已经 landed，不再是 future plan
+- remediation bundle studio via `BeamMe evidence remediation` 已经 landed，不再是 future plan
 - read-only governance MCP surface + current-decision automation 已经 landed，不再是 future plan
 - repo-local governance workbench 已经 landed，不再是 future plan
 - hosted / browser executor / cloud backend 仍然不是当前允许方向
@@ -75,7 +75,7 @@ maintainer reference shelf, not a public product landing page.
 3. `external-repo-reading-list.md`
    - 外部开源仓的分层借鉴矩阵
 4. `codex-thread-archive-blueprint.md`
-  - 当前 `agent-exporter` 的产品/架构蓝图，明确 multi-connector 命令面、默认 source、输出格式顺序、以及 `degraded` 状态语义
+  - 当前 `BeamMe` 的产品/架构蓝图，明确 multi-connector 命令面、默认 source、输出格式顺序、以及 `degraded` 状态语义
 
 ## Suggested Reading Order
 

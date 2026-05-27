@@ -47,9 +47,9 @@ fn public_front_door_files() -> &'static [&'static str] {
         "docs/repo-map.md",
         "docs/_layouts/default.html",
         "public-skills/README.md",
-        "public-skills/agent-exporter-archive-governance-workbench/README.md",
-        "public-skills/agent-exporter-archive-governance-workbench/SKILL.md",
-        "public-skills/agent-exporter-archive-governance-workbench/manifest.yaml",
+        "public-skills/BeamMe-archive-governance-workbench/README.md",
+        "public-skills/BeamMe-archive-governance-workbench/SKILL.md",
+        "public-skills/BeamMe-archive-governance-workbench/manifest.yaml",
     ]
 }
 
@@ -66,7 +66,7 @@ fn public_front_door_files_stay_language_normalized() {
 
 #[test]
 fn public_skill_packet_truth_matches_live_and_pending_lanes() {
-    let manifest_path = "public-skills/agent-exporter-archive-governance-workbench/manifest.yaml";
+    let manifest_path = "public-skills/BeamMe-archive-governance-workbench/manifest.yaml";
     let manifest = read_repo_file(manifest_path);
 
     assert_contains_all(
@@ -75,7 +75,7 @@ fn public_skill_packet_truth_matches_live_and_pending_lanes() {
             "Official MCP Registry published",
             "clawhub:",
             "status: listed-live",
-            "read_back: clawhub inspect agent-exporter-archive-governance-workbench --no-input",
+            "read_back: clawhub inspect BeamMe-archive-governance-workbench --no-input",
             "goose-skills-marketplace:",
             "status: review-pending",
             "submission_ref: https://github.com/block/agent-skills/pull/24",
@@ -122,8 +122,8 @@ fn public_skill_packet_prose_keeps_live_lane_truth_in_sync() {
 
     for path in [
         "public-skills/README.md",
-        "public-skills/agent-exporter-archive-governance-workbench/README.md",
-        "public-skills/agent-exporter-archive-governance-workbench/SKILL.md",
+        "public-skills/BeamMe-archive-governance-workbench/README.md",
+        "public-skills/BeamMe-archive-governance-workbench/SKILL.md",
     ] {
         let content = read_repo_file(path);
         assert_contains_all(&content, &expected, path);
@@ -149,8 +149,8 @@ fn front_door_docs_keep_quickstart_path_and_archive_workbench_truth() {
         "docs/README.md",
         "docs/index.md",
         "public-skills/README.md",
-        "public-skills/agent-exporter-archive-governance-workbench/README.md",
-        "public-skills/agent-exporter-archive-governance-workbench/SKILL.md",
+        "public-skills/BeamMe-archive-governance-workbench/README.md",
+        "public-skills/BeamMe-archive-governance-workbench/SKILL.md",
     ] {
         let content = read_repo_file(path);
         assert!(
@@ -202,14 +202,14 @@ fn public_surfaces_keep_promo_reel_links_and_assets() {
         &docs_index,
         &[
             "permalink: /docs-index.html",
-            "https://github.com/xiaojiou176-open/agent-exporter",
+            "https://github.com/xiaojiou176-open/BeamMe",
             "./promo-reel.html",
             "./launch-kit.html",
             "./archive-shell-proof.html",
             "./repo-map.html",
             "./distribution-packet-ledger.html",
-            "https://github.com/xiaojiou176-open/agent-exporter/blob/main/llms-install.md",
-            "https://github.com/xiaojiou176-open/agent-exporter/blob/main/server.json",
+            "https://github.com/xiaojiou176-open/BeamMe/blob/main/llms-install.md",
+            "https://github.com/xiaojiou176-open/BeamMe/blob/main/server.json",
         ],
         "docs/README.md",
     );
@@ -237,8 +237,8 @@ fn public_surfaces_keep_promo_reel_links_and_assets() {
             "href=\"./promo-reel.html\"",
             "href=\"./launch-kit.html\"",
             "href=\"./distribution-packet-ledger.html\"",
-            "github.com/xiaojiou176-open/agent-exporter/blob/main/llms-install.md",
-            "github.com/xiaojiou176-open/agent-exporter/blob/main/server.json",
+            "github.com/xiaojiou176-open/BeamMe/blob/main/llms-install.md",
+            "github.com/xiaojiou176-open/BeamMe/blob/main/server.json",
         ],
         "docs/archive-shell-proof.md",
     );
@@ -252,14 +252,14 @@ fn public_surfaces_keep_promo_reel_links_and_assets() {
             "Promo lane",
             "Launch lane",
             "GitHub front door",
-            "https://github.com/xiaojiou176-open/agent-exporter/tree/main/src/output",
+            "https://github.com/xiaojiou176-open/BeamMe/tree/main/src/output",
         ],
         "docs/repo-map.md",
     );
 
     let docs_home = read_repo_file("docs/index.md");
     assert!(
-        docs_home.contains("agent-exporter-social-card.png"),
+        docs_home.contains("BeamMe-social-card.png"),
         "docs/index.md lost the social card entrypoint"
     );
 
@@ -271,13 +271,13 @@ fn public_surfaces_keep_promo_reel_links_and_assets() {
             "promo reel",
             "first-success path",
             "archive shell proof",
-            "agent-exporter-promo.mp4",
-            "agent-exporter-promo-vertical.mp4",
-            "agent-exporter-promo-poster.png",
-            "agent-exporter-social-card.png",
-            "agent-exporter-promo-landscape-voiceover.m4a",
-            "agent-exporter-promo.vtt",
-            "agent-exporter-promo-zh-CN.vtt",
+            "BeamMe-promo.mp4",
+            "BeamMe-promo-vertical.mp4",
+            "BeamMe-promo-poster.png",
+            "BeamMe-social-card.png",
+            "BeamMe-promo-landscape-voiceover.m4a",
+            "BeamMe-promo.vtt",
+            "BeamMe-promo-zh-CN.vtt",
             "Plain-text transcript",
         ],
         promo_page,
@@ -287,29 +287,29 @@ fn public_surfaces_keep_promo_reel_links_and_assets() {
     assert_contains_all(
         &launch_content,
         &[
-            "agent-exporter-promo-vertical.mp4",
+            "BeamMe-promo-vertical.mp4",
             "Vertical cut",
             "channel variants",
-            "agent-exporter-promo-landscape-voiceover.m4a",
-            "agent-exporter-promo-vertical-voiceover.m4a",
+            "BeamMe-promo-landscape-voiceover.m4a",
+            "BeamMe-promo-vertical-voiceover.m4a",
             "audio-ready drafts",
-            "agent-exporter-promo-vertical-zh-CN.vtt",
+            "BeamMe-promo-vertical-zh-CN.vtt",
         ],
         "docs/launch-kit.md",
     );
 
     for asset in [
-        "docs/assets/media/agent-exporter-promo.mp4",
-        "docs/assets/media/agent-exporter-promo-vertical.mp4",
-        "docs/assets/media/agent-exporter-promo-vertical-poster.png",
-        "docs/assets/media/agent-exporter-promo-poster.png",
-        "docs/assets/media/agent-exporter-social-card.png",
-        "docs/assets/media/agent-exporter-promo-landscape-voiceover.m4a",
-        "docs/assets/media/agent-exporter-promo-vertical-voiceover.m4a",
-        "docs/assets/media/agent-exporter-promo.vtt",
-        "docs/assets/media/agent-exporter-promo-zh-CN.vtt",
-        "docs/assets/media/agent-exporter-promo-vertical.vtt",
-        "docs/assets/media/agent-exporter-promo-vertical-zh-CN.vtt",
+        "docs/assets/media/BeamMe-promo.mp4",
+        "docs/assets/media/BeamMe-promo-vertical.mp4",
+        "docs/assets/media/BeamMe-promo-vertical-poster.png",
+        "docs/assets/media/BeamMe-promo-poster.png",
+        "docs/assets/media/BeamMe-social-card.png",
+        "docs/assets/media/BeamMe-promo-landscape-voiceover.m4a",
+        "docs/assets/media/BeamMe-promo-vertical-voiceover.m4a",
+        "docs/assets/media/BeamMe-promo.vtt",
+        "docs/assets/media/BeamMe-promo-zh-CN.vtt",
+        "docs/assets/media/BeamMe-promo-vertical.vtt",
+        "docs/assets/media/BeamMe-promo-vertical-zh-CN.vtt",
     ] {
         assert!(
             repo_root().join(asset).exists(),

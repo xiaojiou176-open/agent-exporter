@@ -1,6 +1,6 @@
 # codex-thread-archive Blueprint
 
-这份文档是当前 `agent-exporter` 的产品/架构蓝图。
+这份文档是当前 `BeamMe` 的产品/架构蓝图。
 
 它回答的问题是：
 
@@ -10,7 +10,7 @@
 
 ## 一句话定义
 
-`agent-exporter` 当前的最小目标不是“万能会话平台”，而是：
+`BeamMe` 当前的最小目标不是“万能会话平台”，而是：
 
 > **一个 Rust CLI-led 的 transcript/archive exporter，**
 > **先做稳 Codex，再证明第二个 connector 也能接进来。**
@@ -325,7 +325,7 @@
 
 原因：
 
-- 现在已经有 `agent-exporter evidence diff --left <report> --right <report>`
+- 现在已经有 `BeamMe evidence diff --left <report> --right <report>`
 - 它会解释 readiness、changed checks、以及 added/removed next steps
 - 它比较的是已保存 evidence snapshots，不会重新执行 doctor/onboard/install
 
@@ -337,8 +337,8 @@
 
 原因：
 
-- `agent-exporter evidence gate --baseline <report> --candidate <report>` 现在能给出 `pass / warn / fail`
-- `agent-exporter evidence explain --report <report>` 与 `doctor integrations --explain` 现在能给出 remediation order
+- `BeamMe evidence gate --baseline <report> --candidate <report>` 现在能给出 `pass / warn / fail`
+- `BeamMe evidence explain --report <report>` 与 `doctor integrations --explain` 现在能给出 remediation order
 - `publish archive-index` 现在已经会把 transcript/search/evidence 三壳导航、baseline/candidate、verdict、changed checks 和 remediation order 组织成一个本地 decision desk
 - 现有 MCP bridge 也已经扩到 read-only evidence consumption surface
 
@@ -350,9 +350,9 @@
 
 原因：
 
-- `agent-exporter evidence baseline list|show|promote` 现在已经能把 official baseline 记成 repo-local governance artifact
-- `agent-exporter evidence policy list|show` 现在已经能把 repo-owned policy packs 暴露成正式 contract
-- `agent-exporter evidence promote` / `evidence history` 现在已经能把 promotion eligibility 和 decision ledger 记成可审计历史
+- `BeamMe evidence baseline list|show|promote` 现在已经能把 official baseline 记成 repo-local governance artifact
+- `BeamMe evidence policy list|show` 现在已经能把 repo-owned policy packs 暴露成正式 contract
+- `BeamMe evidence promote` / `evidence history` 现在已经能把 promotion eligibility 和 decision ledger 记成可审计历史
 - `publish archive-index` 现在已经会把 official baseline、active policy、promotion status 和 recent history 组织进本地 decision governance desk
 - 现有 MCP bridge 也已经扩到 read-only governance consumption surface
 
@@ -366,8 +366,8 @@
 
 原因：
 
-- `agent-exporter evidence remediation --report` 现在已经把 explain 路径升级成可共享的 remediation bundle
-- `agent-exporter evidence current --baseline-name <name>` 现在已经能只读总结 official baseline 的当前决策
+- `BeamMe evidence remediation --report` 现在已经把 explain 路径升级成可共享的 remediation bundle
+- `BeamMe evidence current --baseline-name <name>` 现在已经能只读总结 official baseline 的当前决策
 - MCP bridge 现在也已经扩到 remediation/current-decision 这类 governance tools
 - `publish archive-index` 现在已经把 official baseline、active policy、promotion status、remediation bundle 和 recent history 组织成更成熟的 local governance workbench
 
@@ -376,33 +376,33 @@
 当前已经落地的最小集合是：
 
 ```bash
-agent-exporter connectors
-agent-exporter scaffold
-agent-exporter export codex --thread-id <id>
-agent-exporter export codex --source local --thread-id <id>
-agent-exporter export codex --source local --rollout-path <path>
-agent-exporter export claude-code --session-path <path>
-agent-exporter export codex --thread-id <id> --format json
-agent-exporter export claude-code --session-path <path> --format json
-agent-exporter export codex --thread-id <id> --format html
-agent-exporter search semantic --workspace-root <repo-root> --query <text>
-agent-exporter search hybrid --workspace-root <repo-root> --query <text>
-agent-exporter export claude-code --session-path <path> --format html
-agent-exporter publish archive-index --workspace-root <repo-root>
-agent-exporter integrate codex --target <dir>
-agent-exporter integrate claude-code --target <dir>
-agent-exporter integrate openclaw --target <dir>
-agent-exporter doctor integrations --platform <platform> --target <dir>
-agent-exporter doctor integrations --platform <platform> --target <dir> --save-report
-agent-exporter onboard codex --target <dir> --save-report
-agent-exporter evidence baseline list
-agent-exporter evidence baseline show --name <name>
-agent-exporter evidence baseline promote --report <report> --name <name>
-agent-exporter evidence policy list
-agent-exporter evidence policy show --name <name>
-agent-exporter evidence promote --candidate <report> --baseline-name <name>
-agent-exporter evidence history --baseline-name <name>
-agent-exporter export codex --source app-server --thread-id <id> --destination workspace-conversations --workspace-root <repo-root>
+BeamMe connectors
+BeamMe scaffold
+BeamMe export codex --thread-id <id>
+BeamMe export codex --source local --thread-id <id>
+BeamMe export codex --source local --rollout-path <path>
+BeamMe export claude-code --session-path <path>
+BeamMe export codex --thread-id <id> --format json
+BeamMe export claude-code --session-path <path> --format json
+BeamMe export codex --thread-id <id> --format html
+BeamMe search semantic --workspace-root <repo-root> --query <text>
+BeamMe search hybrid --workspace-root <repo-root> --query <text>
+BeamMe export claude-code --session-path <path> --format html
+BeamMe publish archive-index --workspace-root <repo-root>
+BeamMe integrate codex --target <dir>
+BeamMe integrate claude-code --target <dir>
+BeamMe integrate openclaw --target <dir>
+BeamMe doctor integrations --platform <platform> --target <dir>
+BeamMe doctor integrations --platform <platform> --target <dir> --save-report
+BeamMe onboard codex --target <dir> --save-report
+BeamMe evidence baseline list
+BeamMe evidence baseline show --name <name>
+BeamMe evidence baseline promote --report <report> --name <name>
+BeamMe evidence policy list
+BeamMe evidence policy show --name <name>
+BeamMe evidence promote --candidate <report> --baseline-name <name>
+BeamMe evidence history --baseline-name <name>
+BeamMe export codex --source app-server --thread-id <id> --destination workspace-conversations --workspace-root <repo-root>
 ```
 
 ## 状态语义
@@ -467,7 +467,7 @@ src/
 
 ## 最后一句话
 
-`agent-exporter` 现在最该做的，不是“做很多”，而是：
+`BeamMe` 现在最该做的，不是“做很多”，而是：
 
 > **先把 Codex transcript/export 这一件事做对，**
 > **并把未来扩展的边界提前设计好。**

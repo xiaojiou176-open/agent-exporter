@@ -865,7 +865,7 @@ pub fn build_integration_evidence_explain(
         .cloned()
         .collect::<Vec<_>>();
     let recheck = format!(
-        "Rerun `agent-exporter doctor integrations --platform {platform} --target {target}` and, if needed, save a fresh report before comparing again."
+        "Rerun `BeamMe doctor integrations --platform {platform} --target {target}` and, if needed, save a fresh report before comparing again."
     );
 
     if !next_steps.is_empty() {
@@ -1438,7 +1438,7 @@ fn read_integration_report_entry(path: PathBuf) -> Result<IntegrationReportEntry
 }
 
 fn extract_meta_value(content: &str, key: &str) -> Option<String> {
-    let needle = format!("name=\"agent-exporter:{key}\" content=\"");
+    let needle = format!("name=\"BeamMe:{key}\" content=\"");
     let start = content.find(&needle)? + needle.len();
     let tail = &content[start..];
     let end = tail.find('"')?;
@@ -1494,7 +1494,7 @@ mod tests {
             summary: readiness.to_string(),
             launcher_status: "ready".to_string(),
             launcher_kind: "repo-local-debug".to_string(),
-            launcher_command: "/tmp/agent-exporter".to_string(),
+            launcher_command: "/tmp/BeamMe".to_string(),
             bridge_status: "ready".to_string(),
             pack_shape_checks: vec![IntegrationReportCheckRecord {
                 label: "codex_config_shape".to_string(),
@@ -1540,12 +1540,12 @@ mod tests {
             concat!(
                 "<!DOCTYPE html><html><head>",
                 "<title>Codex doctor report</title>",
-                "<meta name=\"agent-exporter:report-title\" content=\"Codex doctor report\">",
-                "<meta name=\"agent-exporter:report-kind\" content=\"doctor\">",
-                "<meta name=\"agent-exporter:integration-platform\" content=\"codex\">",
-                "<meta name=\"agent-exporter:integration-readiness\" content=\"ready\">",
-                "<meta name=\"agent-exporter:integration-target\" content=\"/tmp/codex-pack\">",
-                "<meta name=\"agent-exporter:generated-at\" content=\"2026-04-06T12:00:00Z\">",
+                "<meta name=\"BeamMe:report-title\" content=\"Codex doctor report\">",
+                "<meta name=\"BeamMe:report-kind\" content=\"doctor\">",
+                "<meta name=\"BeamMe:integration-platform\" content=\"codex\">",
+                "<meta name=\"BeamMe:integration-readiness\" content=\"ready\">",
+                "<meta name=\"BeamMe:integration-target\" content=\"/tmp/codex-pack\">",
+                "<meta name=\"BeamMe:generated-at\" content=\"2026-04-06T12:00:00Z\">",
                 "</head><body></body></html>"
             ),
         )

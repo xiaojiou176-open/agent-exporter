@@ -111,7 +111,7 @@ pub fn render_archive_index_document(
         }),
     );
     let body = if entries.is_empty() {
-        "<section class=\"empty-state\"><h2>还没有 HTML transcript exports</h2><p>先运行 `agent-exporter export ... --format html`，再回来生成 archive index。</p></section>".to_string()
+        "<section class=\"empty-state\"><h2>还没有 HTML transcript exports</h2><p>先运行 `BeamMe export ... --format html`，再回来生成 archive index。</p></section>".to_string()
     } else {
         entries
             .iter()
@@ -644,7 +644,7 @@ fn render_thread_families(families: &[ThreadFamilySummary]) -> String {
                                 "<p>{overview}</p>",
                                 "<p class=\"mono-inline\">profile: <code>{profile}</code> · generated: <code>{generated_at}</code></p>",
                                 "<p><a class=\"open-link\" href=\"{href}\">Open latest summary</a></p>",
-                                "<p class=\"mono-inline\">Pin as official answer: <code>agent-exporter publish pin-answer --workspace-root &lt;repo&gt; --artifact ./{json_href} --label &quot;{label}&quot;</code></p>",
+                                "<p class=\"mono-inline\">Pin as official answer: <code>BeamMe publish pin-answer --workspace-root &lt;repo&gt; --artifact ./{json_href} --label &quot;{label}&quot;</code></p>",
                                 "</section>"
                             ),
                             title = escape_html(&summary.title),
@@ -860,9 +860,9 @@ fn render_official_answers(pins: &[OfficialAnswerPinView]) -> String {
                         "{stale_reason}",
                         "{note}",
                         "<p><a class=\"open-link\" href=\"{href}\">Open pinned artifact</a></p>",
-                        "<p class=\"mono-inline\">Resolve via CLI: <code>agent-exporter publish resolve-answer --workspace-root &lt;repo&gt; --label &quot;{label}&quot;</code></p>",
-                        "<p class=\"mono-inline\">Unpin via CLI: <code>agent-exporter publish unpin-answer --workspace-root &lt;repo&gt; --label &quot;{label}&quot;</code></p>",
-                        "<p class=\"mono-inline\">Supersede via CLI: <code>agent-exporter publish pin-answer --workspace-root &lt;repo&gt; --artifact ./{artifact_json} --label &quot;next-{label}&quot; --supersedes &quot;{label}&quot;</code></p>",
+                        "<p class=\"mono-inline\">Resolve via CLI: <code>BeamMe publish resolve-answer --workspace-root &lt;repo&gt; --label &quot;{label}&quot;</code></p>",
+                        "<p class=\"mono-inline\">Unpin via CLI: <code>BeamMe publish unpin-answer --workspace-root &lt;repo&gt; --label &quot;{label}&quot;</code></p>",
+                        "<p class=\"mono-inline\">Supersede via CLI: <code>BeamMe publish pin-answer --workspace-root &lt;repo&gt; --artifact ./{artifact_json} --label &quot;next-{label}&quot; --supersedes &quot;{label}&quot;</code></p>",
                         "</article>"
                     ),
                     label = escape_html(&pin.label),

@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-`agent-exporter` 当前先做 Codex 对话记录导出，但未来明确要扩展到 Claude Code 和其他本地 CLI。
+`BeamMe` 当前先做 Codex 对话记录导出，但未来明确要扩展到 Claude Code 和其他本地 CLI。
 
 如果一开始把“取数逻辑”和“导出格式逻辑”写死在一起，后面接第二个 connector 时就会大拆。
 
