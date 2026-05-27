@@ -1,0 +1,170 @@
+# BeamMe Archive Governance Workbench Public Skill
+
+This folder is the host-native public skill packet for `BeamMe`.
+
+## Quick Truth
+
+If you only need the fast verdict, use this table first:
+
+| Question | Current answer |
+| --- | --- |
+| What is this packet? | a host-native review envelope for the local stdio bridge |
+| Which lane owns first-time orientation? | GitHub repo + CLI quickstart + archive shell proof |
+| Which live external lanes exist? | Official MCP Registry and ClawHub |
+| Which lanes are still blocked or pending? | Goose review-pending, awesome-agent-skills open, Smithery build-contract-blocked |
+
+## What This Packet Is For
+
+Use this folder when the question is specifically about the local stdio host packet:
+
+- how to wire the local stdio MCP bridge
+- how to prove the bridge on a safe first-success path
+- what the current host-side listing truth actually is
+
+If the question is still "What is the product?" or "How do I get one first successful result?",
+the answer still lives in the flagship packet, not here.
+
+The flagship public story is still:
+
+- GitHub repo front door
+- CLI quickstart
+- archive shell proof
+
+The product behind this packet is still an **archive and governance workbench**.
+Its primary surface remains the **quickstart path**.
+
+## Use Order
+
+Keep the reading order honest:
+
+1. GitHub repo front door
+2. CLI quickstart
+3. archive shell proof
+4. only then this host-native packet
+
+This packet exists for host-native reviewers who need a **self-contained**
+folder that explains how to wire the local stdio MCP bridge and use the
+read-only archive/governance workflow without treating the repo like a hosted
+service.
+
+## What this skill teaches
+
+This packet teaches an agent how to:
+
+1. wire the local stdio MCP bridge from a repo checkout
+2. prove the bridge on a safe first-success path before making bigger claims
+3. publish a local archive shell
+4. run semantic or hybrid retrieval and save local reports
+5. inspect governance evidence, policy packs, and baseline history
+6. keep archive browsing, retrieval execution, and governance reading in the
+   correct lanes
+
+## What this packet includes
+
+- [`SKILL.md`](./SKILL.md)
+- [`manifest.yaml`](./manifest.yaml)
+- [`references/README.md`](./references/README.md)
+- [`references/INSTALL.md`](./references/INSTALL.md)
+- [`references/OPENHANDS_MCP_CONFIG.json`](./references/OPENHANDS_MCP_CONFIG.json)
+- [`references/OPENCLAW_MCP_CONFIG.json`](./references/OPENCLAW_MCP_CONFIG.json)
+- [`references/CAPABILITIES.md`](./references/CAPABILITIES.md)
+- [`references/DEMO.md`](./references/DEMO.md)
+- [`references/TROUBLESHOOTING.md`](./references/TROUBLESHOOTING.md)
+
+## First-success path
+
+1. read [`SKILL.md`](./SKILL.md)
+2. wire the bridge from [`references/INSTALL.md`](./references/INSTALL.md)
+3. run the safe attach/proof flow in [`references/DEMO.md`](./references/DEMO.md)
+4. inspect the proof links before claiming host-side listing or acceptance
+
+## Packet Map
+
+| If you need to know... | Open this |
+| --- | --- |
+| how to use the packet at all | [`SKILL.md`](./SKILL.md) |
+| how to wire the bridge | [`references/INSTALL.md`](./references/INSTALL.md) |
+| how to prove it safely | [`references/DEMO.md`](./references/DEMO.md) |
+| what the bridge can do | [`references/CAPABILITIES.md`](./references/CAPABILITIES.md) |
+| what to do when it breaks | [`references/TROUBLESHOOTING.md`](./references/TROUBLESHOOTING.md) |
+
+## Proof links
+
+- Landing: [xiaojiou176-open.github.io/BeamMe](https://xiaojiou176-open.github.io/BeamMe/)
+- Archive shell proof: [archive-shell-proof.html](https://xiaojiou176-open.github.io/BeamMe/archive-shell-proof.html)
+- Repo map: [repo-map.html](https://xiaojiou176-open.github.io/BeamMe/repo-map.html)
+- Releases: [GitHub releases](https://github.com/xiaojiou176-open/BeamMe/releases)
+
+## Current registry truth
+
+- `Official MCP Registry`: `listed-live`
+  - server name: `io.github.xiaojiou176-open/BeamMe-mcp`
+  - fresh read-back: `mcp-publisher publish server.json` completed successfully on `2026-04-20`
+- `ClawHub`: `listed-live`
+  - fresh read-back: `clawhub inspect BeamMe-archive-governance-workbench --no-input`
+- `Goose Skills Marketplace`: `review-pending`
+  - submission ref: `https://github.com/block/agent-skills/pull/24`
+- `agent-skill.co source repo`: `platform-not-accepted-yet`
+  - submission ref: `https://github.com/heilcheng/awesome-agent-skills/pull/180`
+  - external blocker: Vercel team authorization is still pending upstream
+- `OpenHands/extensions`: `closed-not-accepted`
+  - submission ref: `https://github.com/OpenHands/extensions/pull/162`
+  - maintainer note: distribute a custom `marketplace.json` instead of expecting an upstream listing
+- `Smithery`: `build-contract-blocked`
+  - attempted command: `smithery mcp publish . -n xiaojiou176-open/BeamMe-mcp --json`
+  - current blocker: Smithery's repo-root build path tried to build an shttp bundle and failed to resolve the Rust repo root as a supported publish entrypoint
+- `awesome-opencode`: `exact_blocker_with_fresh_evidence`
+  - exact blocker: this packet is a host-native skill folder for an archive/governance workbench, not an honest opencode-native project/resource entry today
+
+## MCP capability surface
+
+- archive shell:
+  - `publish_archive_index`
+- retrieval:
+  - `search_semantic`
+  - `search_hybrid`
+- integration evidence:
+  - `integration_evidence_diff`
+  - `integration_evidence_gate`
+  - `integration_evidence_explain`
+  - `integration_evidence_remediation`
+- governance registry:
+  - `integration_evidence_baseline_list`
+  - `integration_evidence_baseline_show`
+  - `integration_evidence_policy_list`
+  - `integration_evidence_policy_show`
+  - `integration_evidence_decision_history`
+  - `integration_evidence_current_decision`
+
+## Best-fit hosts
+
+- OpenHands/extensions-style skill folders
+- ClawHub-style skill publication
+- repo-local host workflows that can launch a local stdio server
+- bundle/plugin flows that need a separate explanation packet
+
+## What this packet must not claim
+
+- no hosted archive platform
+- no listed-live Goose or agent-skill.co entry without fresh read-back
+- no listed-live OpenHands/extensions entry; that lane was closed rather than accepted
+- no Smithery listing yet; the current repo-root publish path is still blocked
+- no awesome-opencode project/resource claim; current cargo is still not honest for that lane
+- no full-CLI MCP parity
+- no change to the flagship quickstart-first primary surface
+
+## In Plain English
+
+This packet is a **review envelope**, not a new homepage.
+
+It helps a host-native reviewer inspect the bridge honestly.
+It should never be allowed to silently replace the repo's main product story.
+
+## Source of truth
+
+This is a public-facing derived packet.
+Canonical product truth still lives in:
+
+- [`README.md`](../README.md)
+- [`AGENTS.md`](../AGENTS.md)
+- [`docs/integrations/`](../docs/integrations/)
